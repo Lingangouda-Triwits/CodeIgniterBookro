@@ -19,15 +19,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
-  <style>
-        body {
-      width: 100vw;
-      height: 100vh;
-      background-color: #1f2833;
-      
-    }
-  </style>
-
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
