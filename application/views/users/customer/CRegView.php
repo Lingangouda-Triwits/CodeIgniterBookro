@@ -25,12 +25,11 @@
 
 <div class="register-box" >
   <div class="register-logo" >
-    <a href="../../index2.html"><strong>Customer</strong></a>
+    <a href="../../index2.html"><strong>Customer Registration</strong></a>
   </div>
 
   <div class="card" >
     <div class="card-body register-card-body" style="background-color: #1f2833;">
-      <p class="login-box-msg">Register a new membership</p>
 
       <form action="../../index.html" method="post">
 

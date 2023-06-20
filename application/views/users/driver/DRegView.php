@@ -19,18 +19,18 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
+</style>
 <body class="hold-transition register-page" style="background-color: #e3f2fd;">
 
 
 
 <div class="register-box" >
   <div class="register-logo" >
-    <a href="../../index2.html"><strong>Driver</strong></a>
+    <a href="../../index2.html"><strong>Driver Registration</strong></a>
   </div>
 
   <div class="card" >
     <div class="card-body register-card-body" style="background-color: #1f2833;">
-      <p class="login-box-msg">Register a new membership</p>
 
       <form action="../../index.html" method="post">
 
@@ -65,7 +65,7 @@
           <input type="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye"></span>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <input type="password" class="form-control" placeholder="Retype password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye"></span>
             </div>
           </div>
         </div>
@@ -84,6 +84,16 @@
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-city"></span>
+            </div>
+          </div>
+        </div>
+
+        <label for="">Upload your Adhar</label>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" placeholder="City" style="background-color: #e3f2fd;">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-file"></span>
             </div>
           </div>
         </div>
