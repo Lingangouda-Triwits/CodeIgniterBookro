@@ -66,7 +66,7 @@
           <!-- /.col -->
         </div>
       </form>
-      <a href="<?php echo base_url().'index.php/users/customer/CRegContro';?>" class="text-center">Don't have an account!</a>
+      <a href="<?php echo base_url().'index.php/users/customer/CRegContro/show';?>" class="text-center">Don't have an account!</a>
 
     </div>
     <!-- /.login-card-body -->

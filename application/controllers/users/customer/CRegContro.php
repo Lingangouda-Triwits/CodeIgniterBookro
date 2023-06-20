@@ -4,8 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class CRegContro extends CI_Controller {
     public function __construct() {
         parent::__construct();
-        $this->load->model('users/customer/CustomerModel'); // Load the Model
-        $this->load->library('form_validation'); // Load the form_validation library
+        $this->load->model('users/customer/CustomerModel'); 
+        $this->load->library('form_validation'); 
     }
 
     public function show() {
