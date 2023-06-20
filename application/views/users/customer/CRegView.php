@@ -31,10 +31,12 @@
   <div class="card" >
     <div class="card-body register-card-body" style="background-color: #1f2833;">
 
-      <form action="../../index.html" method="post">
+
+    <?php echo validation_errors(); ?>
+    <form action="<?php echo base_url()?>index.php/users/customer/CRegContro/insertData" method="post">
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name" style="background-color: #e3f2fd;">
+          <input type="text" class="form-control" name="name" placeholder="Full name" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -43,7 +45,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" style="background-color: #e3f2fd;">
+          <input type="email" class="form-control" name="email" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="invalid email format" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -52,7 +54,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="phone" class="form-control" placeholder="Mobile Number" style="background-color: #e3f2fd;">
+          <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-phone"></span>
@@ -61,25 +63,25 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain atleast one number and one uppercase and lowercase letter , and at least 8 or more characters" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-eye"></span>
+              <span class="fas fa-eye" id="togglePassword"></span>
             </div>
           </div>
         </div>
 
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password" style="background-color: #e3f2fd;">
+          <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Retype password" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-eye"></span>
+              <span class="fas fa-eye" id="togglePassword1"></span>
             </div>
           </div>
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="City" style="background-color: #e3f2fd;">
+          <input type="text" class="form-control"name="city" placeholder="City" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-city"></span>
@@ -90,11 +92,11 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Register</button>
+            <button type="submit" name="submit" class="btn btn-block" style="background-color: #e3f2fd;">Register</button>
           </div>
           <!-- /.col -->
         </div>
-      </form>
+        </form>
 
       <a href="<?php echo base_url().'index.php/users/customer/CLogContro';?>" class="text-center">Already have an account!</a>
     </div>
@@ -109,5 +111,36 @@
 <script src="<?php echo base_url()?>public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
+
+<script>
+        // To hide and unhide the passwords
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("confirm_password");
+
+        const togglePassword = document.querySelector('#togglePassword');
+        togglePassword.addEventListener('click', function(e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        const togglePassword1 = document.querySelector('#togglePassword1');
+        togglePassword1.addEventListener('click', function(e) {
+            const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPassword.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Password validation
+        function validatePassword() {
+            if (password.value !== confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity("");
+            }
+        }
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
 </body>
 </html>

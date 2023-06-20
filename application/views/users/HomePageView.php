@@ -69,7 +69,7 @@
             Register
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CRegContro';?>">Customer</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CRegContro/show';?>">Customer</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DRegContro';?>">Driver</a></li>
           </ul>
