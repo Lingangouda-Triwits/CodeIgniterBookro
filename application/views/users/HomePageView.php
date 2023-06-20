@@ -37,7 +37,6 @@
     }
 
     .text-center {
-      margin: 25px 0px;
       color:  #e3f2fd;
     }
 
@@ -66,7 +65,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Register
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -98,9 +97,11 @@
     </div>
   </div>
   </nav>
+
+
     <h1 class="text-center">Book your Car for Travel</h1>
 
-      <div class="container">
+      <div class="container ">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -111,22 +112,22 @@
               <div class="carousel-item active" data-bs-interval="2000">
                 <img src="<?php echo base_url().'images/Car1.jpg';?>" class="d-block w-50" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5 class="text-center">First slide label</h5>
+                  <p class="text-center">Some representative placeholder content for the first slide.</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <img src="<?php echo base_url().'images/Car3.jpg';?>" class="d-block w-50" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
+                  <h5 class="text-center">Second slide label</h5>
+                  <p class="text-center">Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img src="<?php echo base_url().'images/Car2.jpg';?>" class="d-block w-50" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
+                  <h5 class="text-center">Third slide label</h5>
+                  <p class="text-center">Some representative placeholder content for the third slide.</p>
                 </div>
               </div>
             </div>
@@ -175,7 +176,10 @@
       </div>
     </div>
     
-
+<!-- <form action="" method="post">
+<label for="exampleColorInput" class="form-label">Color picker</label>
+<input type="color" class="form-control form-control-color" name="color" value="#563d7c" title="Choose your color">
+</form> -->
 
     <footer class="main-footer text-center">
         <!-- Default to the left -->
