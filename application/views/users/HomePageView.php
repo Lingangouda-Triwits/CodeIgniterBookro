@@ -80,9 +80,9 @@
             Login
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Customer</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CLogContro';?>">Customer</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Driver</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DLogContro';?>">Driver</a></li>
           </ul>
         </li>
 

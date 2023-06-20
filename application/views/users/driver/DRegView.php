@@ -107,7 +107,7 @@
         </div>
       </form>
 
-      <a href="login.html" class="text-center">Already have an account!</a>
+      <a href="<?php echo base_url().'index.php/users/driver/DLogContro';?>" class="text-center">Already have an account!</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

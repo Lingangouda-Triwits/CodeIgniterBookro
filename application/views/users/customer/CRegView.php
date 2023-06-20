@@ -96,7 +96,7 @@
         </div>
       </form>
 
-      <a href="login.html" class="text-center">Already have an account!</a>
+      <a href="<?php echo base_url().'index.php/users/customer/CLogContro';?>" class="text-center">Already have an account!</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
