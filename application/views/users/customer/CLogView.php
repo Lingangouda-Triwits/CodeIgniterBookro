@@ -61,11 +61,13 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Sign In</button>
+            <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Log In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
+      <a href="<?php echo base_url().'index.php/users/customer/CRegContro';?>" class="text-center">Don't have an account!</a>
+
     </div>
     <!-- /.login-card-body -->
   </div>

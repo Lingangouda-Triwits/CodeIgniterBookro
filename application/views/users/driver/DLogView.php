@@ -55,18 +55,21 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
+          <div class="col-0">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Sign In</button>
+            <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Log In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
+      <a href="<?php echo base_url().'index.php/users/driver/DRegContro';?>" class="text-center">Don't have an account!</a>
+
+      
     </div>
     <!-- /.login-card-body -->
   </div>

@@ -88,7 +88,7 @@
           </div>
         </div>
 
-        <label for="">Upload your Aadhar</label>
+        <label for="">Upload Profile Picture</label>
         <div class="input-group mb-3">
           <input type="file" class="form-control" placeholder="City" style="background-color: #e3f2fd;">
           <div class="input-group-append">
