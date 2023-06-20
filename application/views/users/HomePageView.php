@@ -97,10 +97,10 @@
       </ul>
     </div>
   </div>
-</nav>
+  </nav>
     <h1 class="text-center">Book your Car for Travel</h1>
 
-    <div class="container">
+      <div class="container">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -142,35 +142,37 @@
     </div>
 
     <div class="container">
-    <div class="card-group">
-  <div class="card">
-    <img src="<?php echo base_url().'images/Car2.jpg';?>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="<?php echo base_url().'images/Car1.jpg';?>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img src="<?php echo base_url().'images/Car3.jpg';?>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-</div>
+      <div class="card-group">
+        <div class="card">
+          <img src="<?php echo base_url().'images/Car2.jpg';?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="<?php echo base_url().'images/Car1.jpg';?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="<?php echo base_url().'images/Car3.jpg';?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
     </div>
     
 
@@ -178,10 +180,10 @@
     <footer class="main-footer text-center">
         <!-- Default to the left -->
         <strong>Copyright &copy; 2023 Bookro.in</strong> All rights reserved.
-      </footer>
+    </footer>
 
     <!-- the cdn of jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-</body>
+  </body>
 
 </html>
