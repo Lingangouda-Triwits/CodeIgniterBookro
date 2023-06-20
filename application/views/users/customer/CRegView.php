@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Customer Registration Page</title>
+  <title>Driver Registration Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -65,7 +65,7 @@
           <input type="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye"></span>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <input type="password" class="form-control" placeholder="Retype password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye"></span>
             </div>
           </div>
         </div>
