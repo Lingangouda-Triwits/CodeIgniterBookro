@@ -38,7 +38,7 @@
 
       <form action="<?php echo base_url()?>index.php/users/customer/CLogContro/check" method="post">
         <div class="input-group mb-3">
-          <input type="text" name="username" id="username" class="form-control" placeholder="Username" style="background-color: #e3f2fd;">
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
