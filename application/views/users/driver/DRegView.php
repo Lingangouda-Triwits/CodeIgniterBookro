@@ -27,10 +27,6 @@
     body {
       width: 100vw;
       height: 100vh;
-      /* background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("images/cardrive.jpg");
-      background-size: cover;
-      background-position: center; */
-      /* background-color: #4E4E50; */
       background-color: #1f2833;
       
     }
@@ -69,9 +65,9 @@
             Register
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Customer</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CRegContro';?>">Customer</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Driver</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DRegContro';?>">Driver</a></li>
           </ul>
         </li>
 

@@ -70,9 +70,9 @@
             Register
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Customer</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CRegContro';?>">Customer</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Driver</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DRegContro';?>">Driver</a></li>
           </ul>
         </li>
 
@@ -161,7 +161,7 @@
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
-        
+
         <div class="card">
           <img src="<?php echo base_url().'images/Car3.jpg';?>" class="card-img-top" alt="...">
           <div class="card-body">
