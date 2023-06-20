@@ -25,7 +25,7 @@
 
 <div class="register-box" >
   <div class="register-logo" >
-    <a href="../../index2.html"><strong>Customer Registration</strong></a>
+    <p><strong>Customer Registration</strong></p>
   </div>
 
   <div class="card" >

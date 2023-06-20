@@ -12,6 +12,13 @@ class CustomerModel extends CI_Model{
             // Insert data into the 'customers' table
             return $this->db->insert('customer', $data);
         }
+
+        public function customerLogin($username){
+            $this->db->where('email', $username);
+            $this->db->or_where('mobile', $username);
+            $query = $this->db->get('customer');
+            return $query->row();
+        }
     }
     
 ?>

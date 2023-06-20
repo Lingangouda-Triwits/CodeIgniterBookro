@@ -36,7 +36,7 @@
     <div class="card-body login-card-body" style="background-color: #1f2833;">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="#" name="loginForm" id="loginForm" method="post">
+      <form action="<?php echo base_url()?>index.php/users/customer/CLogContro/check" method="post">
         <div class="input-group mb-3">
           <input type="text" name="username" id="username" class="form-control" placeholder="Username" style="background-color: #e3f2fd;">
           <div class="input-group-append">
@@ -49,7 +49,7 @@
           <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text"> 
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye" id="togglePassword"></span>
             </div>
           </div>
         </div>
@@ -81,6 +81,18 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
 
+
+<script>
+  // To hide and unhide the passwords
+  var password = document.getElementById("password");
+
+        const togglePassword = document.querySelector('#togglePassword');
+        togglePassword.addEventListener('click', function(e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+</script>
 </body>
 </html>
 <!-- background-color: #1f2833; -->
