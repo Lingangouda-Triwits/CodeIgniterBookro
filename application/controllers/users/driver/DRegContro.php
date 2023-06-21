@@ -3,10 +3,10 @@ class DRegContro extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('users/driver/DriverModel');
         $this->load->library('form_validation');
+        $this->load->model('users/driver/DriverModel');
     }
-
+    
     public function insertData()
     {
         $data['message'] = ''; // Initialize the message variable

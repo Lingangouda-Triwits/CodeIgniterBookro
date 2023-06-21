@@ -67,7 +67,7 @@
 
       </form>
 
-      <a href="<?php echo base_url().'index.php/users/driver/DRegContro/show';?>" class="text-center">Don't have an account!</a>
+      <a href="<?php echo base_url().'index.php/users/driver/DRegContro/insertData';?>" class="text-center">Don't have an account!</a>
 
       
     </div>
