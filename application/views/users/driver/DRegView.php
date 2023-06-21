@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="<?php echo base_url()?>public/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 </head>
 
 </style>
@@ -32,7 +34,7 @@
   <div class="card" >
     <div class="card-body register-card-body" style="background-color: #1f2833;">
 
-      <form action="<?php echo base_url()?> index.php/users/driver/DR" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url()?>index.php/users/driver/DRegContro/insertData" method="post" enctype="multipart/form-data">
 
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="name" placeholder="Full name" required style="background-color: #e3f2fd;">

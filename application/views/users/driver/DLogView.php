@@ -34,40 +34,40 @@
 
   <!-- /.login-logo -->
   <div class="card" >
-    <div class="card-body login-card-body" style="background-color: #1f2833;">
+    <div class="card-body login-card-body"                       style="background-color: #1f2833;">
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="#" name="loginForm" id="loginForm" method="post">
+
         <div class="input-group mb-3">
-          <input type="text" name="username" id="username" class="form-control" placeholder="Username" style="background-color: #e3f2fd;">
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+
         <div class="input-group mb-3">
           <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text"> 
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-eye" id="togglePassword"></span>
             </div>
           </div>
         </div>
+
         <div class="row">
-          <div class="col-0">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-            </div>
-          </div>
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-block" style="background-color: #e3f2fd;">Log In</button>
           </div>
           <!-- /.col -->
         </div>
+
       </form>
-      <a href="<?php echo base_url().'index.php/users/driver/DRegContro';?>" class="text-center">Don't have an account!</a>
+
+      <a href="<?php echo base_url().'index.php/users/driver/DRegContro/show';?>" class="text-center">Don't have an account!</a>
 
       
     </div>
@@ -83,6 +83,16 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
 
+
+<script>
+  var password = document.getElementById("password");
+  const togglePassword = document.querySelector('#togglePassword');
+  togglePassword.addEventListener('click', function(e){
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+  });
+</script>
 </body>
 </html>
 <!-- background-color: #1f2833; -->

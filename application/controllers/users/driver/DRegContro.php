@@ -15,6 +15,9 @@ class DRegContro extends CI_Controller{
     }
 
     public function insertData(){
+        //Load the file helper
+        $this->load->helper('file');
+        
         // Form validation rules
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
