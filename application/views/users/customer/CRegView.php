@@ -36,7 +36,7 @@
     <form action="<?php echo base_url()?>index.php/users/customer/CRegContro/insertData" method="post">
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="name" placeholder="Full name" required style="background-color: #e3f2fd;">
+          <input type="text" class="form-control" name="name" placeholder="Full name" pattern="[A-Za-z\s]+" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control"name="city" placeholder="City" required style="background-color: #e3f2fd;">
+          <input type="text" class="form-control" name="city" placeholder="City" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-city"></span>
@@ -116,7 +116,6 @@
         // To hide and unhide the passwords
         var password = document.getElementById("password");
         var confirmPassword = document.getElementById("confirm_password");
-
         const togglePassword = document.querySelector('#togglePassword');
         togglePassword.addEventListener('click', function(e) {
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
