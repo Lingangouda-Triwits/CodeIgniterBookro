@@ -19,11 +19,6 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
-  <style>
-    body {
-
-    }
-  </style>
 </head>
 <body class="hold-transition login-page " style="background-color: #e3f2fd;">
 <div class="login-box">

@@ -61,11 +61,12 @@ class CLogContro extends CI_Controller{
                 }else {
                     $this->session->set_flashdata('msg','Password is incorrect');
                     redirect(base_url().'index.php/users/customer/CLogContro/index');
-                    echo "Invalid password!";
+                    // echo "Invalid password!";
                 }
             } else {
-                
-            echo "Invalid Email!";
+                $this->session->set_flashdata('msg','User not registered!');
+                redirect(base_url().'index.php/users/customer/CLogContro/index');
+            // echo "Invalid Email!";
             }
         }   
         else{
@@ -74,5 +75,10 @@ class CLogContro extends CI_Controller{
         }
 
     }
+
+    // public function logout(){
+    //     $this->session->unset_userdata('user');
+    //     redirect(base_url().'index.php/users/customer/CLogContro/index');
+    // }
 }
 ?>

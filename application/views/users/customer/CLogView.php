@@ -19,17 +19,28 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
-  <style>
-    body {
-
-    }
-  </style>
 </head>
 <body class="hold-transition login-page " style="background-color: #e3f2fd;">
 <div class="login-box">
   <div class="login-logo">
     <p><strong>Customer Login </strong></p>
   </div>
+
+
+  <?php
+        if(!empty($this->session->flashdata('msg'))){
+
+            echo" <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+            <strong>".$this->session->flashdata('msg')."</strong>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+
+            // echo "<div class='alert alert-danger mb-3'>".$this->session->flashdata('msg')."</div>";
+        }
+    ?>
+
 
   <!-- /.login-logo -->
   <div class="card" >
@@ -45,6 +56,7 @@
             </div>
           </div>
         </div>
+        <?php echo form_error('email');?>
         <div class="input-group mb-3">
           <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
           <div class="input-group-append">
@@ -53,6 +65,7 @@
             </div>
           </div>
         </div>
+        <?php echo form_error('password');?>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
