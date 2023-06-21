@@ -20,11 +20,8 @@ class CRegContro extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('city', 'City', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            // Form validation failed, show the form view with validation errors
-            $this->load->view('users/customer/CRegView');
-        } else {
-            // Form validation passed, insert data into the database
+        if ($this->form_validation->run() == true) {
+        // Form validation passed, insert data into the database
             $data = array(
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
@@ -47,5 +44,12 @@ class CRegContro extends CI_Controller {
                 }
             }
         }
+
+        else {
+            // Form validation failed, show the form view with validation errors
+            $this->load->view('users/customer/CRegView');
+        }
+            
     }
 }
+?>

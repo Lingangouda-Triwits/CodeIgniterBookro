@@ -1,6 +1,7 @@
 <?php
-class DRegContro extends CI_Controller {
+defined('BASEPATH') or exit('No direct script access allowed');
 
+class DRegContro extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
@@ -41,7 +42,6 @@ class DRegContro extends CI_Controller {
                     $fileData = $this->upload->data();
                     $filePath = $fileData['file_name'];
 
-                    // Hash the password
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                     // Continue with database insertion and other logic

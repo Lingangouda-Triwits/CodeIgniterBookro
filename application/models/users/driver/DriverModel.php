@@ -12,6 +12,12 @@ class DriverModel extends CI_Model{
         $query = $this->db->get('driver');
         return $query->row(); // Return a single row if found, null otherwise
     }
+
+    public function driverLogin($email){
+        $this->db->where('email', $email);
+        $query = $this->db->get('driver');
+        return $query->row();
+    }
 }
 
 ?>
