@@ -30,18 +30,18 @@ class DLogContro extends CI_Controller{
 
                 }else {
                     $this->session->set_flashdata('msg','Password is incorrect');
-                    redirect(base_url().'index.php/users/customer/CLogContro/index');
+                    redirect(base_url().'index.php/users/driver/DLogContro/index');
                     // echo "Invalid password!";
                 }
             } else {
                 $this->session->set_flashdata('msg','User not registered!');
-                redirect(base_url().'index.php/users/customer/CLogContro/index');
+                redirect(base_url().'index.php/users/driver/DLogContro/index');
             // echo "Invalid Email!";
             }
         }   
         else{
             //error
-            $this->load->view('users/customer/CLogView');
+            $this->load->view('users/driver/DLogView');
         }
 
     }

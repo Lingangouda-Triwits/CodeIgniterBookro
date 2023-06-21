@@ -31,6 +31,20 @@
     <p><strong>Driver Login </strong></p>
   </div>
 
+  <?php
+        if(!empty($this->session->flashdata('msg'))){
+
+            echo" <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+            <strong>".$this->session->flashdata('msg')."</strong>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+
+            // echo "<div class='alert alert-danger mb-3'>".$this->session->flashdata('msg')."</div>";
+        }
+    ?>
+
 
   <!-- /.login-logo -->
   <div class="card" >
