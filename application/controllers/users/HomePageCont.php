@@ -1,9 +1,11 @@
 <?php
 class HomePageCont extends CI_Controller{
     public function index(){
-        $color = $this->input->post('color');
-        $this->load->view('users/HomePageView',$color);
+        $this->load->view('users/HomePageView');
 
+    }
+    public function aboutUs(){
+        $this->load->view('users/AboutUsView');
     }
 }
 
