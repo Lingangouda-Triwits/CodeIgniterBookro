@@ -27,7 +27,8 @@ class CLogContro extends CI_Controller{
                 if (password_verify($password, $user->password)) {
                     $userArray['email'] = $user->email;
                     $this->session->set_userdata('user',$userArray);
-                    echo "Login successful! ";
+                    redirect(base_url().'index.php/users/customer/CDashboardCont/index');
+                    // echo "Login successful! ";
 
                 }else {
                     $this->session->set_flashdata('msg','Password is incorrect');
