@@ -67,7 +67,7 @@
                         </li>
                         <li>
                             <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/driver/DRegContro';?>">Driver</a>
+                               href="<?php echo base_url().'index.php/users/driver/DRegContro/show';?>">Driver</a>
                         </li>
                     </ul>
                 </li>
