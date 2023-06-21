@@ -48,10 +48,10 @@
 
   <!-- /.login-logo -->
   <div class="card" >
-    <div class="card-body login-card-body"                       style="background-color: #1f2833;">
+    <div class="card-body login-card-body" style="background-color: #1f2833;">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="#" name="loginForm" id="loginForm" method="post">
+      <form action="<?php echo base_url()?>index.php/users/driver/DLogContro/check" method="post">
 
         <div class="input-group mb-3">
           <input type="email" name="email" id="email" class="form-control" placeholder="Email" style="background-color: #e3f2fd;">
@@ -61,6 +61,7 @@
             </div>
           </div>
         </div>
+        <?php echo form_error('email');?>
 
         <div class="input-group mb-3">
           <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="background-color: #e3f2fd;">
@@ -70,6 +71,7 @@
             </div>
           </div>
         </div>
+        <?php echo form_error('password');?>
 
         <div class="row">
           <!-- /.col -->
