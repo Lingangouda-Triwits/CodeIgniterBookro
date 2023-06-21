@@ -34,6 +34,13 @@
   <div class="card" >
     <div class="card-body register-card-body" style="background-color: #1f2833;">
 
+    <!-- Display the message -->
+    <?php if (!empty($message)) : ?>
+          <div class="alert alert-info">
+            <?php echo $message; ?>
+          </div>
+        <?php endif; ?>
+
       <form action="<?php echo base_url()?>index.php/users/driver/DRegContro/insertData" method="post" enctype="multipart/form-data">
 
         <div class="input-group mb-3">
