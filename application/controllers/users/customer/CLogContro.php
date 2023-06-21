@@ -7,6 +7,7 @@ class CLogContro extends CI_Controller{
     public function index(){
         $this->load->library('form_validation');
         $this->load->view('users/customer/CLogView');
+        
     }
 
     public function check(){
