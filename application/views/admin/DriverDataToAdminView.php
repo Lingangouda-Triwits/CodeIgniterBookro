@@ -113,6 +113,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
+
         <form action="<?php echo base_url().'index.php/admin/DashbController/updateDriver';?>" method="POST">
           <div class="modal-body">
             <input type="hidden" name="slnoEdit" id="slnoEdit">
@@ -144,7 +145,6 @@
       </div>
     </div>
   </div>
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -255,6 +255,7 @@
         emailEdit.value = email;
         mobileEdit.value = mobile;
         cityEdit.value = city;
+        console.log(name,email,mobile,city)
         // slnoEdit.value = e.target.id;
         // $('#editModal').modal('toggle');
       })
