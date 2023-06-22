@@ -22,7 +22,7 @@ class DashbController extends CI_Controller{
         $this->load->model('users/customer/CustomerModel');
         $data['customers'] = $this->CustomerModel->getAllCustomers(); // Retrieve customer data from the model
             
-        $this->load->view('admin/DashboardCustView', $data); // Load the view and pass the customer data
+        $this->load->view('admin/CustomerDataToAdminView', $data); // Load the view and pass the customer data
     }
 }
 ?>
