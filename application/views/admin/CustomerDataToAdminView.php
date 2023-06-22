@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/index'; ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                     <p>Dashboard</p>
                 </a>
@@ -102,59 +102,110 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Customers Data</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+
+
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit this Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form action="<?php echo base_url().'index.php/admin/DashbController/updateCustomer';?>" method="POST">
+          <div class="modal-body">
+            <input type="hidden" name="slnoEdit" id="slnoEdit">
+            <div class="form-group">
+              <label for="title">FullName</label>
+              <input type="text" class="form-control" id="nameEdit" name="nameEdit" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+              <label for="desc">Email</label>
+              <input type="text" class="form-control" id="emailEdit" name="emailEdit" aria-describedby="emailHelp">
+            </div> 
+
+            <div class="form-group">
+              <label for="desc">Mobile</label>
+              <input type="text" class="form-control" id="mobileEdit" name="mobileEdit" aria-describedby="emailHelp">
+            </div> 
+
+            <div class="form-group">
+              <label for="desc">City</label>
+              <input type="text" class="form-control" id="cityEdit" name="cityEdit" aria-describedby="emailHelp">
+            </div>  
+        </div>
+          <div class="modal-footer d-block mr-auto">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-
-    <table class="table" id="myTable">
-      <thead>
-        <tr>
-          <th scope="col">S.No</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Mobile Num</th>
-          <th scope="col">City</th>
-          <th scope="col">Registered_On</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php 
-          $slno = 0;
-          foreach ($customers as $customer){
-            $slno = $slno + 1;
-            echo "<tr>
-              <th scope='row'>". $slno . "</th>
-              <td>". $customer->name . "</td>
-              <td>". $customer->email . "</td>
-              <td>". $customer->mobile . "</td>
-              <td>". $customer->city . "</td>
-              <td>". $customer->time_stamp . "</td>
-              <td>
-
-<a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#Modal'>Edit</a>
-              <a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-danger'>Delete</a>
-            </td>
-            </tr>";
-          } 
-        ?>
-      </tbody>
-    </table>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Customers Data</h1>
+            </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="container">
+            <table class="table" id="myTable">
+            <thead>
+                <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile Num</th>
+                <th scope="col">City</th>
+                <th scope="col">Registered_On</th>
+                <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $slno = 0;
+                foreach ($customers as $customer){
+                    $slno = $slno + 1;
+                    echo "<tr>
+                    <th scope='row'>". $slno . "</th>
+                    <td>". $customer->name . "</td>
+                    <td>". $customer->email . "</td>
+                    <td>". $customer->mobile . "</td>
+                    <td>". $customer->city . "</td>
+                    <td>". $customer->time_stamp . "</td>
+                    <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
+                            <button class='delete btn btn-sm btn-danger'>Delete</button>
+                    </td>
+                    </tr>";
+                } 
+                
+                ?>
+            </tbody>
+            </table>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+
+
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -165,27 +216,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-<!-- Modal -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -214,6 +244,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
       $('#myTable').DataTable();
 
     });
+  </script>
+
+<script>
+        edits = document.getElementsByClassName('edit');
+    Array.from(edits).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        tr = e.target.parentNode.parentNode;
+        name = tr.getElementsByTagName("td")[0].innerText;
+        email = tr.getElementsByTagName("td")[1].innerText;
+        mobile = tr.getElementsByTagName("td")[2].innerText;
+        city = tr.getElementsByTagName("td")[3].innerText;
+        nameEdit.value = name;
+        emailEdit.value = email;
+        mobileEdit.value = mobile;
+        cityEdit.value = city;
+        // slnoEdit.value = e.target.id;
+        // $('#editModal').modal('toggle');
+      })
+    })
   </script>
 </body>
 </html>

@@ -23,6 +23,23 @@ class CustomerModel extends CI_Model{
         $query = $this->db->get('customer');
         return $query->result(); // Return all rows as an array of objects
     }
+
+    public function updateCustomer($name, $email, $mobile, $city) {
+        date_default_timezone_set('Asia/Kolkata');
+        $data = array(
+            'name' => $name,
+            'email' => $email,
+            'mobile' => $mobile,
+            'city' => $city,
+            'time_stamp' => date('Y-m-d H:i:s')
+        );
+
+        // Update the customer record in the database
+        $this->db->where('email', $email);
+        $result = $this->db->update('customer', $data);
+
+        return $result;
+    }
     
 }
     

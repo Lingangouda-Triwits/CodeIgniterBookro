@@ -65,7 +65,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/index'; ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                     <p>Dashboard</p>
                 </a>
@@ -98,19 +98,7 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Drivers Data</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+  
 
 
 
@@ -158,46 +146,60 @@
   </div>
 
 
-    <!-- Main content -->
-    <div class="container">
-        <table class="table" id="myTable">
-        <thead>
-            <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mobile Num</th>
-            <th scope="col">City</th>
-            <th scope="col">Registered_On</th>
-            <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-            $slno = 0;
-            foreach ($drivers as $driver){
-                $slno = $slno + 1;
-                echo "<tr>
-                <th scope='row'>". $slno . "</th>
-                <td>". $driver->name . "</td>
-                <td>". $driver->email . "</td>
-                <td>". $driver->mobile . "</td>
-                <td>". $driver->city . "</td>
-                <td>". $driver->time_stamp . "</td>
-                <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
-                        <button class='delete btn btn-sm btn-danger'>Delete</button>
-                </td>
-                </tr>";
-                // href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."'
-            } 
-            
-            ?>
-        </tbody>
-        </table>
-        <!-- /.content -->
-    </div>
-  <!-- /.content-wrapper -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Drivers Data</h1>
+            </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
         </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="container">
+            <table class="table" id="myTable">
+            <thead>
+                <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile Num</th>
+                <th scope="col">City</th>
+                <th scope="col">Registered_On</th>
+                <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $slno = 0;
+                foreach ($drivers as $driver){
+                    $slno = $slno + 1;
+                    echo "<tr>
+                    <th scope='row'>". $slno . "</th>
+                    <td>". $driver->name . "</td>
+                    <td>". $driver->email . "</td>
+                    <td>". $driver->mobile . "</td>
+                    <td>". $driver->city . "</td>
+                    <td>". $driver->time_stamp . "</td>
+                    <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
+                            <button class='delete btn btn-sm btn-danger'>Delete</button>
+                    </td>
+                    </tr>";
+                    // href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."'
+                } 
+                
+                ?>
+            </tbody>
+            </table>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -244,7 +246,6 @@
         edits = document.getElementsByClassName('edit');
     Array.from(edits).forEach((element) => {
       element.addEventListener("click", (e) => {
-        console.log("edit ");
         tr = e.target.parentNode.parentNode;
         name = tr.getElementsByTagName("td")[0].innerText;
         email = tr.getElementsByTagName("td")[1].innerText;
@@ -254,10 +255,8 @@
         emailEdit.value = email;
         mobileEdit.value = mobile;
         cityEdit.value = city;
-        slnoEdit.value = e.target.id;
-        console.log(name, email,mobile,city,slno);
-        console.log(e.target.id)
-        $('#editModal').modal('toggle');
+        // slnoEdit.value = e.target.id;
+        // $('#editModal').modal('toggle');
       })
     })
   </script>

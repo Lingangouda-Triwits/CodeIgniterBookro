@@ -24,7 +24,7 @@ class DriverModel extends CI_Model{
         return $query->result(); // Return all rows as an array of objects
     }
 
-    public function updateDriver($id, $name, $email, $mobile, $city) {
+    public function updateDriver($name, $email, $mobile, $city) {
         date_default_timezone_set('Asia/Kolkata');
         $data = array(
             'name' => $name,

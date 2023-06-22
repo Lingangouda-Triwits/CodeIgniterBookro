@@ -33,9 +33,8 @@ class DashbController extends CI_Controller{
         $this->load->view('admin/DriverDataToAdminView', $data); // Load the view and pass the driver data
     }
 
-    // Driver data Updtion by Admin
+    // Driver data Updation by Admin
     public function updateDriver() {
-        $id = $this->input->post('slnoEdit');
         $name = $this->input->post('nameEdit');
         $email = $this->input->post('emailEdit');
         $mobile = $this->input->post('mobileEdit');
@@ -43,7 +42,7 @@ class DashbController extends CI_Controller{
 
         $this->load->model('users/driver/DriverModel');
 
-        // Call the updateCustomer method in the model
+        // Call the updateDriver method in the model
         $result = $this->DriverModel->updateDriver($id, $name, $email, $mobile, $city);
 
         if ($result) {
@@ -53,6 +52,29 @@ class DashbController extends CI_Controller{
         } else {
             // Error message or redirect to an error page
             echo 'failed to update'; // Change 'customer/list' to the appropriate URL
+        }
+    }
+
+
+    // Customer data Updtaion by Admin
+    public function updateCustomer() {
+        $name = $this->input->post('nameEdit');
+        $email = $this->input->post('emailEdit');
+        $mobile = $this->input->post('mobileEdit');
+        $city = $this->input->post('cityEdit');
+
+        $this->load->model('users/customer/CustomerModel');
+
+        // Call the updateCustomer method in the model
+        $result = $this->CustomerModel->updateCustomer($name, $email, $mobile, $city);
+
+        if ($result) {
+            // Success message or redirect to a success page
+            echo '<script>alert("successfully updated");</script>';
+
+        } else {
+            // Error message or redirect to an error page
+            echo '<script>alert("Failed to update");</script>'; // Change 'customer/list' to the appropriate URL
         }
     }
 }
