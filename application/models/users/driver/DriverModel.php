@@ -25,11 +25,13 @@ class DriverModel extends CI_Model{
     }
 
     public function updateDriver($id, $name, $email, $mobile, $city) {
+        date_default_timezone_set('Asia/Kolkata');
         $data = array(
             'name' => $name,
             'email' => $email,
             'mobile' => $mobile,
-            'city' => $city
+            'city' => $city,
+            'time_stamp' => date('Y-m-d H:i:s')
         );
 
         // Update the customer record in the database
