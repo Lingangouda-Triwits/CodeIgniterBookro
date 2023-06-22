@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/driverToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Drivers</p>
                         </a>
@@ -143,13 +143,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <td>". $customer->city . "</td>
               <td>". $customer->time_stamp . "</td>
               <td>
-              <a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-primary'>Edit</a>
+
+<a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#Modal'>Edit</a>
               <a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-danger'>Delete</a>
             </td>
             </tr>";
           } 
         ?>
-
       </tbody>
     </table>
     <!-- /.content -->
@@ -165,6 +165,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </aside>
   <!-- /.control-sidebar -->
+
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Main Footer -->
   <footer class="main-footer">

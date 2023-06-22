@@ -24,5 +24,13 @@ class DashbController extends CI_Controller{
             
         $this->load->view('admin/CustomerDataToAdminView', $data); // Load the view and pass the customer data
     }
+
+    //to display the driver's data in the Admin Dashboard
+    public function driverToAdmin() {
+        $this->load->model('users/driver/DriverModel');
+        $data['drivers'] = $this->DriverModel->getAllDrivers(); // Retrieve driver data from the model
+            
+        $this->load->view('admin/DriverDataToAdminView', $data); // Load the view and pass the driver data
+    }
 }
 ?>

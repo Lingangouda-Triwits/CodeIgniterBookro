@@ -18,6 +18,11 @@ class DriverModel extends CI_Model{
         $query = $this->db->get('driver');
         return $query->row();
     }
+
+    public function getAllDrivers() {
+        $query = $this->db->get('driver');
+        return $query->result(); // Return all rows as an array of objects
+    }
 }
 
 ?>
