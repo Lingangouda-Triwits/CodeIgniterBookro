@@ -17,6 +17,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url()?>public/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- CDN of datatables -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
 </head>
@@ -105,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">Customers Data</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -119,32 +123,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <h1>Customers</h1>
-    
-    <?php if ($customers) : ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($customers as $customer) : ?>
-                    <tr>
-                        <td><?php echo $customer->name; ?></td>
-                        <td><?php echo $customer->email; ?></td>
-                        <td><?php echo $customer->mobile; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else : ?>
-        <p>No customers found.</p>
-    <?php endif; ?>
 
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile Num</th>
+          <th scope="col">City</th>
+          <th scope="col">Registered_On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php 
+          $slno = 0;
+          foreach ($customers as $customer){
+            $slno = $slno + 1;
+            echo "<tr>
+              <th scope='row'>". $slno . "</th>
+              <th scope='row'>". $customer->name . "</th>
+              <td>". $customer->email . "</td>
+              <td>". $customer->mobile . "</td>
+              <td>". $customer->city . "</td>
+              <td>". $customer->time_stamp . "</td>
+              <td>  <button class='edit btn btn-sm btn-primary' >Edit</button>
+                    <button class='delete btn btn-sm btn-danger' >Delete</button>  </td>
+            </tr>";
+          } 
+        ?>
 
+      </tbody>
+    </table>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -175,6 +185,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo base_url()?>public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+    });
+  </script>
 </body>
 </html>
 
