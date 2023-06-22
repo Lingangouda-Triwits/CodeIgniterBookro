@@ -18,6 +18,12 @@ class CustomerModel extends CI_Model{
         $query = $this->db->get('customer');
         return $query->row();
     }
+
+    public function getAllCustomers() {
+        $query = $this->db->get('customer');
+        return $query->result(); // Return all rows as an array of objects
+    }
+    
 }
     
 ?>

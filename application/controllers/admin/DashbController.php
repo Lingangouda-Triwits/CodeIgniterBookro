@@ -16,5 +16,13 @@ class DashbController extends CI_Controller{
         $admin = $this->session->userdata('admin');
         $this->load->view('admin/DashboardView');
     }
+
+    //to display the customer's data in the Admin Dashboard
+    public function customerToAdmin() {
+        $this->load->model('users/customer/CustomerModel');
+        $data['customers'] = $this->CustomerModel->getAllCustomers(); // Retrieve customer data from the model
+            
+        $this->load->view('admin/DashboardCustView', $data); // Load the view and pass the customer data
+    }
 }
 ?>
