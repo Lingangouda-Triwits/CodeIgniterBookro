@@ -49,6 +49,11 @@ class DashbController extends CI_Controller{
         if ($result) {
             // Success message or redirect to a success page
             echo 'successfully updated'; // Change 'customer/list' to the appropriate URL
+            $this->load->model('users/driver/DriverModel');
+            $data['drivers'] = $this->DriverModel->getAllDrivers(); // Retrieve driver data from the model
+                
+            $this->load->view('admin/DriverDataToAdminView', $data);
+
         } else {
             // Error message or redirect to an error page
             echo 'failed to update'; // Change 'customer/list' to the appropriate URL

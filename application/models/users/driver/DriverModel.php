@@ -33,7 +33,7 @@ class DriverModel extends CI_Model{
         );
 
         // Update the customer record in the database
-        $this->db->where('slno', $id);
+        $this->db->where('email', $email);
         $result = $this->db->update('driver', $data);
 
         return $result;
