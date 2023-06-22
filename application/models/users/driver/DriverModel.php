@@ -23,6 +23,21 @@ class DriverModel extends CI_Model{
         $query = $this->db->get('driver');
         return $query->result(); // Return all rows as an array of objects
     }
+
+    public function updateDriver($id, $name, $email, $mobile, $city) {
+        $data = array(
+            'name' => $name,
+            'email' => $email,
+            'mobile' => $mobile,
+            'city' => $city
+        );
+
+        // Update the customer record in the database
+        $this->db->where('slno', $id);
+        $result = $this->db->update('driver', $data);
+
+        return $result;
+    }
 }
 
 ?>

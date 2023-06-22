@@ -114,10 +114,6 @@
 
 
 
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-  Launch demo modal
-</button>
   <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
     aria-hidden="true">
@@ -129,7 +125,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <form action="#" method="POST">
+        <form action="<?php echo base_url().'index.php/admin/DashbController/updateDriver';?>" method="POST">
           <div class="modal-body">
             <input type="hidden" name="slnoEdit" id="slnoEdit">
             <div class="form-group">
@@ -188,12 +184,13 @@
                 <td>". $driver->mobile . "</td>
                 <td>". $driver->city . "</td>
                 <td>". $driver->time_stamp . "</td>
-                <td>    <button class='edit btn btn-sm btn-primary'>Edit</button>
+                <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
                         <button class='delete btn btn-sm btn-danger'>Delete</button>
                 </td>
                 </tr>";
                 // href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."'
             } 
+            
             ?>
         </tbody>
         </table>
@@ -252,12 +249,12 @@
         email = tr.getElementsByTagName("td")[1].innerText;
         mobile = tr.getElementsByTagName("td")[2].innerText;
         city = tr.getElementsByTagName("td")[3].innerText;
-        console.log(name, email,mobile);
         nameEdit.value = name;
         emailEdit.value = email;
         mobileEdit.value = mobile;
         cityEdit.value = city;
         slnoEdit.value = e.target.id;
+        console.log(name, email,mobile,city,slno);
         console.log(e.target.id)
         $('#editModal').modal('toggle');
       })
