@@ -43,7 +43,7 @@ class DashbController extends CI_Controller{
         $this->load->model('users/driver/DriverModel');
 
         // Call the updateDriver method in the model
-        $result = $this->DriverModel->updateDriver($id, $name, $email, $mobile, $city);
+        $result = $this->DriverModel->updateDriver($name, $email, $mobile, $city);
 
         if ($result) {
             // Success message or redirect to a success page
