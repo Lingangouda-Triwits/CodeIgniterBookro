@@ -111,12 +111,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Customers Data</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -133,6 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <th scope="col">Mobile Num</th>
           <th scope="col">City</th>
           <th scope="col">Registered_On</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -142,13 +137,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             $slno = $slno + 1;
             echo "<tr>
               <th scope='row'>". $slno . "</th>
-              <th scope='row'>". $customer->name . "</th>
+              <td>". $customer->name . "</td>
               <td>". $customer->email . "</td>
               <td>". $customer->mobile . "</td>
               <td>". $customer->city . "</td>
               <td>". $customer->time_stamp . "</td>
-              <td>  <button class='edit btn btn-sm btn-primary' >Edit</button>
-                    <button class='delete btn btn-sm btn-danger' >Delete</button>  </td>
+              <td>
+              <a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-primary'>Edit</a>
+              <a href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."' class='edit btn btn-sm btn-danger'>Delete</a>
+            </td>
             </tr>";
           } 
         ?>
@@ -190,34 +187,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
-
-
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready(function () {
       $('#myTable').DataTable();
+
     });
   </script>
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Customers</title>
-</head>
-<body>
-
-
-
-</body>
-</html> -->
