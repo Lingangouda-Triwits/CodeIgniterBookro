@@ -175,25 +175,32 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                $slno = 0;
-                foreach ($drivers as $driver){
-                    $slno = $slno + 1;
-                    echo "<tr>
-                    <th scope='row'>". $slno . "</th>
-                    <td>". $driver->name . "</td>
-                    <td>". $driver->email . "</td>
-                    <td>". $driver->mobile . "</td>
-                    <td>". $driver->city . "</td>
-                    <td>". $driver->time_stamp . "</td>
-                    <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
-                            <button class='delete btn btn-sm btn-danger'>Delete</button>
-                    </td>
-                    </tr>";
-                    // href='". base_url().'index.php/admin/DashbController/customerToAdmin' ."'
-                } 
-                
-                ?>
+            <?php 
+              $slno = 0;
+              foreach ($drivers as $driver) {
+                $slno = $slno + 1;
+                $driverslno = $driver->slno;
+                $deleteUrl = site_url("admin/DashbController/deleteDriver/$driverEmail");
+
+                echo "<tr>
+                        <th scope='row'>". $slno . "</th>
+                        <td>". $driver->name . "</td>
+                        <td>". $driver->email . "</td>
+                        <td>". $driver->mobile . "</td>
+                        <td>". $driver->city . "</td>
+                        <td>". $driver->time_stamp . "</td>
+                        <td>
+                          <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
+                          <a href='$deleteUrl' class='btn'>
+                            <button class=' btn btn-sm btn-danger' data-email='$driverslno'>Delete</button>
+                          </a>
+                        </td>
+                      </tr>";
+              }
+            ?>
+
+               <!-- <button class='delete btn btn-sm btn-danger' data-email='". $driver->email ."'>Delete</button> -->
+
             </tbody>
             </table>
             <!-- /.content -->
@@ -260,7 +267,10 @@
         // $('#editModal').modal('toggle');
       })
     })
-  </script>
+</script>
+
+
+
 </body>
 </html>
 

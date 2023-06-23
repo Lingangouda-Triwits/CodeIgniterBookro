@@ -51,7 +51,7 @@ class DashbController extends CI_Controller{
 
         } else {
             // Error message or redirect to an error page
-            echo 'failed to update'; // Change 'customer/list' to the appropriate URL
+            echo 'failed to update';
         }
     }
 
@@ -74,8 +74,23 @@ class DashbController extends CI_Controller{
 
         } else {
             // Error message or redirect to an error page
-            echo '<script>alert("Failed to update");</script>'; // Change 'customer/list' to the appropriate URL
+            echo '<script>alert("Failed to update");</script>'; 
         }
     }
+
+    public function deleteDriver($slno) {
+        $this->load->model('users/driver/DriverModel');
+    
+        if ($this->DriverModel->deleteDriver($slno)) {
+            // Driver successfully deleted
+            echo '<script>alert("Driver deleted.");</script>';
+        } else {
+            // Failed to delete the driver
+            echo '<script>alert("Failed to delete driver.");</script>';
+        }
+    }
+
+    
+    
 }
 ?>
