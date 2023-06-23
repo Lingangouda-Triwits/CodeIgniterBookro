@@ -25,17 +25,9 @@ class DLogContro extends CI_Controller{
 
                 if (password_verify($password, $user->password)) {
                     $userArray['email'] = $user->email;
-                    
-                    // Check if the photo property exists in the $user object
-                    if (property_exists($user, 'photo')) {
-                        $userArray['photo'] = $user->photo;
-                    } else {
-                        $userArray['photo'] = ''; // Provide a default value if the photo property is missing
-                    }
-                    
-                    $this->session->set_userdata('user', $userArray);
+                    $this->session->set_userdata('user',$userArray);
                     redirect(base_url().'index.php/users/driver/DDashboardCont/index');
-                
+                    // echo "Login successful! ";
 
                 }else {
                     $this->session->set_flashdata('msg','Password is incorrect');

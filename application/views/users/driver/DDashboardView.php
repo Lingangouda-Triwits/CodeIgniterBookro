@@ -23,6 +23,7 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
+            color:white;
         }
 
         body {
@@ -106,7 +107,7 @@
 <div class="container mt-5">
 
     <div class="driver-profile-pic">
-    <img src="<?php echo $userArray['photo']; ?>" alt="Driver Profile Picture" class="rounded-circle">
+    <img src="<?php echo $data['photo']; ?>" alt="Driver Profile Picture" class="rounded-circle">
     </div>
 
     <div class="card-group">

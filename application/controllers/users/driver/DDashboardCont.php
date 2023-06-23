@@ -29,18 +29,12 @@ class DDashboardCont extends CI_Controller {
     public function index() {
         $userArray = $this->session->userdata('user');
         
-        // Check if the "photo" key exists in the $userArray
-        if (array_key_exists('photo', $userArray)) {
-            $data['userArray'] = $userArray;
-        } else {
-            $data['userArray'] = array(
-                'email' => $userArray['email'],
-                'photo' => ''
-            );
-        }
-
+        $this->load->model('users/driver/DriverModel');
+        $data['photo'] = $this->DriverModel->getPhoto($userArray);
+        
         $this->load->view('users/driver/DDashboardView', $data);
     }
+    
 }
 
 ?>

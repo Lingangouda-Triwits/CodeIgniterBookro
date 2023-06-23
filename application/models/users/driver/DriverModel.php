@@ -51,7 +51,17 @@ class DriverModel extends CI_Model{
             return $this->db->affected_rows() > 0;
         }
     
-    
+        
+        public function getPhoto($userArray) {
+            // Assuming you have a table named 'drivers' to store driver data
+            $this->db->select('photo');
+            $this->db->where('email', $userArray['email']);
+            $query = $this->db->get('driver');
+            return $query->row_array();
+        }
+        
+        
+        
 }
 
 ?>
