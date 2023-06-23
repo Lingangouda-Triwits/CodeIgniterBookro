@@ -90,6 +90,18 @@ class DashbController extends CI_Controller{
         }
     }
 
+    public function deleteCustomer($slno) {
+        $this->load->model('users/customer/CustomerModel');
+    
+        if ($this->CustomerModel->deleteCustomer($slno)) {
+            // customer successfully deleted
+            echo '<script>alert("Customer deleted.");</script>';
+        } else {
+            // Failed to delete the Customer
+            echo '<script>alert("Failed to delete Customer.");</script>';
+        }
+    }
+ 
     
     
 }

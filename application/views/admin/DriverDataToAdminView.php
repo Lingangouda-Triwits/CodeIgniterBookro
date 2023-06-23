@@ -180,7 +180,7 @@
               foreach ($drivers as $driver) {
                 $slno = $slno + 1;
                 $driverslno = $driver->slno;
-                $deleteUrl = site_url("admin/DashbController/deleteDriver/$driverEmail");
+                $deleteUrl = site_url("admin/DashbController/deleteDriver/$driverslno");
 
                 echo "<tr>
                         <th scope='row'>". $slno . "</th>
@@ -191,15 +191,13 @@
                         <td>". $driver->time_stamp . "</td>
                         <td>
                           <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
-                          <a href='$deleteUrl' class='btn'>
+                          <a href='$deleteUrl'>
                             <button class=' btn btn-sm btn-danger' data-email='$driverslno'>Delete</button>
                           </a>
                         </td>
                       </tr>";
               }
             ?>
-
-               <!-- <button class='delete btn btn-sm btn-danger' data-email='". $driver->email ."'>Delete</button> -->
 
             </tbody>
             </table>

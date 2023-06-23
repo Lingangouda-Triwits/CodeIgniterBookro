@@ -183,6 +183,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 $slno = 0;
                 foreach ($customers as $customer){
                     $slno = $slno + 1;
+                    $customerslno = $customer->slno;
+                    $deleteUrl = site_url("admin/DashbController/deleteCustomer/$customerslno");
+
                     echo "<tr>
                     <th scope='row'>". $slno . "</th>
                     <td>". $customer->name . "</td>
@@ -190,11 +193,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>". $customer->mobile . "</td>
                     <td>". $customer->city . "</td>
                     <td>". $customer->time_stamp . "</td>
-                    <td>    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
-                            <button class='delete btn btn-sm btn-danger'>Delete</button>
+                    <td>
+                    <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
+                    <a href='$deleteUrl'>
+                      <button class=' btn btn-sm btn-danger'data-email='$customerslno'>Delete</button>
+                    </a>
                     </td>
                     </tr>";
-                } 
+                  } 
                 
                 ?>
             </tbody>

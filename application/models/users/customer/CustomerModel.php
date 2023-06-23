@@ -40,6 +40,16 @@ class CustomerModel extends CI_Model{
 
         return $result;
     }
+
+    
+    public function deleteCustomer($slno) {
+        // Delete the customer from the database based on the email
+        $this->db->where('slno', $slno);
+        $this->db->delete('customer');
+
+        // Check if the delete operation was successful
+        return $this->db->affected_rows() > 0;
+    }
     
 }
     

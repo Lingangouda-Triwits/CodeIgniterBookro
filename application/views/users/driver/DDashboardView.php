@@ -55,6 +55,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">Register</a>
@@ -88,9 +91,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
-                </li>
+                
             </ul>
         </div>
     </div>
