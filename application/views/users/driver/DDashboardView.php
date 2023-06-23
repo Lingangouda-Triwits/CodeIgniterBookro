@@ -91,51 +91,21 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">WelcomeDriver</a>
+                </li>
                 
             </ul>
         </div>
     </div>
 </nav>
 
-<h1 class="text-center mt-5">Book your Car for Travel</h1>
-
 <div class="container mt-5">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car1.jpg';?>" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-center">First slide label</h5>
-                    <p class="text-center">Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car3.jpg';?>" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-center">Second slide label</h5>
-                    <p class="text-center">Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car2.jpg';?>" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-center">Third slide label</h5>
-                    <p class="text-center">Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+
+<div class="driver-profile-pic">
+        <img src="<?php ?>" alt="Driver Profile Picture" class="rounded-circle">
     </div>
-</div>
 
-<div class="container mt-5">
     <div class="card-group">
         <div class="card">
             <img src="<?php echo base_url().'images/Car2.jpg';?>" class="card-img-top" alt="...">
