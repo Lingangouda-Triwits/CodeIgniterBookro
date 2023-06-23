@@ -94,6 +94,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">WelcomeDriver</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LogOut</a>
+                </li>
                 
             </ul>
         </div>
@@ -102,8 +105,8 @@
 
 <div class="container mt-5">
 
-<div class="driver-profile-pic">
-        <img src="<?php ?>" alt="Driver Profile Picture" class="rounded-circle">
+    <div class="driver-profile-pic">
+    <img src="<?php echo $userArray['photo']; ?>" alt="Driver Profile Picture" class="rounded-circle">
     </div>
 
     <div class="card-group">
