@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>
                     <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
                     <a href='$deleteUrl'>
-                      <button class=' btn btn-sm btn-danger'data-email='$customerslno'>Delete</button>
+                      <button class=' btn btn-sm btn-danger'>Delete</button>
                     </a>
                     </td>
                     </tr>";

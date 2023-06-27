@@ -11,15 +11,20 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 body {
-color: #566787;
-background: #f5f5f5;
+color: #e3f2fd;
+background-color: #1f2833;
 font-family: "Open Sans", sans-serif;
 }
-.contact-form {
+/* .contact-form {
 padding: 50px;
 margin: 30px 0;
-}
+} */
 .contact-form h1 {
 text-transform: uppercase;
 margin: 0 0 15px;
@@ -44,43 +49,105 @@ resize: vertical;
 }
 .hint-text {
 font-size: 15px;
-padding-bottom: 15px;
+padding:25px 0 15px 0;
 opacity: 0.8;
 }
 .bs-example {
 margin: 20px;
 }
+.nav-item {
+padding: 0px 15px;
+}
+.form-control{
+    background-color:#e3f2fd;
+}
+
 </style>
 </head>
 <body>
+<!-- this is navabar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">Register</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CRegContro/show';?>">Customer</a>
+            </li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li>
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DRegContro/insertData';?>">Driver</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">Login</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/users/customer/CLogContro';?>">Customer</a>
+            </li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li>
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/users/driver/DLogContro';?>">Driver</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 <div class="container-xl">
 <div class="row">
 <div class="col-md-8 mx-auto">
 <div class="contact-form">
-<h1>Contact Us</h1>
 <p class="hint-text">We'd love to hear from you, please drop us a line if you've any query.</p>
-<form action="/examples/actions/confirmation.php" method="post">
+<form action="<?php echo base_url().'index.php/users/ContactUs/contact';?>" method="post">
 <div class="row">
 <div class="col-sm-6">
 <div class="form-group">
 <label for="inputFirstName">First Name</label>
-<input type="text" class="form-control" id="inputFirstName" required>
+<input type="text" name="fname" class="form-control" id="inputFirstName" required>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
 <label for="inputLastName">Last Name</label>
-<input type="text" class="form-control" id="inputLastName" required>
+<input type="text" name="lname" class="form-control" id="inputLastName" required>
 </div>
 </div>
 </div>
 <div class="form-group">
 <label for="inputEmail">Email Address</label>
-<input type="email" class="form-control" id="inputEmail" required>
+<input type="email" name="email" class="form-control" id="inputEmail" required>
 </div>
 <div class="form-group">
 <label for="inputMessage">Message</label>
-<textarea class="form-control" id="inputMessage" rows="5" required></textarea>
+<textarea class="form-control" name="message" id="inputMessage" rows="5" required></textarea>
 </div>
 <input type="submit" class="btn btn-primary" value="Submit">
 </form>

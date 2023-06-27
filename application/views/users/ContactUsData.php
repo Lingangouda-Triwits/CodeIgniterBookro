@@ -17,6 +17,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url()?>public/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- CDN of datatables -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
 </head>
@@ -51,8 +55,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link bg-white">
-      <!-- <img src="<?php echo base_url()?>public/admin/" alt="Bookro" class="brand-image img-circle elevation-3"
-           style="opacity: .8"> -->
       <span class="brand-text ml-3"><strong>Bookro</strong></span>
     </a>
 
@@ -79,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item">
                 <a href="<?php echo base_url().'index.php/admin/DashbController/index'; ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                    <p>FeedBacks</p>
+                    <p>Feedbacks</p>
                 </a>
             </li>
             <li class="nav-item has-treeview">
@@ -110,44 +112,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body" style="height:65vh;display:flex;justify-content:center;align-items:center;">
-                <h3>Welcome to Bookro WebApplication</h3>
-              </div>
-            </div>
-          </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Customers Data</h1>
+            </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="container">
+            <table class="table" id="myTable">
+            <thead>
+                <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $slno = 0;
+                foreach ($contactData->result() as $row){
+                    $slno = $slno + 1;
+
+                    echo "<tr>
+                    <th scope='row'>". $slno . "</th>
+                    <td>". $row->fname . " ".$row->lname."</td>
+                    <td>". $row->email . "</td>
+                    <td>". $row->message . "</td>
+                    
+                    </tr>";
+                  } 
+                
+                ?>
+            </tbody>
+            </table>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+
+
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -175,5 +189,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo base_url()?>public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+
+    });
+  </script>
 </body>
 </html>
+

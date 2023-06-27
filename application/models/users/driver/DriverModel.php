@@ -60,8 +60,14 @@ class DriverModel extends CI_Model{
             return $query->row_array();
         }
         
+        public function addRequestData($data) {
+            // Insert data into the 'customers' table
+            return $this->db->insert('requestToDriver', $data);
+        }
         
-        
+        public function getRequest(){
+            return $this->db->get('requestToDriver')->result();
+        }
 }
 
 ?>

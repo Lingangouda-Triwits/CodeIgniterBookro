@@ -15,7 +15,10 @@
             crossorigin="anonymous"></script>
 
 
-    <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
+  <!-- CDN of datatables -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+  <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
     <title>Bookro website</title>
     <style>
@@ -23,6 +26,7 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
+            color:white;
         }
 
         body {
@@ -39,9 +43,11 @@
     </style>
 </head>
 <body>
+
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,49 +64,109 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">Register</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/customer/CRegContro/show';?>">Customer</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/driver/DRegContro/insertData';?>">Driver</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Login</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/customer/CLogContro';?>">Customer</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/driver/DLogContro';?>">Driver</a>
-                        </li>
-                    </ul>
-                </li>
+                
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#">Welcome Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LogOut</a>
+                    <a class="nav-link" href="<?php echo base_url().'index.php/users/customer/CLogContro/logout' ?>">LogOut</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Send Request to Driver</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST">
+        <div class="modal-body">
+          <input type="hidden" name="slnoEdit" id="slnoEdit">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+          
+          <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile">  
+          </div>  
+
+          <div class="mb-3">
+            <label for="boarding" class="form-label">Address :Boarding </label>
+            <input type="text" class="form-control" id="boarding" name="boarding">
+          </div>  
+
+          <div class="mb-3">
+            <label for="destination" class="form-label">Destination</label>
+            <input type="text" class="form-control" id="destination" name="destination" >
+          </div> 
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col">
+          <h1 class="m-0 text-dark">Book a Ride here</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Num</th>
+          <th scope="col">City</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $slno = 0;
+        foreach ($drivers as $driver){
+          $slno = $slno + 1;
+
+          echo "<tr>
+                  <th scope='row'>". $slno . "</th>
+                  <td>". $driver->name . "</td>
+                  <td>". $driver->mobile . "</td>
+                  <td>". $driver->city . "</td>
+                  <td>
+                    <button class='edit btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#editModal'>Ride</button>
+                  </td>
+                </tr>";
+        } 
+        ?>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+
 
 
 <footer class="main-footer text-center">
@@ -111,5 +177,18 @@
 
 <!-- the cdn of jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+
+    });
+  </script>
+  <!-- ...your HTML code... -->
+
 </body>
 </html>

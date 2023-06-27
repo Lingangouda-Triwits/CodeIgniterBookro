@@ -15,7 +15,10 @@
             crossorigin="anonymous"></script>
 
 
-    <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
+  <!-- CDN of datatables -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+  <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
     <title>Bookro website</title>
     <style>
@@ -59,39 +62,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">Register</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/customer/CRegContro/show';?>">Customer</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/driver/DRegContro/insertData';?>">Driver</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Login</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/customer/CLogContro';?>">Customer</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="<?php echo base_url().'index.php/users/driver/DLogContro';?>">Driver</a>
-                        </li>
-                    </ul>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#">WelcomeDriver</a>
                 </li>
@@ -106,8 +77,57 @@
 
 <div class="container mt-5">
 
-<div class="driver-profile-pic">
-    <img src="<?php echo $photo; ?>" alt="Driver Profile Picture" class="rounded-circle">
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col">
+          <h1 class="m-0 text-dark">Book a Ride here</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Num</th>
+          <th scope="col">Boarding</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $slno = 0;
+        foreach ($requests as $request){
+          $slno = $slno + 1;
+
+          echo "<tr>
+                  <th scope='row'>". $slno . "</th>
+                  <td>". $request->name . "</td>
+                  <td>". $request->mobile . "</td>
+                  <td>". $request->boarding . "</td>
+                  <td>". $request->destination . "</td>
+                  <td>
+                    <button class='edit btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#editModal'>Accept</button>
+                    <button class=' btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#editModal'>Reject</button>
+                  </td>
+                </tr>";
+        } 
+        ?>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.content-wrapper -->
 </div>
 
 <footer class="main-footer text-center">
@@ -116,7 +136,16 @@
     All rights reserved.
 </footer>
 
-<!-- the cdn of jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+
+    });
+  </script>
 </body>
 </html>

@@ -27,11 +27,16 @@ class DDashboardCont extends CI_Controller {
         
         
         $this->load->model('users/driver/DriverModel');
-        $photoData = $this->DriverModel->getPhoto($userArray);
-        $data['photo'] = $photoData['photo']; // Assuming the column name is 'photo'
+        // $photoData = $this->DriverModel->getPhoto($userArray);
+        // $data['photo'] = $photoData['photo']; // Assuming the column name is 'photo'
         
+        
+        $data['requests'] = $this->DriverModel->getRequest(); // Retrieve requests data from the model
         $this->load->view('users/driver/DDashboardView', $data);
+        
     }
+
+    
     
     
 }
