@@ -119,8 +119,11 @@
                   <td>". $request->destination . "</td>
                   <td>
                     <button class='edit btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#editModal'>Accept</button>
-                    <button class=' btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#editModal'>Reject</button>
+                    <a href=''>
+                    <button class='btn btn-sm btn-danger'>Reject</button>
+                    </a>
                   </td>
+                  <td>
                 </tr>";
         } 
         ?>
