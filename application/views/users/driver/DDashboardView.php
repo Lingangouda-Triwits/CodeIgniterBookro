@@ -20,13 +20,13 @@
 
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
-    <title>Bookro website</title>
+    <title>Bookro | Driver</title>
     <style>
         * {
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color:white;
+            color:brown;
         }
 
         body {
@@ -86,7 +86,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-dark">Book a Ride here</h1>
+          <h1 class="m-0 text-white">Customer Requests</h1>
         </div>
       </div>
     </div>
