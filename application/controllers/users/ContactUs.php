@@ -33,6 +33,11 @@ class ContactUs extends CI_Controller{
 
     }
     public function data(){
+        $admin = $this->session->userdata('admin');
+        if(empty($admin)){
+            $this->session->set_flashdata('msg','Your Session has been Expired');
+            redirect(base_url().'index.php/admin/LoginCont/index');
+        }
         $this->load->model('users/ContactUsModel');
         $data['contactData'] = $this->ContactUsModel->contactUsData();
         $this->load->view('users/ContactUsData',$data);
