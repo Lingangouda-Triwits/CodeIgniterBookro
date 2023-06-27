@@ -68,6 +68,15 @@ class DriverModel extends CI_Model{
         public function getRequest(){
             return $this->db->order_by('slno', 'desc')->get('requestToDriver')->result();
         }
+
+        public function deleteRequestData($slno){
+            // Delete the driver from the database based on the email
+            $this->db->where('slno', $slno);
+            $this->db->delete('requestToDriver');
+    
+            // Check if the delete operation was successful
+            return $this->db->affected_rows() > 0;
+        }
 }
 
 ?>

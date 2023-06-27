@@ -25,15 +25,25 @@ class DDashboardCont extends CI_Controller {
     public function index() {
         $userArray = $this->session->userdata('user');
         
-        
         $this->load->model('users/driver/DriverModel');
         // $photoData = $this->DriverModel->getPhoto($userArray);
         // $data['photo'] = $photoData['photo']; // Assuming the column name is 'photo'
-        
-        
+     
         $data['requests'] = $this->DriverModel->getRequest(); // Retrieve requests data from the model
         $this->load->view('users/driver/DDashboardView', $data);
         
+    }
+
+    public function deleteRequest($slno){
+        $this->load->model('users/driver/DriverModel');
+
+        if ($this->DriverModel->deleteRequestData($slno)) {
+            // customer successfully deleted
+            echo '<script>alert("Request Rejected Successfully.");</script>';
+        } else {
+            // Failed to delete the Customer
+            echo '<script>alert("Failed to Reject the Request.");</script>';
+        }
     }
 
     
