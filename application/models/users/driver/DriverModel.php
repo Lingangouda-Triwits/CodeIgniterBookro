@@ -66,7 +66,7 @@ class DriverModel extends CI_Model{
         }
         
         public function getRequest(){
-            return $this->db->get('requestToDriver')->result();
+            return $this->db->order_by('slno', 'desc')->get('requestToDriver')->result();
         }
 }
 

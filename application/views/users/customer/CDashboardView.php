@@ -26,7 +26,7 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color:brown;
+            color:white;
         }
 
         body {

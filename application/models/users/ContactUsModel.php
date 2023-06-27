@@ -5,7 +5,7 @@ class ContactUsModel extends CI_Model{
         return $this->db->insert('contactUs', $inputs);
     }
     public function contactUsData() {
-        return $this->db->get('contactus');
+        return $this->db->get('contactUs');
     }
     
 }
