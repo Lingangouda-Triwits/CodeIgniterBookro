@@ -47,9 +47,9 @@ class DLogContro extends CI_Controller{
 
     }
 
-    // public function logout(){
-    //     $this->session->unset_userdata('user');
-    //     redirect(base_url().'index.php/users/customer/CLogContro/index');
-    // }
+    public function logout(){
+        $this->session->unset_userdata('user');
+        redirect(base_url().'index.php/users/HomePageCont/index');
+    }
 }
 ?>
