@@ -26,11 +26,13 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color:white;
-        }
+            color:brown;
 
+        }
+        
         body {
             background-color: #1f2833;
+            color:white;
         }
 
         .text-center {
@@ -76,6 +78,11 @@
     </div>
 </nav>
 
+<?php
+    
+?>
+
+<div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -83,15 +90,46 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-white text-center mt-3">Recent Requests</h1>
+          <h1 class="m-0 text-white">Your Recent Requests</h1>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Num</th>
+          <th scope="col">Boarding</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $slno = 0;
+        foreach ($status as $stat){
+          $slno = $slno + 1;
+
+          echo "<tr>
+                  <th scope='row'>". $slno . "</th>
+                  <td>". $stat->name . "</td>
+                  <td>". $stat->mobile . "</td>
+                  <td>". $stat->boarding . "</td>
+                  <td>". $stat->destination . "</td>
+                  <td>". $stat->status . "</td>
+                  </tr>";
+                } 
+                ?>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.content-wrapper -->
 </div>
-
-
-
 
 
 <footer class="main-footer text-center mt-5">

@@ -51,6 +51,12 @@ class CustomerModel extends CI_Model{
         return $this->db->affected_rows() > 0;
     }
 
+    public function getRequestStatus(){
+        $user = $this->session->userdata('user');
+        $result = $this->db->where('email',$user['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
+        return $result;
+    }
+
 
     
 }

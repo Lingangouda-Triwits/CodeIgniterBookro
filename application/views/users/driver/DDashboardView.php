@@ -32,7 +32,7 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color:brown;
+            color: brown;
         }
 
         body {
@@ -69,7 +69,7 @@
 <body >
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -145,23 +145,18 @@
                   <td>". $request->boarding . "</td>
                   <td>". $request->destination . "</td>
                   <td>
-                  <a href='$acceptUrl'>
-                  <button class='btn btn-sm btn-primary'>Accept</button>
-                  </a>
-                  
-                  <a href='$rejectUrl'>
-                  <button class='btn btn-sm btn-danger'>Reject</button>
-                  </a>
-                  
+                    <a href='$acceptUrl'><button class='btn btn-sm btn-primary'>Accept</button></a>
+                    <a href='$rejectUrl'><button class='btn btn-sm btn-danger'>Reject</button></a>
                   </td>
                   </tr>";
-                } 
-                ?>
+        } 
+        ?>
       </tbody>
     </table>
   </div>
   <!-- /.content-wrapper -->
 </div>
+      </div>
 
 <footer class="main-footer text-center">
     <!-- Default to the left -->
