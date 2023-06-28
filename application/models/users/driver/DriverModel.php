@@ -80,15 +80,11 @@ class DriverModel extends CI_Model{
 
         public function acceptRequestStatus($slno) {
             $data = array(
-                'status' => 1
+                'status' => 'accepted'
             );
-
             $this->db->where('slno' , $slno);
             $result = $this->db->update('requestToDriver',$data);
-            return $result;
-            
-        }
-        
+            return $result;   
+        }       
 }
-
 ?>
