@@ -25,7 +25,7 @@ class DLogContro extends CI_Controller{
 
                 if (password_verify($password, $user->password)) {
                     $userArray['email'] = $user->email;
-                    $this->session->set_userdata('user',$userArray);
+                    $this->session->set_userdata('driver',$userArray);
                     redirect(base_url().'index.php/users/driver/DDashboardCont/index');
                     // echo "Login successful! ";
 
@@ -48,7 +48,7 @@ class DLogContro extends CI_Controller{
     }
 
     public function logout(){
-        $this->session->unset_userdata('user');
+        $this->session->unset_userdata('driver');
         redirect(base_url().'index.php/users/HomePageCont/index');
     }
 }

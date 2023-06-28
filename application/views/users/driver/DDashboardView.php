@@ -136,6 +136,7 @@
           $slno = $slno + 1;
           $requestslno = $request->slno;
           $rejectUrl = site_url("users/driver/DDashboardCont/deleteRequest/$requestslno");
+          $acceptUrl = site_url("users/driver/DDashboardCont/acceptRequest/$requestslno");
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
@@ -144,14 +145,18 @@
                   <td>". $request->boarding . "</td>
                   <td>". $request->destination . "</td>
                   <td>
-                    <button class='edit btn btn-sm btn-primary'>Accept</button>
-                    <a href='$rejectUrl'>
-                    <button class='btn btn-sm btn-danger'>Reject</button>
-                    </a>
+                  <a href='$acceptUrl'>
+                  <button class='btn btn-sm btn-primary'>Accept</button>
+                  </a>
+                  
+                  <a href='$rejectUrl'>
+                  <button class='btn btn-sm btn-danger'>Reject</button>
+                  </a>
+                  
                   </td>
-                </tr>";
-        } 
-        ?>
+                  </tr>";
+                } 
+                ?>
       </tbody>
     </table>
   </div>

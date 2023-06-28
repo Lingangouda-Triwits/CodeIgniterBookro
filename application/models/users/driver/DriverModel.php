@@ -77,6 +77,18 @@ class DriverModel extends CI_Model{
             // Check if the delete operation was successful
             return $this->db->affected_rows() > 0;
         }
+
+        public function acceptRequestStatus($slno) {
+            $data = array(
+                'status' => 1
+            );
+
+            $this->db->where('slno' , $slno);
+            $result = $this->db->update('requestToDriver',$data);
+            return $result;
+            
+        }
+        
 }
 
 ?>
