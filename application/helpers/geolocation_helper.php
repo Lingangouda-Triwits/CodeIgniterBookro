@@ -2,7 +2,7 @@
 
 function get_location_by_ip($ip)
 {
-    $api_key = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your actual Google Maps API key
+    $api_key = 'AIzaSyBFLYsOeylfb2ygj97HNYv6U-6qk6DuwLA'; // Replace with your actual Google Maps API key
 
     $api_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $ip . '&key=' . $api_key;
 
