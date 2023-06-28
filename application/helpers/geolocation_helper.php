@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 function get_location_by_ip($ip)
 {
@@ -55,3 +56,6 @@ function get_location_by_ip($ip)
 
     return null; // Return null if the response was not successful
 }
+
+/* End of file geolocation_helper.php */
+?>

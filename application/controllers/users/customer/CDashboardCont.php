@@ -30,8 +30,10 @@ class CDashboardCont extends CI_Controller{
 
         $result = $this->DriverModel->addRequestData($dataRequest);
         echo 'your request has been successfully sent!';
+    }
 
-
+    public function customerRequests(){
+        $this->load->view('users/customer/CRequestView');
 
     }
 }

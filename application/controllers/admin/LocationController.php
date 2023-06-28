@@ -4,7 +4,7 @@ class LocationController extends CI_Controller
 {
     public function index()
     {
-        $this->load->helper('geolocation');
+        $this->load->helper('geolocation_helper');
         $this->load->model('admin/LocationModel');
 
         // Get the user's IP address
@@ -14,7 +14,9 @@ class LocationController extends CI_Controller
         $location = get_location_by_ip($ip);
 
         // Save the location to the database
-        $this->LocationModel->saveLocation($location);
+        if ($location) {
+            $this->LocationModel->saveLocation($location);
+        }
 
         // Pass the location data to the view
         $data['location'] = $location;
