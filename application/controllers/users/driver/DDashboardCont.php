@@ -36,25 +36,14 @@ class DDashboardCont extends CI_Controller {
         
         $this->load->model('users/driver/DriverModel');
         $photoData = $this->DriverModel->getPhoto($driverArray);
-        $data['photo'] = $photoData['photo']; // Assuming the column name is 'photo'
+        $data['photo'] = $photoData['photo']; // Fetching the Photo of the driver
      
         $data['requests'] = $this->DriverModel->getRequest(); // Retrieve requests data from the model
         $this->load->view('users/driver/DDashboardView', $data);
         
     }
 
-    public function deleteRequest($slno){
-        $this->load->model('users/driver/DriverModel');
-
-        if ($this->DriverModel->deleteRequestData($slno)) {
-            // customer successfully deleted
-            echo '<script>alert("Request Rejected Successfully.");</script>';
-        } else {
-            // Failed to delete the Customer
-            echo '<script>alert("Failed to Reject the Request.");</script>';
-        }
-    }
-
+      
     public function acceptRequest($slno){
         $this->load->model('users/driver/DriverModel');
 
@@ -71,5 +60,4 @@ class DDashboardCont extends CI_Controller {
     
     
 }
-
 ?>

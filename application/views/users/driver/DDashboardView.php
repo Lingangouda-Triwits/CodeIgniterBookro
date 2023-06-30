@@ -98,10 +98,15 @@
                 </ul>
               </div>
               <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
+              
             </div>
 </nav>
 
-
+<div class ="text-center mt-3">
+<a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/customerRequests';?>">
+  <button class='btn btn-info'>Recents</button>
+</a>
+</div>
 <div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -135,7 +140,6 @@
         foreach ($requests as $request){
           $slno = $slno + 1;
           $requestslno = $request->slno;
-          $rejectUrl = site_url("users/driver/DDashboardCont/deleteRequest/$requestslno");
           $acceptUrl = site_url("users/driver/DDashboardCont/acceptRequest/$requestslno");
 
           echo "<tr>
@@ -146,7 +150,6 @@
                   <td>". $request->destination . "</td>
                   <td>
                     <a href='$acceptUrl'><button class='btn btn-sm btn-primary'>Accept</button></a>
-                    <a href='$rejectUrl'><button class='btn btn-sm btn-danger'>Reject</button></a>
                   </td>
                   </tr>";
         } 

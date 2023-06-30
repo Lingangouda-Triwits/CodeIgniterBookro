@@ -53,7 +53,7 @@ class CustomerModel extends CI_Model{
 
     public function getRequestStatus(){
         $user = $this->session->userdata('user');
-        $result = $this->db->where('email',$user['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
+        $result = $this->db->where('email',$user['email'])->order_by('slno', 'desc')->get('acceptedRequests')->result();
         return $result;
     }
 

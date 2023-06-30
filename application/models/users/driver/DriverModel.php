@@ -69,22 +69,27 @@ class DriverModel extends CI_Model{
             return $this->db->order_by('slno', 'desc')->get('requestToDriver')->result();
         }
 
-        public function deleteRequestData($slno){
-            // Delete the driver from the database based on the email
-            $this->db->where('slno', $slno);
-            $this->db->delete('requestToDriver');
-    
-            // Check if the delete operation was successful
-            return $this->db->affected_rows() > 0;
-        }
-
         public function acceptRequestStatus($slno) {
             $data = array(
                 'status' => 'accepted'
             );
             $this->db->where('slno' , $slno);
-            $result = $this->db->update('requestToDriver',$data);
-            return $result;   
+            $this->db->update('requestToDriver',$data);
+
+            $this->db->where('slno', $slno);
+            $query = $this->db->get('requestToDriver')->result_array();
+
+            if (!empty($query)) {
+                foreach ($query as $row) {
+                    $this->db->insert('acceptedRequests', $row);
+                }
+            }
+
+            $this->db->where('slno', $slno);
+            $this->db->delete('requestToDriver');
+    
+            // Check if the delete operation was successful
+            return $this->db->affected_rows() > 0;
         }       
 }
 ?>

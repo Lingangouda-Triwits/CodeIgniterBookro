@@ -31,8 +31,14 @@
 
         body {
             background-color: #1f2833;
-        }
 
+}
+
+/* Hide the vertical scrollbar */
+body::-webkit-scrollbar {
+width: 0;
+background: transparent;
+}
         .text-center {
             color: #e3f2fd;
         }
