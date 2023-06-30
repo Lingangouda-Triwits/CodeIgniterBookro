@@ -46,6 +46,10 @@ class DDashboardCont extends CI_Controller {
         $this->load->view('users/driver/DRequestView', $data);
 
     }
+
+    public function completed(){
+        
+    }
     
 }
 ?>

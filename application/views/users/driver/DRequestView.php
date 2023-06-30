@@ -124,6 +124,9 @@
         $slno = 0;
         foreach ($status as $stat){
           $slno = $slno + 1;
+          $statslno = $stat->slno;
+          $start = 1;
+          $completed = site_url("users/driver/DDashboardCont/completed/$statslno") ;
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
@@ -133,9 +136,9 @@
                   <td>". $stat->destination . "</td>
                   <td>". $stat->status . "</td>
                   <td>
-                    <a href=''><button class='btn btn-sm btn-success'>Start</button></a>
+                    <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                   
-                    <a href=''><button class='btn btn-sm btn-dark'>Completed</button></a>
+                    <a href='$completed'><button class='btn btn-sm btn-dark'>Completed</button></a>
                   </td>
                   </tr>";
                 } 

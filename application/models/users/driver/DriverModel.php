@@ -88,5 +88,9 @@ class DriverModel extends CI_Model{
             $result = $this->db->where('demail',$userArray['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
             return $result;
         }
+
+        public function completed(){
+            
+        }
 }
 ?>

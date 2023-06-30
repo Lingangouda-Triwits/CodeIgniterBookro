@@ -108,22 +108,22 @@ background: transparent;
     <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST">
       <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <input type="text" class="form-control" id="name" name="name" required>
       </div>
 
       <div class="mb-3">
         <label for="mobile" class="form-label">Mobile Number</label>
-        <input type="text" class="form-control" id="mobile" name="mobile">  
+        <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';">  
       </div>  
       
       <div class="mb-3">
         <label for="boarding" class="form-label">Address: Boarding</label>
-        <input type="text" class="form-control" id="boarding" name="boarding">
+        <input type="text" class="form-control" id="boarding" name="boarding" required>
       </div>  
 
       <div class="mb-3">
         <label for="destination" class="form-label">Destination</label>
-        <input type="text" class="form-control" id="destination" name="destination">
+        <input type="text" class="form-control" id="destination" name="destination" required>
       </div> 
 
       <div class="text-center">
