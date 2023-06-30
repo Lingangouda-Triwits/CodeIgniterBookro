@@ -116,6 +116,7 @@
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -131,6 +132,11 @@
                   <td>". $stat->boarding . "</td>
                   <td>". $stat->destination . "</td>
                   <td>". $stat->status . "</td>
+                  <td>
+                    <a href=''><button class='btn btn-sm btn-success'>Start</button></a>
+                  
+                    <a href=''><button class='btn btn-sm btn-dark'>Completed</button></a>
+                  </td>
                   </tr>";
                 } 
                 ?>
