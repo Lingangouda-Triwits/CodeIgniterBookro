@@ -90,7 +90,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-white">Your Recent Requests</h1>
+          <h1 class="m-0 text-white">Recent Requests</h1>
         </div>
       </div>
     </div>

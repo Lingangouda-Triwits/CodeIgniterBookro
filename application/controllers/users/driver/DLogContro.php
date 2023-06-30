@@ -25,11 +25,18 @@ class DLogContro extends CI_Controller{
 
                 if (password_verify($password, $driver->password)) {
                     $userArray['email'] = $driver->email;
-                    $this->session->set_userdata('driver',$userArray);
+                    // Fetch the name based on email
+                    $this->db->select('name');
+                    $this->db->from('driver');
+                    $this->db->where('email', $driver->email);
+                    $query = $this->db->get();
+                    $row = $query->row();
+                    $userArray['name'] = $row->name;
+                    $this->session->set_userdata('driver', $userArray);
                     redirect(base_url().'index.php/users/driver/DDashboardCont/index');
                     // echo "Login successful! ";
-
-                }else {
+                }
+                else {
                     $this->session->set_flashdata('msg','Password is incorrect');
                     redirect(base_url().'index.php/users/driver/DLogContro/index');
                     // echo "Invalid password!";

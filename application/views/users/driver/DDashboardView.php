@@ -54,16 +54,13 @@
         .nav-item {
             padding: 0px 15px;
         }
-  .rounded-photo {
+        .rounded-photo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
-    margin-right: 5px; /* Add margin-right to create space between the photo and the text */
-    margin-left: -5px; /* Add negative margin-left to move the photo a bit to the left */
-  }
-
-
+    object-fit: cover; 
+    margin-left: -25px; /* Add negative margin-left to move the photo a bit to the left */
+}
 
     </style>
 </head>
@@ -87,26 +84,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
-                
+            </ul>
+
+            <!-- Right-aligned items -->
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['email'];?></a>
-                    
+                    <a class="nav-link active" href="#">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
                 </li>
-                <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
-                
+                <li class="nav-item">
+                    <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
                 </li>
-                <!-- <li class="nav-item"> -->
-                  <!-- </li> -->
-                  
-                </ul>
-              </div>
-
-              
-              
-            </div>
+            </ul>
+        </div>
+    </div>
 </nav>
+
 
 <div class ="text-center mt-3">
 <a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/customerRequests';?>">

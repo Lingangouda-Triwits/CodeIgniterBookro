@@ -38,7 +38,10 @@ class DDashboardCont extends CI_Controller {
     }
 
     public function customerRequests(){
+        $driverArray = $this->session->userdata('driver');
         $this->load->model('users/driver/DriverModel');
+        $photoData = $this->DriverModel->getPhoto($driverArray);
+        $data['photo'] = $photoData['photo']; // Fetching the photo
         $data['status'] = $this->DriverModel->getRequestStatus();
         $this->load->view('users/driver/DRequestView', $data);
 
