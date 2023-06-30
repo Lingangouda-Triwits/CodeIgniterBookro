@@ -41,7 +41,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -102,21 +102,21 @@
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car1.jpg';?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url().'images/toyCars.jpg';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-center">First slide label</h5>
                     <p class="text-center">Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car3.jpg';?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url().'images/friendsInCar.jpg';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-center">Second slide label</h5>
                     <p class="text-center">Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="<?php echo base_url().'images/Car2.jpg';?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url().'images/girl-in-car.jpg';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-center">Third slide label</h5>
                     <p class="text-center">Some representative placeholder content for the third slide.</p>
@@ -146,14 +146,11 @@
         </div>
 
         <div class="card">
-            <img src="<?php echo base_url().'images/Car1.jpg';?>" class="card-img-top" alt="...">
+            <img src="<?php echo base_url().'images/onHighway.jpg';?>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
                 </p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
 
@@ -163,9 +160,6 @@
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
                     content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
     </div>
