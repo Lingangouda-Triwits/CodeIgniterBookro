@@ -37,7 +37,6 @@ class CustomerModel extends CI_Model{
         // Update the customer record in the database
         $this->db->where('email', $email);
         $result = $this->db->update('customer', $data);
-
         return $result;
     }
 

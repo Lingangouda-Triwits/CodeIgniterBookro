@@ -103,7 +103,7 @@
 </nav>
 
 <div class ="text-center mt-3">
-<a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/customerRequests';?>">
+<a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/customerRequests';?>">
   <button class='btn btn-info'>Recents</button>
 </a>
 </div>

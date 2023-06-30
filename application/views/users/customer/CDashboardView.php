@@ -82,6 +82,12 @@ background: transparent;
     </div>
 </nav>
 
+<!-- to show notification to the customer -->
+<!-- <div id="notification"><?php
+//  echo $this->session->flashdata('notification');
+  ?></div> -->
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->

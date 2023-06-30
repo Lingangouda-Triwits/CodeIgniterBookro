@@ -90,6 +90,6 @@ class DriverModel extends CI_Model{
     
             // Check if the delete operation was successful
             return $this->db->affected_rows() > 0;
-        }       
+        }
 }
 ?>
