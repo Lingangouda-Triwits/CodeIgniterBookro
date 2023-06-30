@@ -18,13 +18,13 @@ class DLogContro extends CI_Controller{
 
         if($this->form_validation->run() == true){
             $email = $this->input->post('email');
-            $user = $this->DriverModel->driverLogin($email);
+            $driver = $this->DriverModel->driverLogin($email);
         
-            if (!empty($user)) {
+            if (!empty($driver)) {
                 $password = $this->input->post('password');
 
-                if (password_verify($password, $user->password)) {
-                    $userArray['email'] = $user->email;
+                if (password_verify($password, $driver->password)) {
+                    $userArray['email'] = $driver->email;
                     $this->session->set_userdata('driver',$userArray);
                     redirect(base_url().'index.php/users/driver/DDashboardCont/index');
                     // echo "Login successful! ";

@@ -71,26 +71,22 @@ class DriverModel extends CI_Model{
         }
 
         public function acceptRequestStatus($slno) {
+            $userArray = $this->session->userdata('driver');
             $data = array(
-                'status' => 'accepted'
+                'status' => 'accepted',
+                'demail' => $userArray['email']
             );
             $this->db->where('slno' , $slno);
             $this->db->update('requestToDriver',$data);
 
-            // $this->db->where('slno', $slno);
-            // $query = $this->db->get('requestToDriver')->result_array();
-
-            // if (!empty($query)) {
-            //     foreach ($query as $row) {
-            //         $this->db->insert('acceptedRequests', $row);
-            //     }
-            // }
-
-            // $this->db->where('slno', $slno);
-            // $this->db->delete('requestToDriver');
-    
-            // Check if the delete operation was successful
             return $this->db->affected_rows() > 0;
+
+        }
+
+        public function getRequestStatus(){
+            $userArray = $this->session->userdata('driver');
+            $result = $this->db->where('demail',$userArray['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
+            return $result;
         }
 }
 ?>

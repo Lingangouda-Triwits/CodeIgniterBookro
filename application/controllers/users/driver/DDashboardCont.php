@@ -38,8 +38,8 @@ class DDashboardCont extends CI_Controller {
     }
 
     public function customerRequests(){
-        $this->load->model('users/customer/CustomerModel');
-        $data['status'] = $this->CustomerModel->getRequestStatus();
+        $this->load->model('users/driver/DriverModel');
+        $data['status'] = $this->DriverModel->getRequestStatus();
         $this->load->view('users/driver/DRequestView', $data);
 
     }
