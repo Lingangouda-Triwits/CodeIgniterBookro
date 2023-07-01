@@ -100,11 +100,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/completed';?>" method="POST">
+        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST">
           <input type="hidden" name="slnoEdit" id="slnoEdit">
           <div class="mb-3">
             <label for="title" class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameEdit" name="nameEdit" required>
+            <input type="text" class="form-control" id="nameEdit" name="nameEdit" readonly>
           </div>
 
           <div class="mb-3">

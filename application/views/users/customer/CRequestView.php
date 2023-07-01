@@ -78,9 +78,9 @@
     </div>
 </nav>
 
-<?php
-    
-?>
+<div class ="text-center mt-3">
+
+</div>
 
 <div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
@@ -107,6 +107,7 @@
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
+          <th scope="col">Pay</th>
         </tr>
       </thead>
       <tbody>
@@ -114,6 +115,7 @@
         $slno = 0;
         foreach ($status as $stat){
           $slno = $slno + 1;
+          $invoice = base_url(). 'index.php/users/customer/CDashboardCont/seeInvoices';
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
@@ -122,6 +124,9 @@
                   <td>". $stat->boarding . "</td>
                   <td>". $stat->destination . "</td>
                   <td>". $stat->status . "</td>
+                  <td>
+                    <a href='$invoice'><button class='btn btn-info btn-sm'>Invoices</button></a>
+                  </td>
                   </tr>";
                 } 
                 ?>
