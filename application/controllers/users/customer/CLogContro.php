@@ -25,8 +25,17 @@ class CLogContro extends CI_Controller{
             if (!empty($user)) {
                 $password = $this->input->post('password');
 
+                
                 if (password_verify($password, $user->password)) {
                     $userArray['email'] = $user->email;
+
+                    // Fetch the name based on email
+                    $this->db->select('name');
+                    $this->db->from('customer');
+                    $this->db->where('email', $user->email);
+                    $query = $this->db->get();
+                    $row = $query->row();
+                    $userArray['name'] = $row->name;
                     $this->session->set_userdata('user',$userArray);
                     redirect(base_url().'index.php/users/customer/CDashboardCont/index');
                     // echo "Login successful! ";

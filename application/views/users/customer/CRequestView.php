@@ -68,7 +68,7 @@
                 
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Customer</a>
+                    <a class="nav-link active" href="#">Welcome <?php $userArray = $this->session->userdata('user'); echo $userArray['name'];?></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'index.php/users/customer/CLogContro/logout' ?>">LogOut</a>
