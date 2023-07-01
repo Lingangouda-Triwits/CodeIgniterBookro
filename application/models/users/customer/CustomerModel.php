@@ -56,6 +56,11 @@ class CustomerModel extends CI_Model{
         return $result;
     }
 
+    public function seeInvoice($statslno){
+        $this->db->select('name, pickup, drop, distance, total_fare, time_stamp');
+        $this->db->where('slno', $statslno);
+        return $this->db->get('invoices')->row();
+    }
 
     
 }

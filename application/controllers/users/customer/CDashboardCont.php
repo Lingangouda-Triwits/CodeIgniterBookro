@@ -40,5 +40,12 @@ class CDashboardCont extends CI_Controller{
         $this->load->view('users/customer/CRequestView', $data);
 
     }
+
+    public function seeInvoice($statslno){
+        $this->load->model('users/customer/CustomerModel');
+        $invoice['invoice'] = $this->CustomerModel->seeInvoice($statslno);
+        $this->load->view('users/customer/CustomerInvoice.php',$invoice);
+
+    }
 }
 ?>

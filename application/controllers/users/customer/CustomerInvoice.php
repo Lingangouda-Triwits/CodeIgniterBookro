@@ -103,30 +103,29 @@
         <tr>
           <th scope="col">S.No</th>
           <th scope="col">Name</th>
-          <th scope="col">Mobile Num</th>
-          <th scope="col">Boarding</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Status</th>
-          <th scope="col">Pay</th>
+          <th scope="col">PickUp</th>
+          <th scope="col">Droping</th>
+          <th scope="col">Distance</th>
+          <th scope="col">fare</th>
+          <th scope="col">timing</th>
         </tr>
       </thead>
       <tbody>
         <?php
         $slno = 0;
-        foreach ($status as $stat){
+        foreach ($invoice as $in){
           $slno = $slno + 1;
-          $statslno = $stat->slno;
-          $invoice = site_url("users/customer/CDashboardCont/seeInvoice/$statslno") ;
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
-                  <td>". $stat->name . "</td>
-                  <td>". $stat->mobile . "</td>
-                  <td>". $stat->boarding . "</td>
-                  <td>". $stat->destination . "</td>
-                  <td>". $stat->status . "</td>
+                  <td>". $in->name . "</td>
+                  <td>". $in->pickup . "</td>
+                  <td>". $in->drop . "</td>
+                  <td>". $in->distance . "</td>
+                  <td>". $in->total_fare . "</td>
+                  <td>". $in->time_stamp . "</td>
                   <td>
-                    <a href='$invoice'><button class='invoice btn btn-info btn-sm'>Invoice</button></a>
+                    <a ><button class='invoice btn btn-info btn-sm'>Invoice</button></a>
                   </td>
                   </tr>";
                 } 
