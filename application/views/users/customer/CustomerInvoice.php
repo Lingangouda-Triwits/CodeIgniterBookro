@@ -90,7 +90,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-white">Recent Requests</h1>
+          <h1 class="m-0 text-white">Your Invoice</h1>
         </div>
       </div>
     </div>
@@ -111,26 +111,23 @@
         </tr>
       </thead>
       <tbody>
-        <?php
-        $slno = 0;
-        foreach ($invoice as $in){
-          $slno = $slno + 1;
+      <?php
+$slno = 0;
+foreach ($invoices as $in) {
+    $slno++;
+    echo "<tr>
+            <th scope='row'>" . $slno . "</th>
+            <td>" . $in['name'] . "</td>
+            <td>" . $in['pickup'] . "</td>
+            <td>" . $in['drop'] . "</td>
+            <td>" . $in['distance'] . "</td>
+            <td>" . $in['total_fare'] . "</td>
+            <td>" . $in['time_stamp'] . "</td>
+            
+          </tr>";
+}
+?>
 
-          echo "<tr>
-                  <th scope='row'>". $slno . "</th>
-                  <td>". $in->name . "</td>
-                  <td>". $in->pickup . "</td>
-                  <td>". $in->drop . "</td>
-                  <td>". $in->distance . "</td>
-                  <td>". $in->total_fare . "</td>
-                  <td>". $in->time_stamp . "</td>
-                  <td>
-                    <a ><button class='invoice btn btn-info btn-sm'>Invoice</button></a>
-                  </td>
-                  </tr>";
-                } 
-
-                ?>
       </tbody>
     </table>
   </div>

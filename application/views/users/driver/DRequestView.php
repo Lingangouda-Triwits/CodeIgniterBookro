@@ -164,7 +164,6 @@
           <th scope="col">Mobile Num</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
-          <th scope="col">Status</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -183,7 +182,6 @@
                   <td>". $stat->mobile . "</td>
                   <td>". $stat->boarding . "</td>
                   <td>". $stat->destination . "</td>
-                  <td>". $stat->status . "</td>
                   <td>
                     <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                   

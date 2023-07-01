@@ -41,11 +41,19 @@ class CDashboardCont extends CI_Controller{
 
     }
 
-    public function seeInvoice($statslno){
+    public function seeInvoice($statslno)
+    {
         $this->load->model('users/customer/CustomerModel');
-        $invoice['invoice'] = $this->CustomerModel->seeInvoice($statslno);
-        $this->load->view('users/customer/CustomerInvoice.php',$invoice);
-
+        $invoices = $this->CustomerModel->getInvoice($statslno);
+    
+        if (!empty($invoices)) {
+            $data['invoices'] = $invoices;
+            $this->load->view('users/customer/CustomerInvoice.php', $data);
+        } else {
+            show_error('No invoices found');
+        }
     }
+    
+
 }
 ?>
