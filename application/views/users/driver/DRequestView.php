@@ -91,6 +91,55 @@
 </nav>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Invoice</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/completed';?>" method="POST">
+          <input type="hidden" name="slnoEdit" id="slnoEdit">
+          <div class="mb-3">
+            <label for="title" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameEdit" name="nameEdit" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="title" class="form-label">PickUp</label>
+            <input type="text" class="form-control" id="pickupEdit" name="pickupEdit" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Drop</label>
+            <input type="text" class="form-control" id="dropEdit" name="dropEdit" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Distance in Meters</label>
+            <input type="text" class="form-control" id="distance" name="distance" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Total Fare</label>
+            <input type="text" class="form-control" id="totalFare" name="totalFare" readonly>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send Invoice</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -138,11 +187,12 @@
                   <td>
                     <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                   
-                    <a href='$completed'><button class='btn btn-sm btn-dark'>Completed</button></a>
+                    <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
                   </td>
                   </tr>";
                 } 
                 ?>
+    
       </tbody>
     </table>
   </div>
@@ -169,6 +219,32 @@
     });
   </script>
 
+
+<script>
+    complete = document.getElementsByClassName('completed');
+    Array.from(complete).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        tr = e.target.parentNode.parentNode;
+        name = tr.getElementsByTagName("td")[0].innerText;
+        pickup = tr.getElementsByTagName("td")[2].innerText;
+        drop = tr.getElementsByTagName("td")[3].innerText;
+        nameEdit.value = name;
+        pickupEdit.value = pickup;
+        dropEdit.value = drop;
+
+        slnoEdit.value = e.target.id;
+      })
+    })
+  </script>
+
+<script>
+  // JavaScript code to update totalFare field based on distance field
+  document.getElementById("distance").addEventListener("input", function() {
+    var distance = parseFloat(this.value);
+    var totalFare = distance ? distance * 0.015 : 0;
+    document.getElementById("totalFare").value = totalFare;
+  });
+</script>
 </body>
 </html>
 

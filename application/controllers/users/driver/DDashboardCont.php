@@ -5,6 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class DDashboardCont extends CI_Controller {
     public function __construct(){
         parent::__construct();
+        $this->load->library('form_validation');
         $driver = $this->session->userdata('driver');
         if(empty($driver)){
             $this->session->set_flashdata('msg','Your Session has been Expired');
@@ -49,6 +50,19 @@ class DDashboardCont extends CI_Controller {
 
     public function completed(){
         
+        $this->form_validation->set_rules('nameEdit', 'Name', 'required');
+        $this->form_validation->set_rules('pickupEdit', 'PickUp', 'required');
+        $this->form_validation->set_rules('dropEdit', 'Drop', 'required');
+        $this->form_validation->set_rules('distance', 'Distance', 'required');
+        $this->form_validation->set_rules('totalFare', 'Total Fare', 'required');
+
+        if($this->form_validation->run() == true){
+            $nameEdit = $this->input->post('nameEdit');
+            $pickupEdit = $this->input->post('pickupEdit');
+            $dropEdit = $this->input->post('dropEdit');
+            $distance = $this->input->post('distance');
+            $totalFare = $this->input->post('totalFare');
+        }
     }
     
 }
