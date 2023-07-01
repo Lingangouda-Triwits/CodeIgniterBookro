@@ -98,9 +98,11 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create Invoice</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
       </div>
       <div class="modal-body">
         <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST">
+        
           <input type="hidden" name="slnoEdit" id="slnoEdit">
           <div class="mb-3">
             <label for="title" class="form-label">Name</label>
@@ -174,7 +176,6 @@
           $slno = $slno + 1;
           $statslno = $stat->slno;
           $start = 1;
-          $completed = site_url("users/driver/DDashboardCont/completed/$statslno") ;
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
@@ -188,7 +189,8 @@
                     <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
                   </td>
                   </tr>";
-                } 
+                  
+        } 
                 ?>
     
       </tbody>
@@ -230,7 +232,6 @@
         pickupEdit.value = pickup;
         dropEdit.value = drop;
 
-        slnoEdit.value = e.target.id;
       })
     })
   </script>

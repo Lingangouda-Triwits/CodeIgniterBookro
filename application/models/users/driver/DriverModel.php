@@ -88,19 +88,26 @@ class DriverModel extends CI_Model{
             $result = $this->db->where('demail',$userArray['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
             return $result;
         }
-    public function saveInvoice($invoiceData)
-    {
-        // Insert the invoice data into the database
-        $this->db->insert('invoices', $invoiceData);
-
-        // Check if the insertion was successful
-        if ($this->db->affected_rows() > 0) {
-            return true; // Invoice saved successfully
-        } else {
-            return false; // Failed to save the invoice
+        public function saveInvoice($invoiceData)
+        {
+            $data = array(
+                'name' => $invoiceData['name'],
+                'pickup' => $invoiceData['pickup'],
+                'drop' => $invoiceData['drop'],
+                'distance' => $invoiceData['distance'],
+                'total_fare' => $invoiceData['total_fare']
+            );
+        
+            // Update the invoice data in the database
+            $this->db->update('requestToDriver', $data);
+        
+            // Check if the update was successful
+            if ($this->db->affected_rows() > 0) {
+                return true; // Invoice saved successfully
+            } else {
+                return false; // Failed to save the invoice
+            }
         }
-    }
-
         
 }
 ?>

@@ -48,39 +48,41 @@ class DDashboardCont extends CI_Controller {
     }
 
     public function invoice()
-{
-    $this->load->library('form_validation');
+    {
+        $this->load->library('form_validation');
     
-    $this->form_validation->set_rules('nameEdit', 'Name', 'required');
-    $this->form_validation->set_rules('pickupEdit', 'PickUp', 'required');
-    $this->form_validation->set_rules('dropEdit', 'Drop', 'required');
-    $this->form_validation->set_rules('distance', 'Distance', 'required');
-    $this->form_validation->set_rules('totalFare', 'Total Fare', 'required');
-
-    if ($this->form_validation->run() == true) {
-        $userArray = $this->session->userdata('driver');
-
-        $invoiceData = array(
-            'demail' => $userArray['email'],
-            'name' => $this->input->post('nameEdit'),
-            'pickup' => $this->input->post('pickupEdit'),
-            'drop' => $this->input->post('dropEdit'),
-            'distance' => $this->input->post('distance'),
-            'total_fare' => $this->input->post('totalFare')
-        );
-
-        $this->load->model('users/driver/DriverModel');
-        $this->DriverModel->saveInvoice($invoiceData);
-        
-        echo "Success! Invoice saved.";
-
-        // Perform any additional actions or redirection as needed
-
-    } else {
-        echo "Validation failed. Please check the form and try again.";
+        // Set validation rules for the form fields
+        $this->form_validation->set_rules('nameEdit', 'Name', 'required');
+        $this->form_validation->set_rules('pickupEdit', 'Pickup', 'required');
+        $this->form_validation->set_rules('dropEdit', 'Drop', 'required');
+        $this->form_validation->set_rules('distance', 'Distance', 'required');
+        $this->form_validation->set_rules('totalFare', 'Total Fare', 'required');
+    
+        if ($this->form_validation->run() == true) {
+            $userArray = $this->session->userdata('driver');
+    
+            $invoiceData = array(
+                'demail' => $userArray['email'],
+                'name' => $this->input->post('nameEdit'),
+                'pickup' => $this->input->post('pickupEdit'),
+                'drop' => $this->input->post('dropEdit'),
+                'distance' => $this->input->post('distance'),
+                'total_fare' => $this->input->post('totalFare')
+            );
+    
+            $this->load->model('users/driver/DriverModel');
+    
+            if ($this->DriverModel->saveInvoice($invoiceData)) {
+                echo "Success! Invoice saved.";
+    
+                // Perform any additional actions or redirection as needed
+            } else {
+                echo "Failed to save the invoice. Please try again.";
+            }
+        } else {
+            echo "Validation failed. Please check the form and try again.";
+        }
     }
-}
-
     
 }
 ?>
