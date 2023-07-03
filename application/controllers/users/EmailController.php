@@ -23,9 +23,9 @@ class EmailController extends CI_Controller {
                     <h3>We respect Your effort For Reaching Us out</h3>
                     <p>Our Team will contact you soon </p>
                     <p>Any Issues Please Contact Us </p>
-                    <p>Email: lifeevent@gmail.com</p>
-                    <p>Thank Your.</p>
-                    <h4>Team LifeevenT</h4>
+                    <p>Email: bookro@gmail.com</p>
+                    <p>Thank You.</p>
+                    <h4>Team Bookro</h4>
                 </body>
                 </html>';
 
@@ -55,8 +55,8 @@ class EmailController extends CI_Controller {
        $this->load->library('email');
        $this->email->initialize($config);
        $this->email->from("rushirpatil491@gmail.com");
-       $this->email->to("$email");
-       $this->email->subject("Thank for Reaching Us Out");
+       $this->email->to($email);
+       $this->email->subject($subject);
        $this->email->message($message);
        $flag = $this->email->send();
 
