@@ -19,8 +19,7 @@
     box-sizing: border-box;
 }
 body {
-color: #e3f2fd;
-background-color: #1f2833;
+background-color: #e3f2fd;
 font-family: "Open Sans", sans-serif;
 }
 /* .contact-form {
@@ -68,9 +67,9 @@ padding: 0px 15px;
 </head>
 <body>
 <!-- this is navabar -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2c3e50;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand text-white" href="#">Bookro</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -78,16 +77,16 @@ padding: 0px 15px;
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
+          <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
+          <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
+          <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">Register</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
@@ -102,7 +101,7 @@ padding: 0px 15px;
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">Login</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>

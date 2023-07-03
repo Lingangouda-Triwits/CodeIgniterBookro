@@ -32,13 +32,16 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color: brown;
+
+        }
+        
+        body {
+            background-color: #e3f2fd;
         }
 
-        body {
-            background-color: #1f2833;
-            overflow-y: scroll;
-
+        .nav-item {
+            padding: 0px 15px;
+            
         }
         
   /* Hide the vertical scrollbar */
@@ -47,13 +50,6 @@
     background: transparent;
   }
 
-        .text-center {
-            color: #e3f2fd;
-        }
-
-        .nav-item {
-            padding: 0px 15px;
-        }
         .rounded-photo {
     width: 40px;
     height: 40px;
@@ -66,9 +62,9 @@
 </head>
 <!-- onload = "JavaScript:AutoRefresh(15000);" -->
 <body >
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2c3e50;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Bookro</a>
+        <a class="navbar-brand text-white" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -76,26 +72,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
             </ul>
 
             <!-- Right-aligned items -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Welcome <?php $driverArray = $this->session->userdata('driver'); echo $driverArray['name'];?></a>
+                    <a class="nav-link active text-white" href="#">Welcome <?php $driverArray = $this->session->userdata('driver'); echo $driverArray['name'];?></a>
                 </li>
                 <li class="nav-item">
                     <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
                 </li>
             </ul>
         </div>
@@ -118,7 +114,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-white">Customer Requests</h1>
+          <h1 class="m-0">Customer Requests</h1>
         </div>
       </div>
     </div>

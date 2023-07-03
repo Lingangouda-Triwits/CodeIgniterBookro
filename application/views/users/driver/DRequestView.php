@@ -186,13 +186,13 @@
                   <td>". $stat->destination . "</td>
                   <td>". $stat->status . "</td>
                   <td>
-                    <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                   
-                    <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
+                  <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
                   </td>
                   </tr>";
                   
-        } 
+                } 
+                // <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                 ?>
     
       </tbody>

@@ -26,11 +26,10 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color:white;
         }
 
         body {
-            background-color: #1f2833;
+            background-color: #e3f2fd;
 
 }
 
@@ -39,9 +38,6 @@ body::-webkit-scrollbar {
 width: 0;
 background: transparent;
 }
-        .text-center {
-            color: #e3f2fd;
-        }
 
         .nav-item {
             padding: 0px 15px;
@@ -51,9 +47,9 @@ background: transparent;
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1f2833;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Bookro</a>
+        <a class="navbar-brand text-white" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,21 +57,21 @@ background: transparent;
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link"href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
+                    <a class="nav-link text-white"href="<?php echo base_url().'index.php/users/HomePageCont/index';?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/HomePageCont/aboutUs'; ?>">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
                 
                 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Welcome <?php $userArray = $this->session->userdata('user'); echo $userArray['name'];?></a>
+                    <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('user'); echo $userArray['name'];?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url().'index.php/users/customer/CLogContro/logout' ?>">LogOut</a>
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/customer/CLogContro/logout' ?>">LogOut</a>
                 </li>
             </ul>
         </div>
@@ -95,7 +91,7 @@ background: transparent;
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0 text-white text-center mt-3">Book a ride here</h1>
+          <h1 class="m-0 text-center mt-3">Book a ride here</h1>
         </div>
       </div>
     </div>
@@ -137,7 +133,7 @@ background: transparent;
   <button class='btn btn-info'>Pendings</button>
 </a>
 <a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/completed';?>">
-  <button class='btn btn-info'>Completed</button>
+  <button class='btn btn-success'>Completed</button>
 </a>
 </div>
 
