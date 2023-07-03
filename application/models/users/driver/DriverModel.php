@@ -118,14 +118,15 @@ class DriverModel extends CI_Model{
             $this->db->where('name', $invoiceData['name']);
             $this->db->where('boarding', $invoiceData['pickup']);
             $this->db->where('destination', $invoiceData['drop']);
-            $query = $this->db->get('requesttodriver');
-    
+            $query = $this->db->get('requestToDriver');
             if ($query->num_rows() > 0) {
                 $row = $query->row();
                 return $row->email;
+            } else {
+                // Check for any database errors
+                $error = $this->db->error();
+                echo "Database Error: " . $error['message'];
             }
-    
-            return false;
         }
         
         

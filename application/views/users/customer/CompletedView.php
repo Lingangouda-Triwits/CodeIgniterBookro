@@ -20,7 +20,7 @@
 
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
-    <title>Bookro | Driver</title>
+    <title>Bookro | Customer</title>
     <style>
         * {
             margin: 0px;
@@ -89,7 +89,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0">Completed Requests</h1>
+          <h1 class="m-0">Invoices</h1>
         </div>
       </div>
     </div>
