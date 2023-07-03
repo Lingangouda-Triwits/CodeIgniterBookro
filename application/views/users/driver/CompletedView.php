@@ -162,9 +162,9 @@
           <th scope="col">Name</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
-          <th scope="col">Status</th>
           <th scope="col">Distance</th>
           <th scope="col">Total Fare</th>
+          <th scope="col">Status</th>
           <th scope="col">Time</th>
         </tr>
       </thead>
@@ -181,9 +181,9 @@
                         <td>" . $completed->name . "</td>
                         <td>" . $completed->pickup . "</td>
                         <td>" . $completed->drop . "</td>
-                        <td>" . $completed->status . "</td>
                         <td>" . $completed->distance . "</td>
                         <td>" . $completed->total_fare . "</td>
+                        <td>" . $completed->status . "</td>
                         <td>" . $completed->time_stamp . "</td>
                         
                     </tr>";

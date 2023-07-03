@@ -48,10 +48,22 @@ class CDashboardCont extends CI_Controller{
     
         if (!empty($invoices)) {
             $data['invoices'] = $invoices;
-            $this->load->view('users/customer/CustomerInvoice.php', $data);
+            $this->load->view('users/customer/CustomerInvoice', $data);
         } else {
             show_error('No invoices found');
         }
+    }
+
+    public function completed()
+    {
+        $userArray = $this->session->userdata('driver');
+        $driverEmail = array(
+            'demail' => $userArray['email']
+        );
+        $this->load->model('users/driver/DriverModel');
+        $completeds['completeds'] = $this->DriverModel->completed($driverEmail);
+    
+        $this->load->view('users/customer/CompletedView', $completeds);
     }
     
 
