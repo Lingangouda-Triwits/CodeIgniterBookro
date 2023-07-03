@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2023 at 07:25 AM
+-- Generation Time: Jul 03, 2023 at 08:07 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -64,7 +64,14 @@ CREATE TABLE `completed` (
 --
 
 INSERT INTO `completed` (`slno`, `email`, `demail`, `name`, `pickup`, `drop`, `distance`, `total_fare`, `time_stamp`, `status`) VALUES
-(4, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'asdgrf', 'eryerr', '234', 3.51, '2023-07-03 05:04:16', 'completed');
+(4, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'asdgrf', 'eryerr', '234', 3.51, '2023-07-03 05:04:16', 'completed'),
+(5, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '6756', 101.34, '2023-07-03 05:34:37', 'completed'),
+(6, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '67567', 1013.51, '2023-07-03 05:36:01', 'completed'),
+(7, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'yiohi', '54', 0.81, '2023-07-03 05:37:28', 'completed'),
+(8, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'abc', 'rtyrt', 'retyhrt', '5674456', 85116.8, '2023-07-03 05:45:32', 'completed'),
+(9, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'sdgag', 'agdasrfwre', '5645', 84.675, '2023-07-03 05:46:02', 'completed'),
+(10, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'rtyrt', 'retyhrt', '54675', 820.125, '2023-07-03 05:48:25', 'completed'),
+(11, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'rtyrt', 'retyhrt', '65546', 983.19, '2023-07-03 05:49:08', 'completed');
 
 -- --------------------------------------------------------
 
@@ -158,13 +165,6 @@ CREATE TABLE `requesttodriver` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `requesttodriver`
---
-
-INSERT INTO `requesttodriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `destination`, `demail`, `status`, `time_stamp`) VALUES
-(42, 'rushirpatil14@gmail.com', 'vikram', 9940567383, 'sdgag', 'agdasrfwre', '', 'pending', '2023-07-03 04:45:45');
-
---
 -- Indexes for dumped tables
 --
 
@@ -218,7 +218,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `completed`
 --
 ALTER TABLE `completed`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -242,7 +242,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `requesttodriver`
 --
 ALTER TABLE `requesttodriver`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
