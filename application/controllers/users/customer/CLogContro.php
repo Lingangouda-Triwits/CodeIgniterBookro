@@ -3,9 +3,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class CLogContro extends CI_Controller{
+    public function __construct() {
+        parent::__construct();
+        error_reporting(0); 
+    }
 
     public function index(){
-        error_reporting(0);
 
         $this->load->library('form_validation');
         $this->load->view('users/customer/CLogView');
