@@ -67,5 +67,3 @@ class DRegContro extends CI_Controller {
 }
 
 ?>
-
-
