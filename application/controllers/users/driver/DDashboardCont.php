@@ -59,8 +59,9 @@ class DDashboardCont extends CI_Controller {
         $this->form_validation->set_rules('totalFare', 'Total Fare', 'required');
     
         if ($this->form_validation->run() == true) {
+            $this->load->model('users/driver/DriverModel');
+            
             $userArray = $this->session->userdata('driver');
-        
             $invoiceData = array(
                 'demail' => $userArray['email'],
                 'name' => $this->input->post('nameEdit'),
@@ -69,10 +70,28 @@ class DDashboardCont extends CI_Controller {
                 'distance' => $this->input->post('distance'),
                 'total_fare' => $this->input->post('totalFare')
             );
+
+            $email = $this->DriverModel->fetchEmailFromRequestToDriver($invoiceData);
+            
+            if ($email !== false) {
+                // The email is fetched successfully
+                echo "Fetched email: ";
+            } else {
+                // Failed to fetch the email
+                echo "Failed to fetch the email from the requesttodriver table.";
+            }
+
+            $invoiceData = array(
+                'email' =>$email,
+                'demail' => $userArray['email'],
+                'name' => $this->input->post('nameEdit'),
+                'pickup' => $this->input->post('pickupEdit'),
+                'drop' => $this->input->post('dropEdit'),
+                'distance' => $this->input->post('distance'),
+                'total_fare' => $this->input->post('totalFare')
+            );
         
-            $this->load->model('users/driver/DriverModel');
-        
-            if ($this->DriverModel->saveInvoice($invoiceData)) {
+            
                 // Insert into completed table
                 if ($this->DriverModel->moveToCompleted($invoiceData)) {
                     // Delete from requesttodriver table
@@ -85,9 +104,7 @@ class DDashboardCont extends CI_Controller {
                 } else {
                     echo "Failed to insert the invoice into the completed table.";
                 }
-            } else {
-                echo "Failed to save the invoice. Please try again.";
-            }
+            
         } else {
             echo "Validation failed. Please check the form and try again.";
         }

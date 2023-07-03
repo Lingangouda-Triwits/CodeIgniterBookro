@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2023 at 06:24 AM
+-- Generation Time: Jul 03, 2023 at 07:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-
 CREATE TABLE `admin` (
   `slno` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
@@ -40,6 +39,32 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`slno`, `username`, `password`) VALUES
 (1, 'Admin', '$2y$10$z5JWo8QNGts6h3gesDMFQu.FK9qtFmLVui9KBpVcam0vVApKeQGyy');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `completed`
+--
+
+CREATE TABLE `completed` (
+  `slno` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `demail` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `pickup` varchar(50) NOT NULL,
+  `drop` varchar(50) NOT NULL,
+  `distance` varchar(50) NOT NULL,
+  `total_fare` float NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(20) DEFAULT 'completed'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `completed`
+--
+
+INSERT INTO `completed` (`slno`, `email`, `demail`, `name`, `pickup`, `drop`, `distance`, `total_fare`, `time_stamp`, `status`) VALUES
+(4, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'asdgrf', 'eryerr', '234', 3.51, '2023-07-03 05:04:16', 'completed');
 
 -- --------------------------------------------------------
 
@@ -128,26 +153,16 @@ CREATE TABLE `requesttodriver` (
   `boarding` varchar(100) NOT NULL,
   `destination` varchar(100) NOT NULL,
   `demail` varchar(50) NOT NULL,
-  `status` enum('pending','accepted','completed') NOT NULL DEFAULT 'pending'
+  `status` enum('pending','accepted') NOT NULL DEFAULT 'pending',
+  `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `requesttodriver`
 --
 
-INSERT INTO `requesttodriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `destination`, `demail`, `status`) VALUES
-(8, '', 'ertyert', 55555555, 'etr', 'htrftgert', '', 'pending'),
-(9, '', 'trhr', 66666, 'yhjtry', 'trherthrt', '', 'pending'),
-(12, '', 'ertyert', 55555555, 'etr', 'htrftgert', '', 'pending'),
-(14, '', 'pallavi  babaleswar', 9741812482, 'asdfasd', 'asdfsadasdfff', 'rushirpatil491@gmail.com', 'accepted'),
-(16, '', 'sadfsa', 5464, 'asdfas', 'sdfsa', '', 'pending'),
-(21, 'rushirpatil14@gmail.com', 'sagar', 9741812482, 'asfdas', 'kadapatti', '', 'pending'),
-(22, 'rushirpatil14@gmail.com', 'sdfgsd', 353, 'sdfgsd', 'sfhyerty', '', 'pending'),
-(24, 'rushirpatil491@gmail.com', 'ijthorj', 9678443627, 'tyjhtu', '5y45rfn b', '', 'accepted'),
-(26, 'rushirpatil14@gmail.com', 'vikram', 9678443627, 'hyderabad', 'pune', 'rushirpatil14@gmail.com', 'accepted'),
-(27, 'rushirpatil14@gmail.com', 'sagar', 9940567383, 'gdergre', 'asdgbva', 'rushirpatil14@gmail.com', 'accepted'),
-(28, 'rushirpatil14@gmail.com', 'sagar', 9940567383, 'fd', 'dfh', 'rushirpatil14@gmail.com', 'accepted'),
-(29, 'rushirpatil14@gmail.com', 'pallavi ', 9908564327, 'bijapur', 'dasfas', 'rushirpatil14@gmail.com', 'accepted');
+INSERT INTO `requesttodriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `destination`, `demail`, `status`, `time_stamp`) VALUES
+(42, 'rushirpatil14@gmail.com', 'vikram', 9940567383, 'sdgag', 'agdasrfwre', '', 'pending', '2023-07-03 04:45:45');
 
 --
 -- Indexes for dumped tables
@@ -157,6 +172,12 @@ INSERT INTO `requesttodriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `d
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`slno`);
+
+--
+-- Indexes for table `completed`
+--
+ALTER TABLE `completed`
   ADD PRIMARY KEY (`slno`);
 
 --
@@ -194,6 +215,12 @@ ALTER TABLE `admin`
   MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `completed`
+--
+ALTER TABLE `completed`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
@@ -215,7 +242,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `requesttodriver`
 --
 ALTER TABLE `requesttodriver`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

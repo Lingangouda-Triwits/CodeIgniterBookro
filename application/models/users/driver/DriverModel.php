@@ -88,11 +88,6 @@ class DriverModel extends CI_Model{
             $result = $this->db->where('demail',$userArray['email'])->order_by('slno', 'desc')->get('requestToDriver')->result();
             return $result;
         }
-        public function saveInvoice($invoiceData)
-        {
-            // Insert invoice data into the invoice table
-            return $this->db->insert('invoices', $invoiceData);
-        }
     
         public function moveToCompleted($invoiceData)
         {
@@ -115,6 +110,22 @@ class DriverModel extends CI_Model{
             $this->db->where('demail', $demail['demail']);
             $this->db->order_by('slno', 'desc'); // Replace 'column_name' with the actual column name to order by
             return $this->db->get('completed')->result();
+        }
+
+        public function fetchEmailFromRequestToDriver($invoiceData) {
+            $this->db->select('email');
+            $this->db->where('demail', $invoiceData['demail']);
+            $this->db->where('name', $invoiceData['name']);
+            $this->db->where('boarding', $invoiceData['pickup']);
+            $this->db->where('destination', $invoiceData['drop']);
+            $query = $this->db->get('requesttodriver');
+    
+            if ($query->num_rows() > 0) {
+                $row = $query->row();
+                return $row->email;
+            }
+    
+            return false;
         }
         
         

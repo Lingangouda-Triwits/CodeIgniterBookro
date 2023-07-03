@@ -72,75 +72,14 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
-            </ul>
-
-            <!-- Right-aligned items -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
-                </li>
-                <li class="nav-item">
-                    <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
-                </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Invoice</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST">
-        
-          <input type="hidden" name="slnoEdit" id="slnoEdit">
-          <div class="mb-3">
-            <label for="title" class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameEdit" name="nameEdit" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">PickUp</label>
-            <input type="text" class="form-control" id="pickupEdit" name="pickupEdit" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Drop</label>
-            <input type="text" class="form-control" id="dropEdit" name="dropEdit" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Distance in Meters</label>
-            <input type="text" class="form-control" id="distance" name="distance" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Total Fare</label>
-            <input type="text" class="form-control" id="totalFare" name="totalFare" readonly>
-          </div>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Send Invoice</button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
-
-
-
-
 
 <div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
@@ -150,7 +89,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0">Accepted Requests</h1>
+          <h1 class="m-0">Completed Requests</h1>
         </div>
       </div>
     </div>
@@ -163,37 +102,38 @@
         <tr>
           <th scope="col">S.No</th>
           <th scope="col">Name</th>
-          <th scope="col">Mobile Num</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Total Fare</th>
           <th scope="col">Status</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Time</th>
         </tr>
       </thead>
       <tbody>
-        <?php
+      <?php
         $slno = 0;
-        foreach ($completeds as $complete){
-          $slno = $slno + 1;
-          $statslno = $stat->slno;
-          $start = 1;
+        if (!empty($completeds)) { // Add this line to check if $completeds is not empty
+            foreach ($completeds as $completed) {
+                $slno = $slno + 1;
+                $start = 1;
 
-          echo "<tr>
-                  <th scope='row'>". $slno . "</th>
-                  <td>". $complete->name . "</td>
-                  <td>". $complete->pickup . "</td>
-                  <td>". $complete->drop . "</td>
-                  <td>". $complete->distance . "</td>
-                  <td>". $complete->total_fare . "</td>
-                  <td>
-                    <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
-                  
-                    <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
-                  </td>
-                  </tr>";
-                  
-        } 
-                ?>
+                echo "<tr>
+                        <th scope='row'>" . $slno . "</th>
+                        <td>" . $completed->name . "</td>
+                        <td>" . $completed->pickup . "</td>
+                        <td>" . $completed->drop . "</td>
+                        <td>" . $completed->distance . "</td>
+                        <td>" . $completed->total_fare . "</td>
+                        <td>" . $completed->status . "</td>
+                        <td>" . $completed->time_stamp . "</td>
+                        
+                    </tr>";
+            }
+        }
+        ?>
+
+
     
       </tbody>
     </table>
@@ -221,31 +161,6 @@
     });
   </script>
 
-
-<script>
-    complete = document.getElementsByClassName('completed');
-    Array.from(complete).forEach((element) => {
-      element.addEventListener("click", (e) => {
-        tr = e.target.parentNode.parentNode;
-        name = tr.getElementsByTagName("td")[0].innerText;
-        pickup = tr.getElementsByTagName("td")[2].innerText;
-        drop = tr.getElementsByTagName("td")[3].innerText;
-        nameEdit.value = name;
-        pickupEdit.value = pickup;
-        dropEdit.value = drop;
-
-      })
-    })
-  </script>
-
-<script>
-  // JavaScript code to update totalFare field based on distance field
-  document.getElementById("distance").addEventListener("input", function() {
-    var distance = parseFloat(this.value);
-    var totalFare = distance ? distance * 0.015 : 0;
-    document.getElementById("totalFare").value = totalFare;
-  });
-</script>
 
 
 </body>

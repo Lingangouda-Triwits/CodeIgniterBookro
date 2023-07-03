@@ -24,21 +24,21 @@ class CustomerModel extends CI_Model{
         return $query->result(); // Return all rows as an array of objects
     }
 
-    public function updateCustomer($name, $email, $mobile, $city) {
-        date_default_timezone_set('Asia/Kolkata');
-        $data = array(
-            'name' => $name,
-            'email' => $email,
-            'mobile' => $mobile,
-            'city' => $city,
-            'time_stamp' => date('Y-m-d H:i:s')
-        );
+    // public function updateCustomer($name, $email, $mobile, $city) {
+    //     date_default_timezone_set('Asia/Kolkata');
+    //     $data = array(
+    //         'name' => $name,
+    //         'email' => $email,
+    //         'mobile' => $mobile,
+    //         'city' => $city,
+    //         'time_stamp' => date('Y-m-d H:i:s')
+    //     );
 
-        // Update the customer record in the database
-        $this->db->where('email', $email);
-        $result = $this->db->update('customer', $data);
-        return $result;
-    }
+    //     // Update the customer record in the database
+    //     $this->db->where('email', $email);
+    //     $result = $this->db->update('customer', $data);
+    //     return $result;
+    // }
 
     
     public function deleteCustomer($slno) {
@@ -56,15 +56,12 @@ class CustomerModel extends CI_Model{
         return $result;
     }
 
-    public function getInvoice($statslno)
+    public function completed($customerEmail)
     {
-        $this->db->select('name, pickup, drop, distance, total_fare, time_stamp');
-        $this->db->where('slno', $statslno);
-        $result = $this->db->get('invoices')->result_array();
-    
-        return $result;
+        $this->db->where('email', $customerEmail['email']);
+        $this->db->order_by('slno', 'desc'); // Replace 'column_name' with the actual column name to order by
+        return $this->db->get('completed')->result();
     }
-    
     
     
 

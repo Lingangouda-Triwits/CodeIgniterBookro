@@ -136,7 +136,7 @@ background: transparent;
 <a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/customerRequests';?>">
   <button class='btn btn-info'>Pendings</button>
 </a>
-<a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/completed';?>">
+<a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/completed';?>">
   <button class='btn btn-info'>Completed</button>
 </a>
 </div>
@@ -161,7 +161,6 @@ background: transparent;
 
     });
   </script>
-  <!-- ...your HTML code... -->
 
 </body>
 </html>
