@@ -5,6 +5,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class DDashboardCont extends CI_Controller {
     public function __construct(){
         parent::__construct();
+        error_reporting(0);
+
         $driver = $this->session->userdata('driver');
         if(empty($driver)){
             $this->session->set_flashdata('msg','Your Session has been Expired');

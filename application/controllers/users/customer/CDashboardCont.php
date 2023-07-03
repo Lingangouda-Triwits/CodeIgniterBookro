@@ -3,7 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class CDashboardCont extends CI_Controller{
         public function __construct(){
+            error_reporting(0);
+
         parent::__construct();
+        session_start();
         $user = $this->session->userdata('user');
         if(empty($user)){
             $this->session->set_flashdata('msg','Your Session has been Expired');

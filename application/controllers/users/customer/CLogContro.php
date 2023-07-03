@@ -5,6 +5,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class CLogContro extends CI_Controller{
 
     public function index(){
+        error_reporting(0);
+
         $this->load->library('form_validation');
         $this->load->view('users/customer/CLogView');
         
@@ -60,6 +62,7 @@ class CLogContro extends CI_Controller{
 
     public function logout(){
         $this->session->unset_userdata('user');
+        $this->session->session_destroy();
         redirect(base_url().'index.php/users/HomePageCont');
     }
 }
