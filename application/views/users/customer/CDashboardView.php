@@ -134,7 +134,10 @@ background: transparent;
 </div>
 <div class ="text-center mt-3">
 <a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/customerRequests';?>">
-  <button class='btn btn-info'>Recents</button>
+  <button class='btn btn-info'>Pendings</button>
+</a>
+<a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/completed';?>">
+  <button class='btn btn-info'>Completed</button>
 </a>
 </div>
 

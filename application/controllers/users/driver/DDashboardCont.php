@@ -60,7 +60,7 @@ class DDashboardCont extends CI_Controller {
     
         if ($this->form_validation->run() == true) {
             $userArray = $this->session->userdata('driver');
-    
+        
             $invoiceData = array(
                 'demail' => $userArray['email'],
                 'name' => $this->input->post('nameEdit'),
@@ -69,20 +69,43 @@ class DDashboardCont extends CI_Controller {
                 'distance' => $this->input->post('distance'),
                 'total_fare' => $this->input->post('totalFare')
             );
-    
+        
             $this->load->model('users/driver/DriverModel');
-    
+        
             if ($this->DriverModel->saveInvoice($invoiceData)) {
-                echo "Success! Invoice saved.";
-    
-                // Perform any additional actions or redirection as needed
+                // Insert into completed table
+                if ($this->DriverModel->moveToCompleted($invoiceData)) {
+                    // Delete from requesttodriver table
+                    if ($this->DriverModel->deleteFromRequestToDriver($invoiceData['demail'], $invoiceData['name'], $invoiceData['pickup'], $invoiceData['drop'])) {
+                        echo "Success! Invoice saved and moved to the completed table.";
+                        // Perform any additional actions or redirection as needed
+                    } else {
+                        echo "Failed to delete the request from the requesttodriver table.";
+                    }
+                } else {
+                    echo "Failed to insert the invoice into the completed table.";
+                }
             } else {
                 echo "Failed to save the invoice. Please try again.";
             }
         } else {
             echo "Validation failed. Please check the form and try again.";
         }
+        
     }
+    public function completed()
+    {
+        $userArray = $this->session->userdata('driver');
+        $driverEmail = array(
+            'demail' => $userArray['email']
+        );
+        $this->load->model('users/driver/DriverModel');
+        $completeds['completeds'] = $this->DriverModel->completed($driverEmail);
+    
+        $this->load->view('users/driver/CompletedView', $completeds);
+    }
+    
+    
     
 }
 ?>

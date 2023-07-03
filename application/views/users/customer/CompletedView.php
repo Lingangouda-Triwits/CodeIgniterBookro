@@ -173,18 +173,18 @@
       <tbody>
         <?php
         $slno = 0;
-        foreach ($status as $stat){
+        foreach ($completeds as $complete){
           $slno = $slno + 1;
           $statslno = $stat->slno;
           $start = 1;
 
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
-                  <td>". $stat->name . "</td>
-                  <td>". $stat->mobile . "</td>
-                  <td>". $stat->boarding . "</td>
-                  <td>". $stat->destination . "</td>
-                  <td>". $stat->status . "</td>
+                  <td>". $complete->name . "</td>
+                  <td>". $complete->pickup . "</td>
+                  <td>". $complete->drop . "</td>
+                  <td>". $complete->distance . "</td>
+                  <td>". $complete->total_fare . "</td>
                   <td>
                     <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
                   

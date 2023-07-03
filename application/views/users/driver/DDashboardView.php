@@ -105,7 +105,9 @@
 
 <div class ="text-center mt-3">
 <a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/customerRequests';?>">
-  <button class='btn btn-info'>Recents</button>
+  <button class='btn btn-info'>Pendigs</button>
+</a><a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/completed';?>">
+  <button class='btn btn-success'>Completed</button>
 </a>
 </div>
 <div class="container mt-5">

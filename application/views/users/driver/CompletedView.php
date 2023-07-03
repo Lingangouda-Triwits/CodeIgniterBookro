@@ -80,9 +80,6 @@
                     <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
                 </li>
                 <li class="nav-item">
-                    <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
                 </li>
             </ul>
@@ -150,7 +147,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0">Accepted Requests</h1>
+          <h1 class="m-0">Completed Requests</h1>
         </div>
       </div>
     </div>
@@ -163,37 +160,38 @@
         <tr>
           <th scope="col">S.No</th>
           <th scope="col">Name</th>
-          <th scope="col">Mobile Num</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Total Fare</th>
+          <th scope="col">Time</th>
         </tr>
       </thead>
       <tbody>
-        <?php
+      <?php
         $slno = 0;
-        foreach ($status as $stat){
-          $slno = $slno + 1;
-          $statslno = $stat->slno;
-          $start = 1;
+        if (!empty($completeds)) { // Add this line to check if $completeds is not empty
+            foreach ($completeds as $completed) {
+                $slno = $slno + 1;
+                $start = 1;
 
-          echo "<tr>
-                  <th scope='row'>". $slno . "</th>
-                  <td>". $stat->name . "</td>
-                  <td>". $stat->mobile . "</td>
-                  <td>". $stat->boarding . "</td>
-                  <td>". $stat->destination . "</td>
-                  <td>". $stat->status . "</td>
-                  <td>
-                    <a href='$start'><button class='btn btn-sm btn-success'>Start</button></a>
-                  
-                    <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
-                  </td>
-                  </tr>";
-                  
-        } 
-                ?>
+                echo "<tr>
+                        <th scope='row'>" . $slno . "</th>
+                        <td>" . $completed->name . "</td>
+                        <td>" . $completed->pickup . "</td>
+                        <td>" . $completed->drop . "</td>
+                        <td>" . $completed->status . "</td>
+                        <td>" . $completed->distance . "</td>
+                        <td>" . $completed->total_fare . "</td>
+                        <td>" . $completed->time_stamp . "</td>
+                        
+                    </tr>";
+            }
+        }
+        ?>
+
+
     
       </tbody>
     </table>

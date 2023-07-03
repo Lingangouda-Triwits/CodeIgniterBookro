@@ -90,24 +90,35 @@ class DriverModel extends CI_Model{
         }
         public function saveInvoice($invoiceData)
         {
-            $data = array(
-                'name' => $invoiceData['name'],
-                'pickup' => $invoiceData['pickup'],
-                'drop' => $invoiceData['drop'],
-                'distance' => $invoiceData['distance'],
-                'total_fare' => $invoiceData['total_fare']
-            );
-        
-            // Update the invoice data in the database
-            $this->db->update('requestToDriver', $data);
-        
-            // Check if the update was successful
-            if ($this->db->affected_rows() > 0) {
-                return true; // Invoice saved successfully
-            } else {
-                return false; // Failed to save the invoice
-            }
+            // Insert invoice data into the invoice table
+            return $this->db->insert('invoices', $invoiceData);
         }
+    
+        public function moveToCompleted($invoiceData)
+        {
+            // Insert invoice data into the completed table
+            return $this->db->insert('completed', $invoiceData);
+        }
+    
+        public function deleteFromRequestToDriver($demail, $name, $pickup, $drop)
+        {
+            // Delete row from the requesttodriver table based on matching columns
+            $this->db->where('demail', $demail);
+            $this->db->where('name', $name);
+            $this->db->where('boarding', $pickup);
+            $this->db->where('destination', $drop);
+            return $this->db->delete('requestToDriver');
+        }
+
+        public function completed($demail)
+        {
+            $this->db->where('demail', $demail['demail']);
+            $this->db->order_by('slno', 'desc'); // Replace 'column_name' with the actual column name to order by
+            return $this->db->get('completed')->result();
+        }
+        
+        
+
         
 }
 ?>
