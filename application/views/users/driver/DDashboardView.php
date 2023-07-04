@@ -81,6 +81,7 @@
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
             </ul>
+            
 
             <!-- Right-aligned items -->
             <ul class="navbar-nav">

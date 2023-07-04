@@ -120,6 +120,9 @@ class DDashboardCont extends CI_Controller {
         );
         $this->load->model('users/driver/DriverModel');
         $completeds['completeds'] = $this->DriverModel->completed($driverEmail);
+        $photoData = $this->DriverModel->getPhoto($userArray);
+        $completeds['photo'] = $photoData['photo']; // Fetching the Photo of the driver
+        
     
         $this->load->view('users/driver/CompletedView', $completeds);
     }

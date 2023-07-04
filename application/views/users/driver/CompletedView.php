@@ -80,6 +80,9 @@
                     <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
                 </li>
                 <li class="nav-item">
+                    <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
                 </li>
             </ul>
