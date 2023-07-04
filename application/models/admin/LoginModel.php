@@ -5,6 +5,10 @@ class LoginModel extends CI_Model{
         $admin = $this->db->get('admin')->row_array();
         return $admin;
     }
+
+    public function contactUsData() {
+        return $this->db->get('contactUs');
+    }
 }
 
 ?>

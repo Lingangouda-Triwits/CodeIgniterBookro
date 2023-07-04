@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?php echo base_url().'index.php/users/ContactUs/data'; ?>" class="nav-link">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/data'; ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                     <p>Contacts</p>
                 </a>
