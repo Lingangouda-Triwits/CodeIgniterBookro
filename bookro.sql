@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2023 at 08:07 AM
+-- Generation Time: Jul 04, 2023 at 08:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -93,7 +93,11 @@ CREATE TABLE `contactus` (
 
 INSERT INTO `contactus` (`slno`, `fname`, `lname`, `email`, `message`) VALUES
 (1, 'govind', 'bosco', 'admin@gmail.com', 'sdfvasdfgadsf'),
-(2, 'govind', 'dfghdf', 'dfg@g', 'dfgd');
+(2, 'govind', 'dfghdf', 'dfg@g', 'dfgd'),
+(3, 'Ravi', 'bosco', 'rushirpatil14@gmail.com', 'hello am facing some issues'),
+(4, 'govind', 'dixit', 'rushirpatil14@gmail.com', 'asdgvfasd'),
+(5, 'santosh', 'bosco', 'rushirpatil14@gmail.com', 'sdgvdfgdf'),
+(6, 'govind', 'huljantti', 'rushirpatil14@gmail.com', 'jifogj');
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,8 @@ INSERT INTO `customer` (`slno`, `name`, `email`, `mobile`, `password`, `city`, `
 (5, 'lsdjfl', 'vsva@gmail.com', 433252342, 'dfcwsfc342xc', 'newyork', '2023-06-22 12:50:00'),
 (6, 'efcwqfaq', 'sadfvwer', 32222222, 'ewfgqw', 'wefq', '2023-06-22 10:19:29'),
 (8, 'rushi patil', 'rushirpatil14@gmail.com', 9741812482, '$2y$10$icafjYf9CfsCXg450F0ZCuRN8j4HIzm5s.1AJFyie4HtvnBkQRbG2', 'Bijapur', '2023-06-27 04:11:45'),
-(9, 'rushi patil', 'rushirpatil491@gmail.com', 9740802088, '$2y$10$n7keQYqCrkhnhURPC5y26O5F.vosKHrqsxngjKfFBy/oFJvIQvXOC', 'Bijapur', '2023-06-28 04:08:14');
+(9, 'rushi patil', 'rushirpatil491@gmail.com', 9740802088, '$2y$10$n7keQYqCrkhnhURPC5y26O5F.vosKHrqsxngjKfFBy/oFJvIQvXOC', 'Bijapur', '2023-06-28 04:08:14'),
+(10, 'vikram', 'rushirpatil14@gmail.om', 7777777777, '$2y$10$3hd47GSS2mJl5RPe9dx0COv/5yqknkCkJmgway5dckkVDv8YmMYJ.', 'Mangaloor', '2023-07-04 04:12:06');
 
 -- --------------------------------------------------------
 
@@ -144,7 +149,8 @@ CREATE TABLE `driver` (
 
 INSERT INTO `driver` (`slno`, `name`, `email`, `mobile`, `password`, `city`, `photo`, `time_stamp`) VALUES
 (6, 'rushi patil', 'rushirpatil14@gmail.com', 9741812482, '$2y$10$9MOx4Q.wJUzu1/Tvyw7FbO1OK/l1QWBBL5coNC1QtqyuFFK55ogZy', 'jamkhandi', 'background2.jpg', '2023-06-23 05:19:20'),
-(7, 'xyz patil', 'rushirpatil491@gmail.com', 9741812498, '$2y$10$sg3KfKwGsU1jY4HDVQJnhePCefBmnjQRqGFrUCK/OcWs0km3BI97q', 'jamkhandi', '51830004.png', '2023-06-23 05:20:43');
+(7, 'xyz patil', 'rushirpatil491@gmail.com', 974181244, '$2y$10$sg3KfKwGsU1jY4HDVQJnhePCefBmnjQRqGFrUCK/OcWs0km3BI97q', 'jamkhandi', '51830004.png', '2023-07-04 05:33:55'),
+(8, 'rushi', 'admint@gmail.com', 9940567388, '$2y$10$eMARbdzjGeQJSDgyzeYSf.KzdKl8Or9KhsTlFrH3dk8N9jsx3GjKa', 'Chadchan', 'background3.jpg', '2023-07-03 09:50:10');
 
 -- --------------------------------------------------------
 
@@ -163,6 +169,13 @@ CREATE TABLE `requesttodriver` (
   `status` enum('pending','accepted') NOT NULL DEFAULT 'pending',
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `requesttodriver`
+--
+
+INSERT INTO `requesttodriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `destination`, `demail`, `status`, `time_stamp`) VALUES
+(50, 'rushirpatil14@gmail.om', 'pallavi ', 9940567383, 'sfgsdf', 'gtrgret', '', 'pending', '2023-07-04 04:49:16');
 
 --
 -- Indexes for dumped tables
@@ -224,25 +237,25 @@ ALTER TABLE `completed`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `requesttodriver`
 --
 ALTER TABLE `requesttodriver`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

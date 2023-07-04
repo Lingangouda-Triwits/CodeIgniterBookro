@@ -10,13 +10,11 @@ class DashbController extends CI_Controller{
             redirect(base_url().'index.php/admin/LoginCont/index');
         }
     }
-
-
     public function index(){
         $admin = $this->session->userdata('admin');
         $this->load->view('admin/DashboardView');
     }
-
+    
     //to display the customer's data in the Admin Dashboard
     public function customerToAdmin() {
         $this->load->model('users/customer/CustomerModel');
@@ -111,10 +109,7 @@ class DashbController extends CI_Controller{
         }
         $this->load->model('admin/LoginModel');
         $data['contactData'] = $this->LoginModel->contactUsData();
-        $this->load->view('admin/ContactUsData',$data);
-        
+        $this->load->view('admin/ContactUsData',$data);   
     }
-    
-    
 }
 ?>
