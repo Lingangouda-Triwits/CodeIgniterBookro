@@ -111,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">Admin</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Bookro.in</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 Bookro.com.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

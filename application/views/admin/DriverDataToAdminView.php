@@ -227,7 +227,7 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Bookro.in</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 Bookro.com.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

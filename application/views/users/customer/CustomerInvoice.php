@@ -136,7 +136,7 @@ foreach ($invoices as $in) {
 
 
 <footer class="main-footer text-center mt-5">
-    <strong>Copyright &copy; 2023 Bookro.in</strong>
+    <strong>Copyright &copy; 2023 Bookro.com</strong>
     All rights reserved.
 </footer>
 

@@ -33,10 +33,6 @@
             background-color: #e3f2fd;
         }
 
-        /* .text-center {
-            color: #e3f2fd;
-        } */
-
         .nav-item {
             padding: 0px 15px;
             
@@ -203,7 +199,7 @@
 
 
 <footer class="main-footer text-center mt-5">
-    <strong>Copyright &copy; 2023 Bookro.in</strong>
+    <strong>Copyright &copy; 2023 Bookro.com</strong>
     All rights reserved.
 </footer>
 

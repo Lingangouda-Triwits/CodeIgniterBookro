@@ -65,8 +65,9 @@ background: transparent;
                 <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
+            </ul>
                 
-                
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('user'); echo $userArray['name'];?></a>
                 </li>
@@ -82,6 +83,26 @@ background: transparent;
 <!-- <div id="notification"><?php
 //  echo $this->session->flashdata('notification');
   ?></div> -->
+
+<?php 
+  $message = $this->session->flashdata('message');
+  if ($message == "success") {
+?>
+    <script type="text/javascript">
+       $(document).ready(function(){
+        $.notify({
+            icon: 'fa fa-check-circle',
+            message: "Success <b>Entry Database</b>."
+        },{
+            type: 'info',
+            timer: 4000
+        });
+     });
+   </script>
+<?php 
+  }
+?>
+
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -129,18 +150,75 @@ background: transparent;
   </div>
 </div>
 <div class ="text-center mt-3">
-<a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/customerRequests';?>">
-  <button class='btn btn-info'>Pendings</button>
-</a>
 <a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/completed';?>">
-  <button class='btn btn-success'>Completed</button>
+  <button class='btn btn-success mb-2'>Completed</button>
 </a>
 </div>
 
 
+<hr>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col">
+          <h1 class="m-0 text-center">Pending Rides</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- Main content -->
+<div class="container">
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Num</th>
+          <th scope="col">Boarding</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Status</th>
+          <!-- <th scope="col">Pay</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $slno = 0;
+        foreach ($status as $stat){
+          $slno = $slno + 1;
+          $statslno = $stat->slno;
+          $invoice = site_url("users/customer/CDashboardCont/seeInvoice/$statslno") ;
+
+          echo "<tr>
+                  <th scope='row'>". $slno . "</th>
+                  <td>". $stat->name . "</td>
+                  <td>". $stat->mobile . "</td>
+                  <td>". $stat->boarding . "</td>
+                  <td>". $stat->destination . "</td>
+                  <td>". $stat->status . "</td>
+                  </tr>";
+                } 
+                
+                ?>
+      <!-- <td>
+        <a href='$invoice'><button class='invoice btn btn-info btn-sm'>Invoice</button></a>
+      </td> -->
+      </tbody>
+    </table>
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+
 <footer class="main-footer text-center mt-5">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 Bookro.in</strong>
+    <strong>Copyright &copy; 2023 Bookro.com</strong>
     All rights reserved.
 </footer>
 

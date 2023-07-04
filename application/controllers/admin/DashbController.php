@@ -54,7 +54,7 @@ class DashbController extends CI_Controller{
     }
 
 
-    // Customer data Updtaion by Admin
+    // Customer data Updation by Admin
     public function updateCustomer() {
         $name = $this->input->post('nameEdit');
         $email = $this->input->post('emailEdit');

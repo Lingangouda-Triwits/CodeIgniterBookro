@@ -16,10 +16,10 @@ class CDashboardCont extends CI_Controller{
 
     public function index(){
         $user = $this->session->userdata('user');
-        $this->load->model('users/driver/DriverModel');
-        $data['drivers'] = $this->DriverModel->getAllDrivers(); // Retrieve driver data from the model
-            
-        $this->load->view('users/customer/CDashboardView', $data); // Load the view and pass the driver data
+        $this->load->model('users/customer/CustomerModel');
+        $data['status'] = $this->CustomerModel->getRequestStatus();
+        $this->session->set_flashdata('message', 'success');
+        $this->load->view('users/customer/CDashboardView',$data);
     }
 
     public function saveRequest(){
@@ -36,14 +36,6 @@ class CDashboardCont extends CI_Controller{
         $result = $this->DriverModel->addRequestData($dataRequest);
         echo 'your request has been successfully sent!';
     }
-
-    public function customerRequests(){
-        $this->load->model('users/customer/CustomerModel');
-        $data['status'] = $this->CustomerModel->getRequestStatus();
-        $this->load->view('users/customer/CRequestView', $data);
-
-    }
-
 
     public function completed()
     {

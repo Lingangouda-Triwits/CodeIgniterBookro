@@ -21,7 +21,6 @@ class ContactUs extends CI_Controller{
                 'email' => $this->input->post('email'),
                 'message' => $this->input->post('message')
             );
-        
             $this->ContactUsModel->contact($inputs);    
             // echo "Thank you for Contacting Us , we will get back to you soon!";
             $subject = 'Thank You For Reaching US ';
@@ -71,13 +70,10 @@ class ContactUs extends CI_Controller{
            $this->email->message($message);
            $flag = $this->email->send();
            $this->load->view('users/ContactUs');
-
-
         }
         else{
             //error
             $this->load->view('users/ContactUs');
-
         }
     }
 }

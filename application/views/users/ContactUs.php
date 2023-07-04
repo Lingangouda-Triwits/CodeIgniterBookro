@@ -120,41 +120,39 @@ padding: 0px 15px;
   </div>
 </nav>
 
-
-
-<div class="container-xl">
-<div class="row">
-<div class="col-md-8 mx-auto">
-<div class="contact-form">
-<p class="hint-text">We'd love to hear from you, please drop us a line if you've any query.</p>
-<form action="<?php echo base_url().'index.php/users/ContactUs/contact';?>" method="post">
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label for="inputFirstName">First Name</label>
-<input type="text" name="fname" class="form-control" id="inputFirstName" required>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label for="inputLastName">Last Name</label>
-<input type="text" name="lname" class="form-control" id="inputLastName" required>
-</div>
-</div>
-</div>
-<div class="form-group">
-<label for="inputEmail">Email Address</label>
-<input type="email" name="email" class="form-control" id="inputEmail" required>
-</div>
-<div class="form-group">
-<label for="inputMessage">Message</label>
-<textarea class="form-control" name="message" id="inputMessage" rows="5" required></textarea>
-</div>
-<input type="submit" class="btn btn-primary" value="Submit">
-</form>
-</div>
-</div>
-</div>
-</div>
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="contact-form">
+          <p class="hint-text">We'd love to hear from you, please drop us a line if you've any query.</p>
+          <form action="<?php echo base_url().'index.php/users/ContactUs/contact';?>" method="post">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" name="fname" class="form-control" id="inputFirstName" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" name="lname" class="form-control" id="inputLastName" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email Address</label>
+              <input type="email" name="email" class="form-control" id="inputEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="inputMessage">Message</label>
+              <textarea class="form-control" name="message" id="inputMessage" rows="5" required></textarea>
+            </div>
+              <input type="submit" class="btn btn-primary" value="Submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html> 
