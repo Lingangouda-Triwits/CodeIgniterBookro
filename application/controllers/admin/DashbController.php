@@ -102,6 +102,7 @@ class DashbController extends CI_Controller{
         }
     }
  
+    //showing the contactUs data to the admin
     public function data(){
         $admin = $this->session->userdata('admin');
         if(empty($admin)){
