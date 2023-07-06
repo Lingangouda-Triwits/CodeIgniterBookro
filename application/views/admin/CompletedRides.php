@@ -17,6 +17,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url()?>public/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- CDN of datatables -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
 </head>
@@ -51,8 +55,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link bg-white">
-      <!-- <img src="<?php echo base_url()?>public/admin/" alt="Bookro" class="brand-image img-circle elevation-3"
-           style="opacity: .8"> -->
       <span class="brand-text ml-3"><strong>Bookro</strong></span>
     </a>
 
@@ -79,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
-                <p>User Details<i class="right fas fa-angle-left"></i></p>
+                <p>Database<i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
@@ -96,12 +98,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                    <p>Completed Rides</p>
-                </a>
-            </li>
           
         </ul>
       </nav>
@@ -110,38 +106,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Admin</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body" style="height:65vh;display:flex;justify-content:center;align-items:center;">
-                <h3>Welcome to Bookro WebApplication</h3>
-              </div>
-            </div>
-          </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Contact Form Submissions</h1>
+            </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="container">
+            <table class="table" id="myTable">
+            <thead>
+                <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Customer Email</th>
+                <th scope="col">Driver Email</th>
+                <th scope="col">Customer Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $slno = 0;
+                foreach ($completedRides->result() as $row){
+                    $slno = $slno + 1;
+
+                    echo "<tr>
+                    <th scope='row'>". $slno . "</th>
+                    <td>". $row->email . "</td>
+                    <td>". $row->demail . "</td>
+                    <td>". $row->name . "</td>
+                    <td>". $row->name . "</td>
+                    <td>". $row->name . "</td>
+                    <td>". $row->name . "</td>
+                    
+                    </tr>";
+                  } 
+                
+                ?>
+            </tbody>
+            </table>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+
+
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -169,5 +186,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo base_url()?>public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>public/admin/dist/js/adminlte.min.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+
+    });
+  </script>
 </body>
 </html>
+

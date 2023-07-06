@@ -114,14 +114,16 @@ class DashbController extends CI_Controller{
  
     //showing the contactUs data to the admin
     public function data(){
-        $admin = $this->session->userdata('admin');
-        if(empty($admin)){
-            $this->session->set_flashdata('msg','Your Session has been Expired');
-            redirect(base_url().'index.php/admin/LoginCont/index');
-        }
         $this->load->model('admin/LoginModel');
         $data['contactData'] = $this->LoginModel->contactUsData();
         $this->load->view('admin/ContactUsData',$data);   
+    }
+
+    // showing the Completed Rides data to the admin
+    public function completedRides(){
+        $this->load->model('admin/LoginModel');
+        $data['completedRides'] = $this->LoginModel->completedRides();
+        $this->load->view('admin/CompletedRides', $data);
     }
 }
 ?>

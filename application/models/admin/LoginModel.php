@@ -9,6 +9,10 @@ class LoginModel extends CI_Model{
     public function contactUsData() {
         return $this->db->get('contactUs');
     }
+
+    public function completedRides(){
+        return $this->db->get('completed');
+    }
 }
 
 ?>
