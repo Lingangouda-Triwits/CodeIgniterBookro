@@ -121,7 +121,7 @@ class DriverModel extends CI_Model{
         public function completed($demail)
         {
             $this->db->where('demail', $demail['demail']);
-            $this->db->order_by('slno', 'desc'); // Replace 'column_name' with the actual column name to order by
+            $this->db->order_by('slno', 'desc'); 
             return $this->db->get('completed')->result();
         }
 
@@ -147,9 +147,5 @@ class DriverModel extends CI_Model{
             // Insert updated data into the driver table
             return $this->db->where('email', $userArray['email']) -> update('driver', $profileUpdate);
         }
-        
-        
-
-        
 }
 ?>

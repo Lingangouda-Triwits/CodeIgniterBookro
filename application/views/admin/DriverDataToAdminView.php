@@ -93,7 +93,7 @@
             <li class="nav-item has-treeview">
                 <a href="" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
-                <p>Database<i class="right fas fa-angle-left"></i></p>
+                <p>User Details<i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
@@ -109,6 +109,12 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                    <p>Completed Rides</p>
+                </a>
             </li>
           
         </ul>
@@ -190,6 +196,10 @@
                 <th scope="col">Email</th>
                 <th scope="col">Mobile Num</th>
                 <th scope="col">City</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Car Num</th>
+                <th scope="col">License Num</th>
+                <th scope="col">RC Card</th>
                 <th scope="col">Registered_On</th>
                 <th scope="col">Actions</th>
                 </tr>
@@ -208,6 +218,10 @@
                         <td>". $driver->email . "</td>
                         <td>". $driver->mobile . "</td>
                         <td>". $driver->city . "</td>
+                        <td>". $driver->carName . "</td>
+                        <td>". $driver->carNum . "</td>
+                        <td>". $driver->licenseNum . "</td>
+                        <td>". $driver->rcCard . "</td>
                         <td>". $driver->time_stamp . "</td>
                         <td>
                           <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
