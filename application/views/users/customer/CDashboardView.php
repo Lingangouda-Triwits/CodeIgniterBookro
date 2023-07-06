@@ -160,39 +160,8 @@
             jQuery('body').append(iconElement);
         <?php } ?>
     });
-
-
-
-
-
-    // jQuery(document).ready(function() {
-    //     // Function to fetch updated content from the server
-    //     function fetchUpdatedContent() {
-    //         jQuery('#contentContainer').html('Loading...'); // Display a loading message
-
-    //         jQuery.ajax({
-    //             url: window.location.href,
-    //             cache: false,
-    //             success: function(data) {
-    //                 var newContent = jQuery(data).find('#contentContainer').html();
-    //                 jQuery('#contentContainer').html(newContent);
-    //             },
-    //             error: function() {
-    //                 console.log('Error fetching updated content');
-    //             }
-    //         });
-    //     }
-
-    //     // Refresh the content periodically using setInterval
-    //     setInterval(function() {
-    //         fetchUpdatedContent();
-    //     }, 5000); // Adjust the interval (in milliseconds) as needed
-    // });
   </script>
 </div>
-
-
-
 
 
 
