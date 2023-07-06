@@ -98,6 +98,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                    <p>Completed Rides</p>
+                </a>
+            </li>
           
         </ul>
       </nav>
@@ -126,9 +132,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <thead>
                 <tr>
                 <th scope="col">S.No</th>
-                <th scope="col">Customer Email</th>
                 <th scope="col">Driver Email</th>
+                <th scope="col">Customer Email</th>
                 <th scope="col">Customer Name</th>
+                <th scope="col">PickUp</th>
+                <th scope="col">Drop</th>
+                <th scope="col">Distance in k/m</th>
+                <th scope="col">Total Fare</th>
+                <th scope="col">Completed_At</th>
                 </tr>
             </thead>
             <tbody>
@@ -139,12 +150,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     echo "<tr>
                     <th scope='row'>". $slno . "</th>
-                    <td>". $row->email . "</td>
                     <td>". $row->demail . "</td>
+                    <td>". $row->email . "</td>
                     <td>". $row->name . "</td>
-                    <td>". $row->name . "</td>
-                    <td>". $row->name . "</td>
-                    <td>". $row->name . "</td>
+                    <td>". $row->pickup . "</td>
+                    <td>". $row->drop . "</td>
+                    <td>". $row->distance . "</td>
+                    <td>". $row->total_fare . "</td>
+                    <td>". $row->time_stamp . "</td>
                     
                     </tr>";
                   } 

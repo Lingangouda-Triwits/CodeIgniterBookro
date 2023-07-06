@@ -138,8 +138,45 @@ class DDashboardCont extends CI_Controller {
     
         $this->load->view('users/driver/CompletedView', $completeds);
     }
+
+    public function updateProfileView(){
+        $userArray = $this->session->userdata('driver');
+        $driverEmail = array(
+            'demail' => $userArray['email']
+        );
+        $this->load->model('users/driver/DriverModel');
+        $photoData = $this->DriverModel->getPhoto($userArray);
+        $photo['photo'] = $photoData['photo']; // Fetching the Photo of the driver
+        $this->load->view('users/driver/ProfileUpdate',$photo);
+    }
+
+    public function updateProfile(){
+        $this->load->library('form_validation');
     
+        // Set validation rules for the form fields
+        $this->form_validation->set_rules('carName', 'Car Name', 'required');
+        $this->form_validation->set_rules('carNum', 'Car Number', 'required');
+        $this->form_validation->set_rules('licenseNum', 'License Number', 'required');
+        $this->form_validation->set_rules('rcCard', 'RC Card', 'required');
     
+        if ($this->form_validation->run() == true) {
+            $this->load->model('users/driver/DriverModel');
+            
+            $profileUpdate = array(
+                'carName' => $this->input->post('carName'),
+                'carNum' => $this->input->post('carNum'),
+                'licenseNum' => $this->input->post('licenseNum'),
+                'rcCard' => $this->input->post('rcCard')
+            );
+            $this->DriverModel->profileUpdate($profileUpdate);
+            echo "Profile updated successfully!";
+
+        } 
+        else {
+            echo "Validation failed. Please check again.";
+        }
+
+    }
     
 }
 ?>

@@ -86,7 +86,7 @@
             <!-- Right-aligned items -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/driver/DDashboardCont/updateProfileView';?>">Welcome <?php $driverArray = $this->session->userdata('driver'); echo $driverArray['name'];?></a>
+                    <a class="nav-link active text-white" href="">Welcome <?php $driverArray = $this->session->userdata('driver'); echo $driverArray['name'];?></a>
                 </li>
                 <li class="nav-item">
                     <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
@@ -100,14 +100,6 @@
 </nav>
 
 
-<div class ="text-center mt-3">
-<a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/customerRequests';?>">
-  <button class='btn btn-info'>Pendings</button>
-</a><a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/completed';?>">
-  <button class='btn btn-success'>Completed</button>
-</a>
-</div>
-<div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -115,69 +107,52 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0">Customer Requests</h1>
+          <h1 class="m-0 text-center mt-3">Update Profile</h1>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Main content -->
-  <div class="container">
-    <table class="table" id="myTable">
-      <thead>
-        <tr>
-          <th scope="col">S.No</th>
-          <th scope="col">Name</th>
-          <th scope="col">Mobile Num</th>
-          <th scope="col">Boarding</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $slno = 0;
-        foreach ($requests as $request){
-          $slno = $slno + 1;
-          $requestslno = $request->slno;
-          $acceptUrl = site_url("users/driver/DDashboardCont/acceptRequest/$requestslno");
-
-          echo "<tr>
-                  <th scope='row'>". $slno . "</th>
-                  <td>". $request->name . "</td>
-                  <td>". $request->mobile . "</td>
-                  <td>". $request->boarding . "</td>
-                  <td>". $request->destination . "</td>
-                  <td>
-                    <a href='$acceptUrl'><button class='btn btn-sm btn-primary'>Accept</button></a>
-                  </td>
-                  </tr>";
-        } 
-        ?>
-      </tbody>
-    </table>
-  </div>
-  <!-- /.content-wrapper -->
 </div>
+
+
+
+<div class="row justify-content-center mt-3">
+  <div class="col-md-4">
+    <form action="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/updateProfile';?>" method="POST">
+      <div class="mb-3">
+        <label for="carname" class="form-label">Car Name</label>
+        <input type="text" class="form-control" id="carName" name="carName" required>
       </div>
 
-<footer class="main-footer text-center">
+      <div class="mb-3">
+        <label for="carnum" class="form-label">Car Number</label>
+        <input type="text" class="form-control" id="carNum" name="carNum" maxlength="10" required onkeyup="this.value = this.value.toUpperCase();">
+
+      </div>  
+      
+      <div class="mb-3">
+        <label for="licensenumber" class="form-label">License Number</label>
+        <input type="text" class="form-control" id="licenseNum" name="licenseNum" required>
+      </div>  
+
+      <div class="mb-3">
+        <label for="rccardnumber" class="form-label">RC Card Number</label>
+        <input type="text" class="form-control" id="rcCard" name="rcCard" required>
+      </div> 
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="main-footer text-center mt-5">
     <!-- Default to the left -->
     <strong>Copyright &copy; 2023 Bookro.com</strong>
     All rights reserved.
 </footer>
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#myTable').DataTable();
 
-    });
-  </script>
 
 </body>
 </html>

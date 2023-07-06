@@ -141,6 +141,12 @@ class DriverModel extends CI_Model{
                 echo "Database Error: " . $error['message'];
             }
         }
+
+        public function profileUpdate($profileUpdate){
+            $userArray = $this->session->userdata('driver');
+            // Insert updated data into the driver table
+            return $this->db->where('email', $userArray['email']) -> update('driver', $profileUpdate);
+        }
         
         
 
