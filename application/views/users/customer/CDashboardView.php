@@ -118,47 +118,41 @@
     </div>
 </nav>
 
-
 <div id="contentContainer">
-  <!-- to show notification to the customer -->
   <!-- Include jQuery library -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
-
-        <?php if (!empty($messages)) { ?>
-
-
-            toastr.options = {
-                closeButton: true,
-                progressBar: true,
-                tapToDismiss: false,
-                timeOut: 0,
-                positionClass: 'toast-top-right',
-                onclick: null,
-                showDuration: '300',
-                hideDuration: '1000',
-                showEasing: 'swing',
-                hideEasing: 'linear',
-                showMethod: 'fadeIn',
-                hideMethod: 'fadeOut',
-                iconClass: 'toast-success-icon'
-            };
-            <?php foreach ($messages as $message) { ?>
-                toastr.info('holy guacamole!, A Driver has Accepted Your Request','<?= $message ?>');
-            <?php } ?>
-            // Create the icon element
-            var iconElement = jQuery('<i class="fas fa-bell notification-icon"></i>');
-            // Add a click event handler to display the alerts again
-            iconElement.on('click', function() {
-                <?php foreach ($messages as $message) { ?>
-                    toastr.info('holy guacamole!, A Driver has Accepted Your Request', '<?= $message ?>');
-                <?php } ?>
-            });
-            // Append the icon to the body
-            jQuery('body').append(iconElement);
+      <?php if (!empty($messages)) { ?>
+        toastr.options = {
+          closeButton: true,
+          progressBar: true,
+          tapToDismiss: false,
+          timeOut: 0,
+          positionClass: 'toast-top-right',
+          onclick: null,
+          showDuration: '300',
+          hideDuration: '1000',
+          showEasing: 'swing',
+          hideEasing: 'linear',
+          showMethod: 'fadeIn',
+          hideMethod: 'fadeOut' // Change to 'toast-success-icon' for green color
+        };
+        <?php foreach ($messages as $message) { ?>
+          toastr.info('Holy guacamole! A driver has accepted your request', '<?= $message ?>');
         <?php } ?>
+        // Create the icon element
+        var iconElement = jQuery('<i class="fas fa-bell notification-icon"></i>');
+        // Add a click event handler to display the alerts again
+        iconElement.on('click', function() {
+          <?php foreach ($messages as $message) { ?>
+            toastr.info('Holy guacamole! A driver has accepted your request', '<?= $message ?>');
+          <?php } ?>
+        });
+        // Append the icon to the body
+        jQuery('body').append(iconElement);
+      <?php } ?>
     });
   </script>
 </div>

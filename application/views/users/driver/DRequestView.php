@@ -116,7 +116,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="title" class="form-label">Distance in Meters</label>
+            <label for="title" class="form-label">Distance in k/m</label>
             <input type="text" class="form-control" id="distance" name="distance" required>
           </div>
 
@@ -133,53 +133,6 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- Reject Modal -->
-<div class="modal fade" id="exampleModalReject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Do you really want to Reject</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/rejectRequest';?>" method="POST">
-        
-          <input type="hidden" name="slnoEdit" id="slnoEdit">
-          <div class="mb-3">
-            <label for="title" class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameReject" name="nameReject" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Mobile Number</label>
-            <input type="text" class="form-control" id="mobileReject" name="mobileReject" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">PickUp</label>
-            <input type="text" class="form-control" id="pickupReject" name="pickupReject" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Drop</label>
-            <input type="text" class="form-control" id="dropReject" name="dropReject" readonly>
-          </div>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-danger">Reject</button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
-
-
-
 
 
 
@@ -217,9 +170,8 @@
         $slno = 0;
         foreach ($status as $stat){
           $slno = $slno + 1;
-          $statslno = $stat->slno;
-          $start = 1;
-
+          $rejectslno = $stat->slno;
+          $rejectUrl = site_url("users/driver/DDashboardCont/rejectRequest/$rejectslno");
           echo "<tr>
                   <th scope='row'>". $slno . "</th>
                   <td>". $stat->name . "</td>
@@ -230,7 +182,7 @@
                   <td>
                   
                   <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>
-                  <button type='button' class='reject btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModalReject'>Reject</button>
+                  <a href='$rejectUrl'><button class='btn btn-sm btn-danger'>Reject</button></a>
                   </td>
                 </tr>";
                   
@@ -275,24 +227,6 @@
         nameEdit.value = name;
         pickupEdit.value = pickup;
         dropEdit.value = drop;
-
-      })
-    })
-  </script>
-
-<script>
-    reject = document.getElementsByClassName('reject');
-    Array.from(reject).forEach((element) => {
-      element.addEventListener("click", (e) => {
-        tr = e.target.parentNode.parentNode;
-        name = tr.getElementsByTagName("td")[0].innerText;
-        mobile = tr.getElementsByTagName("td")[1].innerText;
-        pickup = tr.getElementsByTagName("td")[2].innerText;
-        drop = tr.getElementsByTagName("td")[3].innerText;
-        nameReject.value = name;
-        mobileReject.value = mobile;
-        pickupReject.value = pickup;
-        dropReject.value = drop;
 
       })
     })

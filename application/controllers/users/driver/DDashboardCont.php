@@ -39,6 +39,18 @@ class DDashboardCont extends CI_Controller {
         }
     }
 
+    public function rejectRequest($slno){
+        $this->load->model('users/driver/DriverModel');
+
+        if ($this->DriverModel->rejectRequestStatus($slno)) {
+            // customer successfully Accepted
+            echo '<script>alert("Request Rejected Successfully.");</script>';
+        } else {
+            // Failed to Accept the Customer
+            echo '<script>alert("Failed to Reject the Request.");</script>';
+        }
+    }
+
     public function customerRequests(){
         $driverArray = $this->session->userdata('driver');
         $this->load->model('users/driver/DriverModel');

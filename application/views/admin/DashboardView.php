@@ -76,10 +76,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <p>Contacts</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="<?php echo base_url().'index.php/admin/DashbController/data'; ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                    <p>Ride Details</p>
+                </a>
+            </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
-                <p>Database<i class="right fas fa-angle-left"></i></p>
+                <p>User Details<i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
