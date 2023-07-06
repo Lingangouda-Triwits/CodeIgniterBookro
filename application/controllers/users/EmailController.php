@@ -6,8 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class EmailController extends CI_Controller {
 
     public function index() {
-        $this->load->view('users/email/contact');
+        $messages = array("Message 1");
+        $this->load->view('users/email/contact', array('messages' => $messages));
     }
+    
 
     public function send(){
         $email = $this->input->post('email');

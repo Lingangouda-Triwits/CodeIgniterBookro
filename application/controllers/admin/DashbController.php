@@ -45,11 +45,13 @@ class DashbController extends CI_Controller{
 
         if ($result) {
             // Success message or redirect to a success page
-            echo '<script>alert("successfully updated");</script>';
+            $this->session->set_flashdata('driver','Updated Successfully');
+            redirect(base_url().'index.php/admin/DashbController/driverToAdmin');
 
         } else {
             // Error message or redirect to an error page
-            echo 'failed to update';
+            $this->session->set_flashdata('driver','Failed to Update');
+            redirect(base_url().'index.php/admin/DashbController/driverToAdmin');
         }
     }
 
@@ -66,13 +68,17 @@ class DashbController extends CI_Controller{
         // Call the updateCustomer method in the model
         $result = $this->CustomerModel->updateCustomer($name, $email, $mobile, $city);
 
+
         if ($result) {
             // Success message or redirect to a success page
-            echo '<script>alert("successfully updated");</script>';
+            $this->session->set_flashdata('customer','Updated Successfully');
+            redirect(base_url().'index.php/admin/DashbController/customerToAdmin');
 
         } else {
             // Error message or redirect to an error page
-            echo '<script>alert("Failed to update");</script>'; 
+            $this->session->set_flashdata('customer','Failed to Update');
+            redirect(base_url().'index.php/admin/DashbController/customerToAdmin');
+
         }
     }
 
@@ -81,10 +87,12 @@ class DashbController extends CI_Controller{
     
         if ($this->DriverModel->deleteDriver($slno)) {
             // Driver successfully deleted
-            echo '<script>alert("Driver deleted.");</script>';
+            $this->session->set_flashdata('driver','Deleted Successfully');
+            redirect(base_url().'index.php/admin/DashbController/driverToAdmin');
         } else {
             // Failed to delete the driver
-            echo '<script>alert("Failed to delete driver.");</script>';
+            $this->session->set_flashdata('driver','Failed to Delete');
+            redirect(base_url().'index.php/admin/DashbController/driverToAdmin');
         }
     }
 
@@ -93,10 +101,14 @@ class DashbController extends CI_Controller{
     
         if ($this->CustomerModel->deleteCustomer($slno)) {
             // customer successfully deleted
-            echo '<script>alert("Customer deleted.");</script>';
+            $this->session->set_flashdata('customer','Deleted Successfully');
+            redirect(base_url().'index.php/admin/DashbController/customerToAdmin');
+
         } else {
             // Failed to delete the Customer
-            echo '<script>alert("Failed to delete Customer.");</script>';
+            $this->session->set_flashdata('customer','Failed to Delete');
+            redirect(base_url().'index.php/admin/DashbController/customerToAdmin');
+
         }
     }
  

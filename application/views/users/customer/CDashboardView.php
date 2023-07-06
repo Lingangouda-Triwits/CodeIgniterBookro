@@ -20,6 +20,10 @@
 
   <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon1.ico" type="image/x-icon">
 
+  <!-- for the notification -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
     <title>Bookro | Customer</title>
     <style>
         * {
@@ -30,17 +34,52 @@
 
         body {
             background-color: #e3f2fd;
+        }
 
-}
-
-/* Hide the vertical scrollbar */
-body::-webkit-scrollbar {
-width: 0;
-background: transparent;
-}
+        /* Hide the vertical scrollbar */
+        body::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
 
         .nav-item {
             padding: 0px 15px;
+        }
+
+        .notification-icon {
+            position: fixed;
+            top: 65px;
+            right: 20px;
+            font-size: 24px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        @media (max-width: 576px) {
+            /* Styles for small devices */
+            .notification-icon {
+                top: 55px;
+                right: 10px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Styles for medium devices */
+            .notification-icon {
+                top: 55px;
+                right: 15px;
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* Styles for large devices */
+            .notification-icon {
+                top: 55px;
+                right: 20px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -79,29 +118,81 @@ background: transparent;
     </div>
 </nav>
 
-<!-- to show notification to the customer -->
-<!-- <div id="notification"><?php
-//  echo $this->session->flashdata('notification');
-  ?></div> -->
 
-<?php 
-  $message = $this->session->flashdata('message');
-  if ($message == "success") {
-?>
-    <script type="text/javascript">
-       $(document).ready(function(){
-        $.notify({
-            icon: 'fa fa-check-circle',
-            message: "Success <b>Entry Database</b>."
-        },{
-            type: 'info',
-            timer: 4000
-        });
-     });
-   </script>
-<?php 
-  }
-?>
+<div id="contentContainer">
+  <!-- to show notification to the customer -->
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+
+        <?php if (!empty($messages)) { ?>
+
+
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                tapToDismiss: false,
+                timeOut: 0,
+                positionClass: 'toast-top-right',
+                onclick: null,
+                showDuration: '300',
+                hideDuration: '1000',
+                showEasing: 'swing',
+                hideEasing: 'linear',
+                showMethod: 'fadeIn',
+                hideMethod: 'fadeOut',
+                iconClass: 'toast-success-icon'
+            };
+            <?php foreach ($messages as $message) { ?>
+                toastr.info('holy guacamole!, A Driver has Accepted Your Request','<?= $message ?>');
+            <?php } ?>
+            // Create the icon element
+            var iconElement = jQuery('<i class="fas fa-bell notification-icon"></i>');
+            // Add a click event handler to display the alerts again
+            iconElement.on('click', function() {
+                <?php foreach ($messages as $message) { ?>
+                    toastr.info('holy guacamole!, A Driver has Accepted Your Request', '<?= $message ?>');
+                <?php } ?>
+            });
+            // Append the icon to the body
+            jQuery('body').append(iconElement);
+        <?php } ?>
+    });
+
+
+
+
+
+    // jQuery(document).ready(function() {
+    //     // Function to fetch updated content from the server
+    //     function fetchUpdatedContent() {
+    //         jQuery('#contentContainer').html('Loading...'); // Display a loading message
+
+    //         jQuery.ajax({
+    //             url: window.location.href,
+    //             cache: false,
+    //             success: function(data) {
+    //                 var newContent = jQuery(data).find('#contentContainer').html();
+    //                 jQuery('#contentContainer').html(newContent);
+    //             },
+    //             error: function() {
+    //                 console.log('Error fetching updated content');
+    //             }
+    //         });
+    //     }
+
+    //     // Refresh the content periodically using setInterval
+    //     setInterval(function() {
+    //         fetchUpdatedContent();
+    //     }, 5000); // Adjust the interval (in milliseconds) as needed
+    // });
+  </script>
+</div>
+
+
+
 
 
 
@@ -225,9 +316,9 @@ background: transparent;
 <!-- the cdn of jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function () {
@@ -235,6 +326,7 @@ background: transparent;
 
     });
   </script>
-
 </body>
 </html>
+
+

@@ -85,13 +85,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/customerToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Customers</p>
+                        <p>Customers Info</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/driverToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Drivers</p>
+                        <p>Drivers Info</p>
                         </a>
                     </li>
                 </ul>

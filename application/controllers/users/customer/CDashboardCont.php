@@ -6,22 +6,25 @@ class CDashboardCont extends CI_Controller{
             error_reporting(0);
 
         parent::__construct();
-        session_start();
         $user = $this->session->userdata('user');
         if(empty($user)){
             $this->session->set_flashdata('msg','Your Session has been Expired');
             redirect(base_url().'index.php/users/HomePageCont/index');
         }
     }
-
     public function index(){
         $user = $this->session->userdata('user');
         $this->load->model('users/customer/CustomerModel');
         $data['status'] = $this->CustomerModel->getRequestStatus();
-        $this->session->set_flashdata('message', 'success');
-        $this->load->view('users/customer/CDashboardView',$data);
-    }
+        $data['acceptedData'] = $this->CustomerModel->getDataWithAcceptedStatus($user['email']);
+        $data['messages'] = [];
 
+        if (!empty($data['acceptedData'])) {
+        $data['messages'] = array($this->session->flashdata('message'));
+        }
+        $this->load->view('users/customer/CDashboardView', $data);
+    }
+    
     public function saveRequest(){
         $this->load->model('users/driver/DriverModel');
         $user = $this->session->userdata('user');

@@ -56,6 +56,15 @@ class CustomerModel extends CI_Model{
         return $result;
     }
 
+        public function getDataWithAcceptedStatus($email) {
+            $this->db->where('status', 'accepted');
+            $this->db->where('email', $email);
+            $query = $this->db->get('requestToDriver');
+    
+            return $query->result();
+        }
+    
+
     public function completed($customerEmail)
     {
         $this->db->where('email', $customerEmail['email']);

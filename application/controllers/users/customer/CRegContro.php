@@ -15,6 +15,7 @@ class CRegContro extends CI_Controller {
     }
 
     public function insertData() {
+        $data['message'] = ''; // Initialize the message variable
         // Form validation rules
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -35,22 +36,20 @@ class CRegContro extends CI_Controller {
             // Check if the email or mobile number already exist in the database
             $existingData = $this->CustomerModel->getByEmailOrMobile($data['email'], $data['mobile']);
             if ($existingData) {
-                echo "Email or mobile number already exists."; // Display the error message
+                $data['message'] = 'Email or mobile number already exists in the database.';
             } else {
                 $result = $this->CustomerModel->insertData($data);
 
                 if ($result) {
-                    echo "Data inserted successfully!"; // Display success message
+                    $data['message'] = 'Registration successful!'; // Update the success message
                 } else {
-                    echo "Failed to insert data."; // Display error message
+                    $data['message'] = 'Failed to Register successfully!'; // Update the success message
                 }
             }
         }
 
-        else {
-            // Form validation failed, show the form view with validation errors
-            $this->load->view('users/customer/CRegView');
-        }
+            // Pass the $data variable to the view
+            $this->load->view('users/customer/CRegView',$data);
             
     }
 }

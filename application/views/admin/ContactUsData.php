@@ -87,13 +87,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/customerToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Customers</p>
+                        <p>Customers Info</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/driverToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Drivers</p>
+                        <p>Drivers Info</p>
                         </a>
                     </li>
                 </ul>
@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Contacts Data</h1>
+                <h1 class="m-0 text-dark">Contact Form Submissions</h1>
             </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->

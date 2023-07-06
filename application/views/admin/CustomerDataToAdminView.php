@@ -50,6 +50,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </ul>
   </nav>
   <!-- /.navbar -->
+  <div style="display: flex; justify-content: center;">
+    <?php
+    if (!empty($this->session->flashdata('customer'))) {
+        echo "
+        <div class='alert alert-warning alert-dismissible fade show' role='alert''>
+            <strong>".$this->session->flashdata('customer')."</strong>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </div>";
+    }
+    ?>
+</div>
+
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -89,13 +103,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/customerToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Customers</p>
+                        <p>Customers Info</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo base_url().'index.php/admin/DashbController/driverToAdmin';?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Drivers</p>
+                        <p>Drivers Info</p>
                         </a>
                     </li>
                 </ul>
