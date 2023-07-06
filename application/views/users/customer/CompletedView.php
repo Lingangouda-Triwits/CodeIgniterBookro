@@ -72,11 +72,15 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/ContactUs';?>">Contact Us</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/driver/DLogContro/logout';?>">LogOut</a>
+                    <a class="nav-link active text-white" href="#">Welcome <?php $userArray = $this->session->userdata('user'); echo $userArray['name'];?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="<?php echo base_url().'index.php/users/customer/CLogContro/logout' ?>">LogOut</a>
                 </li>
             </ul>
-
         </div>
     </div>
 </nav>
