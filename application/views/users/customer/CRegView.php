@@ -79,6 +79,7 @@
             </div>
           </div>
         </div>
+        <p id="passwordRequirement"></p>
 
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Retype password" required style="background-color: #e3f2fd;">
@@ -150,5 +151,26 @@
         password.onchange = validatePassword;
         confirm_password.onkeyup = validatePassword;
     </script>
+
+<script>
+  // Get the password input field and the password pattern
+  var passwordInput = document.getElementById("password");
+  var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+  // Function to update the password requirement message
+  function updatePasswordRequirement() {
+    var requirementMessage = "Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long.";
+
+    if (passwordInput.value.match(passwordPattern)) {
+      requirementMessage = "Password meets the requirements.";
+    }
+
+    // Display the requirement message
+    document.getElementById("passwordRequirement").innerText = requirementMessage;
+  }
+
+  // Add an event listener to the password input field
+  passwordInput.addEventListener("input", updatePasswordRequirement);
+</script>
 </body>
 </html>
