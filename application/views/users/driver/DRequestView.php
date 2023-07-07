@@ -220,7 +220,7 @@
     });
   </script>
 
-
+<!-- to send the data to the modal -->
 <script>
     complete = document.getElementsByClassName('completed');
     Array.from(complete).forEach((element) => {
