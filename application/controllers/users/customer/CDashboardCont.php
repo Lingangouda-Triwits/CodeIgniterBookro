@@ -33,7 +33,8 @@ class CDashboardCont extends CI_Controller{
         'name' => $this->input->post('name'),
         'mobile' => $this->input->post('mobile'),
         'boarding' => $this->input->post('boarding'),
-        'destination' => $this->input->post('destination')
+        'destination' => $this->input->post('destination'),
+        'totalPeople' => $this->input->post('totalPeople')
         );
 
         $result = $this->DriverModel->addRequestData($dataRequest);

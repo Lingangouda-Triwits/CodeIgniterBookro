@@ -102,9 +102,9 @@
 
 <div class ="text-center mt-3">
 <a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/customerRequests';?>">
-  <button class='btn btn-info'>Pendings</button>
+  <button class='btn btn-info'>Pending Rides</button>
 </a><a href="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/completed';?>">
-  <button class='btn btn-success'>Completed</button>
+  <button class='btn btn-success'>Completeds</button>
 </a>
 </div>
 <div class="container mt-5">
@@ -131,6 +131,7 @@
           <th scope="col">Mobile Num</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
+          <th scope="col">Number of Seats</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -148,6 +149,7 @@
                   <td>". $request->mobile . "</td>
                   <td>". $request->boarding . "</td>
                   <td>". $request->destination . "</td>
+                  <td>". $request->totalPeople . "</td>
                   <td>
                     <a href='$acceptUrl'><button class='btn btn-sm btn-primary'>Accept</button></a>
                   </td>

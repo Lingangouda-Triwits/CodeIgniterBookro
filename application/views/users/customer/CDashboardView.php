@@ -174,38 +174,43 @@
 </div>
 
 
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center mt-2">
   <div class="col-md-4">
     <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST">
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="name" name="name" required>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="mobile" class="form-label">Mobile Number</label>
         <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';">  
       </div>  
       
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="boarding" class="form-label">Address: Boarding</label>
         <input type="text" class="form-control" id="boarding" name="boarding" required>
       </div>  
 
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="destination" class="form-label">Destination</label>
         <input type="text" class="form-control" id="destination" name="destination" required>
       </div> 
 
+      <div class="mb-1">
+        <label for="totalIndividuals" class="form-label">Number of Seats</label>
+        <input type="text" class="form-control" id="totalPeople" name="totalPeople" required>
+      </div> 
+
       <div class="text-center">
-        <button type="submit" class="btn btn-primary mt-3">Request</button>
+        <button type="submit" class="btn btn-primary mt-3">Send Request</button>
       </div>
     </form>
   </div>
 </div>
 <div class ="text-center mt-3">
 <a href="<?php echo base_url(). 'index.php/users/customer/CDashboardCont/completed';?>">
-  <button class='btn btn-success mb-2'>Completed</button>
+  <button class='btn btn-success mb-2'>Completeds</button>
 </a>
 </div>
 
