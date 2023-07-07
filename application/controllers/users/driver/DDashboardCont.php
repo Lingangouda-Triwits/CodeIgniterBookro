@@ -160,6 +160,7 @@ class DDashboardCont extends CI_Controller {
         $this->form_validation->set_rules('carNum', 'Car Number', 'required');
         $this->form_validation->set_rules('licenseNum', 'License Number', 'required');
         $this->form_validation->set_rules('rcCard', 'RC Card', 'required');
+        $this->form_validation->set_rules('aadharNum', 'Aadhar Number', 'required');
     
         if ($this->form_validation->run() == true) {
             $this->load->model('users/driver/DriverModel');
@@ -168,7 +169,8 @@ class DDashboardCont extends CI_Controller {
                 'carName' => $this->input->post('carName'),
                 'carNum' => $this->input->post('carNum'),
                 'licenseNum' => $this->input->post('licenseNum'),
-                'rcCard' => $this->input->post('rcCard')
+                'rcCard' => $this->input->post('rcCard'),
+                'aadharNum' => $this->input->post('aadharNum')
             );
             $this->DriverModel->profileUpdate($profileUpdate);
             echo "Profile updated successfully!";

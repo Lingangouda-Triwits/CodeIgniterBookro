@@ -116,28 +116,32 @@
 
 
 
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center">
   <div class="col-md-4">
     <form action="<?php echo base_url(). 'index.php/users/driver/DDashboardCont/updateProfile';?>" method="POST">
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="carname" class="form-label">Car Name</label>
         <input type="text" class="form-control" id="carName" name="carName" required>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="carnum" class="form-label">Car Number</label>
         <input type="text" class="form-control" id="carNum" name="carNum" maxlength="10" required onkeyup="this.value = this.value.toUpperCase();">
-
       </div>  
       
-      <div class="mb-3">
+      <div class="mb-1">
+        <label for="rccardnumber" class="form-label">RC Card Number</label>
+        <input type="text" class="form-control" id="rcCard" name="rcCard" required>
+      </div> 
+      
+      <div class="mb-1">
         <label for="licensenumber" class="form-label">License Number</label>
         <input type="text" class="form-control" id="licenseNum" name="licenseNum" required>
       </div>  
 
-      <div class="mb-3">
-        <label for="rccardnumber" class="form-label">RC Card Number</label>
-        <input type="text" class="form-control" id="rcCard" name="rcCard" required>
+      <div class="mb-1">
+        <label for="aadharnumber" class="form-label">Aadhar Number</label>
+        <input type="text" class="form-control" id="aadharNum" name="aadharNum" minlength="12" maxlength="12" pattern="^[0-9]{12}$" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 12);" required>
       </div> 
       <div class="text-center">
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
