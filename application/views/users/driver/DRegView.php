@@ -99,7 +99,7 @@
           </div>
         </div>
 
-        <label for="">Upload Profile Picture</label>
+        <label for="">Upload Profile Pic (jpeg,jpg,png)</label>
         <div class="input-group mb-3">
           <input type="file" class="form-control" name="photo" accept=".png, .jpg, .jpeg" required style="background-color: #e3f2fd;">
           <div class="input-group-append">
