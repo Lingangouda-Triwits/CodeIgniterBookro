@@ -124,6 +124,9 @@
             <label for="title" class="form-label">Total Fare</label>
             <input type="text" class="form-control" id="totalFare" name="totalFare" readonly>
           </div>
+
+          <input type="hidden" name="totalPeople" id="totalPeople">
+
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -226,9 +229,11 @@
         name = tr.getElementsByTagName("td")[0].innerText;
         pickup = tr.getElementsByTagName("td")[2].innerText;
         drop = tr.getElementsByTagName("td")[3].innerText;
+        people = tr.getElementsByTagName("td")[4].innerText;
         nameEdit.value = name;
         pickupEdit.value = pickup;
         dropEdit.value = drop;
+        totalPeople.value = people;
 
       })
     })

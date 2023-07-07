@@ -63,7 +63,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';" style="background-color: #e3f2fd;">
+          <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number" minlength="10" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';" style="background-color: #e3f2fd;">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-phone"></span>

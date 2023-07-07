@@ -50,6 +50,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </ul>
   </nav>
   <!-- /.navbar -->
+
+  <!-- this is alert -->
   <div style="display: flex; justify-content: center;">
     <?php
     if (!empty($this->session->flashdata('customer'))) {

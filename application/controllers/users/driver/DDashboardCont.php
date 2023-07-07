@@ -82,6 +82,7 @@ class DDashboardCont extends CI_Controller {
                 'pickup' => $this->input->post('pickupEdit'),
                 'drop' => $this->input->post('dropEdit'),
                 'distance' => $this->input->post('distance'),
+                'totalPeople' => $this->input->post('totalPeople'),
                 'total_fare' => $this->input->post('totalFare')
             );
 
@@ -102,6 +103,7 @@ class DDashboardCont extends CI_Controller {
                 'pickup' => $this->input->post('pickupEdit'),
                 'drop' => $this->input->post('dropEdit'),
                 'distance' => $this->input->post('distance'),
+                'totalPeople' => $this->input->post('totalPeople'),
                 'total_fare' => $this->input->post('totalFare')
             );
         

@@ -118,6 +118,8 @@
     </div>
 </nav>
 
+
+
 <div id="contentContainer">
   <!-- Include jQuery library -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -158,6 +160,16 @@
 </div>
 
 
+<!-- Alert -->
+<div style="display: flex; justify-content: center;">
+<?php if (!empty($this->session->flashdata('requestSent'))) : ?>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong><?php echo $this->session->flashdata('requestSent');?></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<?php endif; ?>
+</div>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -176,15 +188,16 @@
 
 <div class="row justify-content-center mt-2">
   <div class="col-md-4">
-    <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST">
+    <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST" onsubmit="submitForm()">
       <div class="mb-1">
         <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
+        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]+(\s[A-Za-z]+)+" title="FirstName Space LastName" required>
+
       </div>
 
       <div class="mb-1">
         <label for="mobile" class="form-label">Mobile Number</label>
-        <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';">  
+        <input type="phone" class="form-control" id="mobile" name="mobile" minlength="10" maxlength="10" pattern="^[6-9][0-9]*$" required oninput="if(!this.value.match('^[6-9][0-9]*$'))this.value='';">  
       </div>  
       
       <div class="mb-1">
@@ -294,6 +307,24 @@
 
     });
   </script>
+<script>
+  function scrollToDataTable() {
+    const dataTable = document.getElementById("myTable");
+    dataTable.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+<script>
+  function submitForm() {
+    scrollToDataTable();
+    setTimeout(function() {
+      location.reload();
+    }, 2000);
+  }
+</script>
+
+
+
 </body>
 </html>
 

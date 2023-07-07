@@ -93,7 +93,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col">
-          <h1 class="m-0">Invoices</h1>
+          <h1 class="m-0">Completed Rides</h1>
         </div>
       </div>
     </div>
@@ -108,8 +108,8 @@
           <th scope="col">Name</th>
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
-          <th scope="col">Distance</th>
-          <th scope="col">Total Fare</th>
+          <th scope="col">Distance(k/m)</th>
+          <th scope="col">Total Fare(rs)</th>
           <th scope="col">Status</th>
           <th scope="col">Time</th>
         </tr>

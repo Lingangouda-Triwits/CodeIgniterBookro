@@ -38,7 +38,8 @@ class CDashboardCont extends CI_Controller{
         );
 
         $result = $this->DriverModel->addRequestData($dataRequest);
-        echo 'your request has been successfully sent!';
+        $this->session->set_flashdata('requestSent','your request has been successfully sent!');
+        redirect(base_url().'index.php/users/customer/CDashboardCont/index');
     }
 
     public function completed()

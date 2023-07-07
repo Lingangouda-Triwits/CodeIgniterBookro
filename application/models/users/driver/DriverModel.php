@@ -131,6 +131,7 @@ class DriverModel extends CI_Model{
             $this->db->where('name', $invoiceData['name']);
             $this->db->where('boarding', $invoiceData['pickup']);
             $this->db->where('destination', $invoiceData['drop']);
+            $this->db->where('totalPeople', $invoiceData['totalPeople']);
             $query = $this->db->get('requestToDriver');
             if ($query->num_rows() > 0) {
                 $row = $query->row();
