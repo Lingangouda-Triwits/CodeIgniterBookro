@@ -96,40 +96,29 @@
         
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST">
+        <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/sendReviews';?>" method="POST">
         
           <input type="hidden" name="slnoEdit" id="slnoEdit">
+          
           <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="nameEdit" name="nameEdit" readonly>
+            <label for="title" class="form-label">Rating (out of 5)</label>
+            <input type="text" class="form-control" id="pickupEdit" name="pickupEdit">
           </div>
 
           <div class="mb-3">
-            <label for="title" class="form-label">Rating (out of 10)</label>
-            <input type="text" class="form-control" id="pickupEdit" name="pickupEdit" readonly>
+            <label for="title" class="form-label">The Things You Loved</label>
+            <input type="text" class="form-control" id="dropEdit" name="dropEdit">
           </div>
 
           <div class="mb-3">
-            <label for="title" class="form-label">Drop</label>
-            <input type="text" class="form-control" id="dropEdit" name="dropEdit" readonly>
+            <label for="title" class="form-label">Recommendations</label>
+            <input type="text" class="form-control" id="distance" name="distance">
           </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Distance in k/m</label>
-            <input type="text" class="form-control" id="distance" name="distance" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Total Fare</label>
-            <input type="text" class="form-control" id="totalFare" name="totalFare" readonly>
-          </div>
-
-          <input type="hidden" name="totalPeople" id="totalPeople">
 
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Send Invoice</button>
+          <button type="submit" class="btn btn-primary">Send Review</button>
           </div>
         </form>
     </div>

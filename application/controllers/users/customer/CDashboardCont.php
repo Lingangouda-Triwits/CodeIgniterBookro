@@ -53,6 +53,11 @@ class CDashboardCont extends CI_Controller{
     
         $this->load->view('users/customer/CompletedView', $completeds);
     }
+
+    public function sendReviews(){
+        
+
+    }
     
 
 }
