@@ -58,6 +58,7 @@
         @media (max-width: 576px) {
             /* Styles for small devices */
             .notification-icon {
+
                 top: 55px;
                 right: 10px;
                 font-size: 20px;
@@ -290,7 +291,7 @@
 
 <footer class="main-footer text-center mt-5">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 Bookro.com</strong>
+    <strong>Copyright &copy; 2023 bookro.tdc3030.com</strong>
     All rights reserved.
 </footer>
 

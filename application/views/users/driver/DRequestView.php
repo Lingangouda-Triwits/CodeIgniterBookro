@@ -233,7 +233,7 @@
 
 
 <footer class="main-footer text-center mt-5">
-    <strong>Copyright &copy; 2023 Bookro.com</strong>
+    <strong>Copyright &copy; 2023 bookro.tdc3030.com</strong>
     All rights reserved.
 </footer>
 

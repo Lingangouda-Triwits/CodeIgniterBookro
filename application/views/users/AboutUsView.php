@@ -13,12 +13,13 @@
 
     <!-- Custom styles -->
     <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
         body {
             background-color: #e3f2fd;
-        }
-
-        .text-center {
-            color: #e3f2fd;
         }
 
         .nav-item {
@@ -86,31 +87,30 @@
     </div>
 </nav>
 
-<div class="card mb-3 mt-4 mx-auto" style="max-width: 540px;">
+<div class="card mb-3 mt-4 mx-auto" style="max-width: 600px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="card-image1.jpg" class="img-fluid rounded-start" alt="Card Image 1">
+            <img src="<?php echo base_url().'images/first.jpg';?>" class="img-fluid rounded-start" alt="Card Image 1">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">Card Title 1</h5>
-                <p class="card-text">Some quick example text to show the card's content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">Some quick example text to show the card's content. Lorem ipsum doletur, adipisicing elit. In maiores maxime id parabo sequi omnis?</p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="card mb-3 mt-4 mx-auto" style="max-width: 540px;">
+
+<div class="card mb-3 mt-4 mx-auto" style="max-width: 600px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="card-image2.jpg" class="img-fluid rounded-start" alt="Card Image 2">
+            <img src="<?php echo base_url().'images/third.jpg';?>" class="img-fluid rounded-start" alt="Card Image 2">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">Card Title 2</h5>
-                <p class="card-text">Some quick example text to show the card's content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">Some quick example text to show the card's content. Lorem ipsum dolor cing elit. Aspernatur, quidem architecto, dolore autem iseum.</p>
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="card-image1.jpg" class="img-fluid rounded-start" alt="Card Image 1">
+                        <img src="<?php echo base_url().'images/second.jpg';?>" class="img-fluid rounded-start" alt="Card Image 1">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -139,7 +139,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="card-image2.jpg" class="img-fluid rounded-start" alt="Card Image 2">
+                        <img src="<?php echo base_url().'images/fourth.jpg';?>" class="img-fluid rounded-start " style="min-height:150px; min-width:150px;"  alt="Card Image 2" >
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -155,7 +155,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="card-image3.jpg" class="img-fluid rounded-start" alt="Card Image 3">
+                        <img src="<?php echo base_url().'images/fifth.jpg';?>" class="img-fluid rounded-start" style="min-height:150px; min-width:150px; alt="Card Image 3">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -172,7 +172,7 @@
 
 <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <strong>&copy; 2023 Bookro.in</strong>
+    <strong>&copy; 2023 bookro.tdc3030.com</strong>
     All rights reserved.
 </footer>
 
