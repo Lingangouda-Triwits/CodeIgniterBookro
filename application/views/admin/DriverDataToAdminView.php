@@ -200,6 +200,7 @@
                 <th scope="col">Car Num</th>
                 <th scope="col">License Num</th>
                 <th scope="col">RC Card</th>
+                <th scope="col">Aadhar Num</th>
                 <th scope="col">Registered_On</th>
                 <th scope="col">Actions</th>
                 </tr>
@@ -222,6 +223,7 @@
                         <td>". $driver->carNum . "</td>
                         <td>". $driver->licenseNum . "</td>
                         <td>". $driver->rcCard . "</td>
+                        <td>". $driver->aadharNum . "</td>
                         <td>". $driver->time_stamp . "</td>
                         <td>
                           <button class='edit btn btn-sm btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>

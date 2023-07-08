@@ -139,7 +139,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <th scope="col">Drop</th>
                 <th scope="col">Distance in k/m</th>
                 <th scope="col">Total Fare</th>
-                <th scope="col">Completed_At</th>
+                <th scope="col">Ratings</th>
+                <th scope="col">Details</th>
+                <th scope="col">Recommendations</th>
+                <th scope="col">Completed_On</th>
                 </tr>
             </thead>
             <tbody>
@@ -157,6 +160,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>". $row->drop . "</td>
                     <td>". $row->distance . "</td>
                     <td>". $row->total_fare . "</td>
+                    <td>". $row->rating . "</td>
+                    <td>". $row->things . "</td>
+                    <td>". $row->recs . "</td> 
                     <td>". $row->time_stamp . "</td>
                     
                     </tr>";

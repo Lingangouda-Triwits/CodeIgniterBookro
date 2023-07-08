@@ -135,6 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Message</th>
+                <th scope="col">Sent On</th>
                 </tr>
             </thead>
             <tbody>
@@ -148,6 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>". $row->fname . " ".$row->lname."</td>
                     <td>". $row->email . "</td>
                     <td>". $row->message . "</td>
+                    <td>". $row->time_stamp . "</td>
                     
                     </tr>";
                   } 

@@ -21,6 +21,7 @@ class DriverModel extends CI_Model{
     
 
     public function getAllDrivers() {
+        $this->db->order_by('slno', 'desc');
         $query = $this->db->get('driver');
         return $query->result(); // Return all rows as an array of objects
     }

@@ -7,10 +7,12 @@ class LoginModel extends CI_Model{
     }
 
     public function contactUsData() {
+        $this->db->order_by('slno', 'desc');
         return $this->db->get('contactUs');
     }
 
     public function completedRides(){
+        $this->db->order_by('slno', 'desc');
         return $this->db->get('completed');
     }
 }
