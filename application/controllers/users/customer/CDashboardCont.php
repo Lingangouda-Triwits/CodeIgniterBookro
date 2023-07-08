@@ -55,6 +55,33 @@ class CDashboardCont extends CI_Controller{
     }
 
     public function sendReviews(){
+        $userArray = $this->session->userdata('user');
+        $customerEmail = array(
+            'email' => $userArray['email']
+        );
+
+        $invoiceData = array(
+            'email' => $userArray['email'],
+            'name' => $this->input->post('nameEdit'),
+            'pickup' => $this->input->post('pickupEdit'),
+            'drop' => $this->input->post('dropEdit'),
+            'distance' => $this->input->post('distanceEdit'),
+            'totalPeople' => $this->input->post('totalPeopleEdit'),
+            'total_fare' => $this->input->post('totalFareEdit'),
+            'rating' => $this->input->post('rating'),
+            'things' => $this->input->post('things'),
+            'recs' => $this->input->post('recs')
+        );
+
+        $this->load->model('users/customer/CustomerModel');
+        $result = $this->CustomerModel->sendReviews($invoiceData);
+
+        if($result){
+            echo 'your review successfully submitted';
+
+        }else{
+            echo 'failed to send review';
+        }
         
 
     }

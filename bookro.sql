@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2023 at 11:26 AM
+-- Generation Time: Jul 08, 2023 at 08:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -56,6 +56,9 @@ CREATE TABLE `completed` (
   `distance` varchar(50) NOT NULL,
   `totalPeople` varchar(50) NOT NULL,
   `total_fare` float NOT NULL,
+  `rating` int(10) NOT NULL,
+  `things` varchar(50) NOT NULL,
+  `recs` varchar(50) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` varchar(20) DEFAULT 'completed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -64,23 +67,24 @@ CREATE TABLE `completed` (
 -- Dumping data for table `completed`
 --
 
-INSERT INTO `completed` (`slno`, `email`, `demail`, `name`, `pickup`, `drop`, `distance`, `totalPeople`, `total_fare`, `time_stamp`, `status`) VALUES
-(4, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'asdgrf', 'eryerr', '234', '', 3.51, '2023-07-03 05:04:16', 'completed'),
-(5, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '6756', '', 101.34, '2023-07-03 05:34:37', 'completed'),
-(6, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '67567', '', 1013.51, '2023-07-03 05:36:01', 'completed'),
-(7, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'yiohi', '54', '', 0.81, '2023-07-03 05:37:28', 'completed'),
-(8, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'abc', 'rtyrt', 'retyhrt', '5674456', '', 85116.8, '2023-07-03 05:45:32', 'completed'),
-(9, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'sdgag', 'agdasrfwre', '5645', '', 84.675, '2023-07-03 05:46:02', 'completed'),
-(10, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'rtyrt', 'retyhrt', '54675', '', 820.125, '2023-07-03 05:48:25', 'completed'),
-(11, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'rtyrt', 'retyhrt', '65546', '', 983.19, '2023-07-03 05:49:08', 'completed'),
-(12, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi', 'sdfsa', 'sdfas', '7', '', 105, '2023-07-06 04:52:34', 'completed'),
-(13, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'fghj', 'gjft', 'fgjhf', '7897', '', 118455, '2023-07-06 05:43:43', 'completed'),
-(14, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'polo ground', 'solapur', '89', '', 1335, '2023-07-07 04:10:36', 'completed'),
-(15, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sdfg', 'sdfs', 'sdfgas', '56', '', 840, '2023-07-07 04:40:46', 'completed'),
-(16, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sgds', 'bijapur', 'retyhrt', '54', '', 810, '2023-07-07 04:41:05', 'completed'),
-(17, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'polo ground', 'solapur', '2', '', 30, '2023-07-07 04:58:24', 'completed'),
-(18, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sdf', 'sdf', 'sdfsa', '5', '', 75, '2023-07-07 05:03:46', 'completed'),
-(19, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi', 'polo ground', 'hunnur', '70', '2', 1050, '2023-07-07 05:11:42', 'completed');
+INSERT INTO `completed` (`slno`, `email`, `demail`, `name`, `pickup`, `drop`, `distance`, `totalPeople`, `total_fare`, `rating`, `things`, `recs`, `time_stamp`, `status`) VALUES
+(4, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'asdgrf', 'eryerr', '234', '', 3.51, 0, '', '', '2023-07-03 05:04:16', 'completed'),
+(5, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '6756', '', 101.34, 0, '', '', '2023-07-03 05:34:37', 'completed'),
+(6, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'kadapatti', '67567', '', 1013.51, 0, '', '', '2023-07-03 05:36:01', 'completed'),
+(7, '0', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'bijapur', 'yiohi', '54', '', 0.81, 0, '', '', '2023-07-03 05:37:28', 'completed'),
+(8, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'abc', 'rtyrt', 'retyhrt', '5674456', '', 85116.8, 0, '', '', '2023-07-03 05:45:32', 'completed'),
+(9, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'sdgag', 'agdasrfwre', '5645', '', 84.675, 0, '', '', '2023-07-03 05:46:02', 'completed'),
+(10, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'vikram', 'rtyrt', 'retyhrt', '54675', '', 820.125, 0, '', '', '2023-07-03 05:48:25', 'completed'),
+(11, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi babaleswar', 'rtyrt', 'retyhrt', '65546', '', 983.19, 0, '', '', '2023-07-03 05:49:08', 'completed'),
+(12, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi', 'sdfsa', 'sdfas', '7', '', 105, 0, '', '', '2023-07-06 04:52:34', 'completed'),
+(13, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'fghj', 'gjft', 'fgjhf', '7897', '', 118455, 0, '', '', '2023-07-06 05:43:43', 'completed'),
+(14, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'polo ground', 'solapur', '89', '', 1335, 0, '', '', '2023-07-07 04:10:36', 'completed'),
+(15, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sdfg', 'sdfs', 'sdfgas', '56', '', 840, 0, '', '', '2023-07-07 04:40:46', 'completed'),
+(16, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sgds', 'bijapur', 'retyhrt', '54', '', 810, 0, '', '', '2023-07-07 04:41:05', 'completed'),
+(17, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sagar', 'polo ground', 'solapur', '2', '', 30, 0, '', '', '2023-07-07 04:58:24', 'completed'),
+(18, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'sdf', 'sdf', 'sdfsa', '5', '', 75, 0, '', '', '2023-07-07 05:03:46', 'completed'),
+(19, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'pallavi', 'polo ground', 'hunnur', '70', '2', 1050, 0, '', '', '2023-07-07 05:11:42', 'completed'),
+(20, 'rushirpatil14@gmail.com', 'rushirpatil491@gmail.com', 'div', 'drewfr', 'erfge', '3', '4', 45, 2, 'rger', 'etrghrt', '2023-07-08 05:01:34', 'completed');
 
 -- --------------------------------------------------------
 
@@ -221,7 +225,6 @@ INSERT INTO `requestToDriver` (`slno`, `email`, `name`, `mobile`, `boarding`, `d
 (85, 'rushirpatil14@gmail.com', 'pallavi ', 9908564327, 'polo ground', 'solapur', '3', '', 'pending', '2023-07-07 06:09:57'),
 (86, 'rushirpatil14@gmail.com', 'rushi patil', 9740802088, 'sdgag', 'hunnur', '2', '', 'pending', '2023-07-07 06:11:27'),
 (87, 'rushirpatil14@gmail.com', 'sad', 9898, 'dfgd', 'dfgd', '1', '', 'pending', '2023-07-07 06:14:25'),
-(88, 'rushirpatil14@gmail.com', 'div', 9908564327, 'drewfr', 'erfge', '4', 'rushirpatil491@gmail.com', 'accepted', '2023-07-07 06:15:47'),
 (89, 'rushirpatil14@gmail.com', 'sagar', 9741812482, 'kr market', 'solapur', '3', '', 'pending', '2023-07-07 06:21:19'),
 (90, 'rushirpatil14@gmail.com', 'rushi pagel', 67, 'bijapur', 'solapur', '3', '', 'pending', '2023-07-07 06:44:34');
 
@@ -244,7 +247,7 @@ ALTER TABLE `completed`
 --
 -- Indexes for table `contactus`
 --
-ALTER TABLE `contactus`
+ALTER TABLE `contactUs`
   ADD PRIMARY KEY (`slno`);
 
 --
@@ -279,7 +282,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `completed`
 --
 ALTER TABLE `completed`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `contactus`

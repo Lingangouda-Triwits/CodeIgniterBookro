@@ -73,7 +73,16 @@
             <!-- Right-aligned items -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/driver/DDashboardCont/updateProfileView';?>">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
+                    <span class="text-white" style="font-size: 10px;">Update Profile</span>
+                    <span class="text-white" style="font-size: 20px;">&rarr;</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/driver/DDashboardCont/updateProfileView';?>">
+                        Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?>
+                    </a>
+                </li>
+
+
                 </li>
                 <li class="nav-item">
                     <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">

@@ -98,21 +98,28 @@
       <div class="modal-body">
         <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/sendReviews';?>" method="POST">
         
-          <input type="hidden" name="slnoEdit" id="slnoEdit">
+          <input type="hidden" name="nameEdit" id="nameEdit">
+          <input type="hidden" name="pickupEdit" id="pickupEdit">
+          <input type="hidden" name="dropEdit" id="dropEdit">
+          <input type="hidden" name="distanceEdit" id="distanceEdit">
+          <input type="hidden" name="totalPeopleEdit" id="totalPeopleEdit">
+          <input type="hidden" name="totalFareEdit" id="totalFareEdit">
           
           <div class="mb-3">
             <label for="title" class="form-label">Rating (out of 5)</label>
-            <input type="text" class="form-control" id="pickupEdit" name="pickupEdit">
+            <input type="text" class="form-control" id="rating" name="rating" pattern="[1-5]" required>
+            <small class="form-text text-muted">Please enter a number between 1 and 5.</small>
           </div>
+
 
           <div class="mb-3">
             <label for="title" class="form-label">The Things You Loved</label>
-            <input type="text" class="form-control" id="dropEdit" name="dropEdit">
+            <input type="text" class="form-control" id="things" name="things">
           </div>
 
           <div class="mb-3">
             <label for="title" class="form-label">Recommendations</label>
-            <input type="text" class="form-control" id="distance" name="distance">
+            <input type="text" class="form-control" id="recs" name="recs">
           </div>
 
           </div>
@@ -152,6 +159,7 @@
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Distance(k/m)</th>
+          <th scope="col">Seats Booked</th>
           <th scope="col">Total Fare(rs)</th>
           <th scope="col">Status</th>
           <th scope="col">Time</th>
@@ -172,11 +180,12 @@
                         <td>" . $completed->pickup . "</td>
                         <td>" . $completed->drop . "</td>
                         <td>" . $completed->distance . "</td>
+                        <td>" . $completed->totalPeople . "</td>
                         <td>" . $completed->total_fare . "</td>
                         <td>" . $completed->status . "</td>
                         <td>" . $completed->time_stamp . "</td>
                         <td>
-                          <button type='button' class='btn btn-sm btn-info' data-bs-toggle='modal'data-bs-target='#exampleModal'>review</button> 
+                          <button type='button' class='review btn btn-sm btn-info' data-bs-toggle='modal'data-bs-target='#exampleModal'>review</button> 
                         </td>
                         
                     </tr>";
@@ -210,6 +219,41 @@
       $('#myTable').DataTable();
 
     });
+  </script>
+
+<script>
+  document.getElementById("rating").addEventListener("input", function() {
+    var input = this.value;
+    var numericInput = input.replace(/[^0-9]/g, ''); // remove non-numeric characters
+    if (numericInput < 1 || numericInput > 5) {
+      numericInput = '';
+    }
+    this.value = numericInput;
+  });
+</script>
+
+
+<!-- to send the data to the modal -->
+<script>
+    reviews = document.getElementsByClassName('review');
+    Array.from(reviews).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        tr = e.target.parentNode.parentNode;
+        name = tr.getElementsByTagName("td")[0].innerText;
+        pickup = tr.getElementsByTagName("td")[1].innerText;
+        drop = tr.getElementsByTagName("td")[2].innerText;
+        distance = tr.getElementsByTagName("td")[3].innerText;
+        people = tr.getElementsByTagName("td")[4].innerText;
+        totalFare = tr.getElementsByTagName("td")[5].innerText;
+        nameEdit.value = name;
+        pickupEdit.value = pickup;
+        dropEdit.value = drop;
+        distanceEdit.value = distance;
+        totalPeopleEdit.value = people;
+        totalFareEdit.value = totalFare;
+
+      })
+    })
   </script>
 
 
