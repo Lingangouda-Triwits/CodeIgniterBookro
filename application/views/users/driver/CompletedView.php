@@ -42,6 +42,12 @@
             
         }
 
+        /* Hide the vertical scrollbar */
+    body::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+
         .rounded-photo {
     width: 40px;
     height: 40px;
@@ -76,6 +82,10 @@
 
             <!-- Right-aligned items -->
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="text-white" style="font-size: 10px;">Update Profile</span>
+                    <span class="text-white" style="font-size: 20px;">&rarr;</span>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/driver/DDashboardCont/updateProfileView';?>">Welcome <?php $userArray = $this->session->userdata('driver'); echo $userArray['name'];?></a>
                 </li>

@@ -32,10 +32,14 @@ class DDashboardCont extends CI_Controller {
 
         if ($this->DriverModel->acceptRequestStatus($slno)) {
             // customer successfully Accepted
-            echo '<script>alert("Request Accepted Successfully.");</script>';
+            $this->session->set_flashdata('accepted','Request Accepted Successfully.');
+            redirect(base_url().'index.php/users/driver/DDashboardCont/index');
+
         } else {
             // Failed to Accept the Customer
-            echo '<script>alert("Failed to Accept the Request.");</script>';
+            $this->session->set_flashdata('accepted','Failed to Accept the Request.');
+            redirect(base_url().'index.php/users/driver/DDashboardCont/index');
+
         }
     }
 
@@ -44,10 +48,12 @@ class DDashboardCont extends CI_Controller {
 
         if ($this->DriverModel->rejectRequestStatus($slno)) {
             // customer successfully Accepted
-            echo '<script>alert("Request Rejected Successfully.");</script>';
+            $this->session->set_flashdata('rejected','Request Rejected Successfully.');
+            redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
         } else {
             // Failed to Accept the Customer
-            echo '<script>alert("Failed to Reject the Request.");</script>';
+            $this->session->set_flashdata('rejected','Failed to Reject the Request.');
+            redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
         }
     }
 
@@ -87,14 +93,6 @@ class DDashboardCont extends CI_Controller {
             );
 
             $email = $this->DriverModel->fetchEmailFromRequestToDriver($invoiceData);
-            
-            if ($email !== false) {
-                // The email is fetched successfully
-                echo "Fetched email: ";
-            } else {
-                // Failed to fetch the email
-                echo "Failed to fetch the email from the requesttodriver table.";
-            }
 
             $invoiceData = array(
                 'email' =>$email,
@@ -112,17 +110,23 @@ class DDashboardCont extends CI_Controller {
                 if ($this->DriverModel->moveToCompleted($invoiceData)) {
                     // Delete from requesttodriver table
                     if ($this->DriverModel->deleteFromRequestToDriver($invoiceData['demail'], $invoiceData['name'], $invoiceData['pickup'], $invoiceData['drop'])) {
-                        echo "Success! Invoice saved and moved to the completed table.";
-                        // Perform any additional actions or redirection as needed
+                        // echo "Success! Invoice saved and moved to the completed table.";
+                        $this->session->set_flashdata('completed','Success! Invoice Saved Successfully.');
+                        redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
                     } else {
                         echo "Failed to delete the request from the requesttodriver table.";
+                        $this->session->set_flashdata('completed','Failed to delete the request.');
+                        redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
                     }
                 } else {
-                    echo "Failed to insert the invoice into the completed table.";
+                    echo "";
+                    $this->session->set_flashdata('completed','Failed to insert the invoice.');
+                    redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
                 }
             
         } else {
-            echo "Validation failed. Please check the form and try again.";
+            $this->session->set_flashdata('completed','Validation failed. Please check the form and try again.');
+            redirect(base_url().'index.php/users/driver/DDashboardCont/customerRequests');
         }
         
     }

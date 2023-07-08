@@ -46,7 +46,7 @@ class EmailController extends CI_Controller {
            $config = array(
                    'protocol' => $protocol,
                    'smtp_host' => 'ssl://smtp.googlemail.com',
-                   'smtp_port' => 465,
+                   'smtp_port' => 587,
                    'smtp_user' => 'rushirpatil491@gmail.com',
                    'smtp_pass' => 'esvvuxhrjppldkwe',
                    'mailtype' => 'html',

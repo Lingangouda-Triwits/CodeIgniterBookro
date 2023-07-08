@@ -44,7 +44,7 @@
             
         }
         
-  /* Hide the vertical scrollbar */
+  /* Hide the scrollbar */
   body::-webkit-scrollbar {
     width: 0;
     background: transparent;
@@ -86,6 +86,10 @@
             <!-- Right-aligned items -->
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <span class="text-white" style="font-size: 10px;">Update Profile</span>
+                    <span class="text-white" style="font-size: 20px;">&rarr;</span>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active text-white" href="<?php echo base_url().'index.php/users/driver/DDashboardCont/updateProfileView';?>">Welcome <?php $driverArray = $this->session->userdata('driver'); echo $driverArray['name'];?></a>
                 </li>
                 <li class="nav-item">
@@ -98,6 +102,17 @@
         </div>
     </div>
 </nav>
+
+
+<!-- Alert -->
+<div style="display: flex; justify-content: center;">
+<?php if (!empty($this->session->flashdata('accepted'))) : ?>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong><?php echo $this->session->flashdata('accepted');?></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+<?php endif; ?>
+</div>
 
 
 <div class ="text-center mt-3">
@@ -165,7 +180,7 @@
 
 <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 Bookro.com</strong>
+    <strong>Copyright &copy; 2023 bookro.tdc3030.com</strong>
     All rights reserved.
 </footer>
 

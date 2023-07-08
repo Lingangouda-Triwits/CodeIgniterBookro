@@ -86,7 +86,7 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1f2833;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2c3e50;">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">Bookro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -188,7 +188,7 @@
 
 <div class="row justify-content-center mt-2">
   <div class="col-md-4">
-    <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST" onsubmit="submitForm()">
+    <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST" >
       <div class="mb-1">
         <label for="name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]+(\s[A-Za-z]+)+" title="FirstName Space LastName" required>
@@ -307,6 +307,8 @@
 
     });
   </script>
+<!-- 
+onsubmit="submitForm()"
 <script>
   function scrollToDataTable() {
     const dataTable = document.getElementById("myTable");
@@ -321,7 +323,7 @@
       location.reload();
     }, 2000);
   }
-</script>
+</script> -->
 
 
 

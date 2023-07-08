@@ -82,7 +82,6 @@
                     </a>
                 </li>
 
-
                 </li>
                 <li class="nav-item">
                     <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Driver Photo" class="rounded-photo">
@@ -94,6 +93,29 @@
         </div>
     </div>
 </nav>
+
+
+
+<!-- Alert for Reject -->
+<div style="display: flex; justify-content: center;">
+<?php if (!empty($this->session->flashdata('rejected'))) : ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><?php echo $this->session->flashdata('rejected');?></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<?php endif; ?>
+</div>
+
+
+<!-- Alert for Completed -->
+<div style="display: flex; justify-content: center;">
+<?php if (!empty($this->session->flashdata('completed'))) : ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong><?php echo $this->session->flashdata('completed');?></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<?php endif; ?>
+</div>
 
 
 <!-- Completed Modal -->
