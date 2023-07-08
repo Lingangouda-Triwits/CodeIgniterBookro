@@ -115,7 +115,7 @@
           <th scope="col">Destination</th>
           <th scope="col">Distance(k/m)</th>
           <th scope="col">Total Fare(rs)</th>
-          <th scope="col">Status</th>
+          <th scope="col">Ratings</th>
           <th scope="col">Time</th>
         </tr>
       </thead>
@@ -134,7 +134,7 @@
                         <td>" . $completed->drop . "</td>
                         <td>" . $completed->distance . "</td>
                         <td>" . $completed->total_fare . "</td>
-                        <td>" . $completed->status . "</td>
+                        <td>" . $completed->rating . "</td>
                         <td>" . $completed->time_stamp . "</td>
                         
                     </tr>";

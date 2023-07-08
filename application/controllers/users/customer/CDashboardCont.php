@@ -25,6 +25,7 @@ class CDashboardCont extends CI_Controller{
         $this->load->view('users/customer/CDashboardView', $data);
     }
     
+    // to save the customer request
     public function saveRequest(){
         $this->load->model('users/driver/DriverModel');
         $user = $this->session->userdata('user');
@@ -38,7 +39,7 @@ class CDashboardCont extends CI_Controller{
         );
 
         $result = $this->DriverModel->addRequestData($dataRequest);
-        $this->session->set_flashdata('requestSent','your request has been successfully sent!');
+        $this->session->set_flashdata('requestSent','your request has been sent successfully !');
         redirect(base_url().'index.php/users/customer/CDashboardCont/index');
     }
 
