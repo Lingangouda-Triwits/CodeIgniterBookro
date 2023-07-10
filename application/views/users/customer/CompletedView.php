@@ -134,7 +134,6 @@
 
 
 
-
 <div class="container mt-5">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -163,38 +162,50 @@
           <th scope="col">Total Fare(rs)</th>
           <th scope="col">Status</th>
           <th scope="col">Time</th>
+          <th scope="col">qr</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
       <?php
-        $slno = 0;
-        if (!empty($completeds)) { // Add this line to check if $completeds is not empty
-            foreach ($completeds as $completed) {
-                $slno = $slno + 1;
-                $start = 1;
+$slno = 0;
+if (!empty($completeds)) {
+    foreach ($completeds as $completed) {
+        $slno = $slno + 1;
+        $start = 1;
+        $sno = $completed->slno;
+        $showQR = site_url("users/customer/CDashboardCont/showQR/$sno");
 
-                echo "<tr>
-                        <th scope='row'>" . $slno . "</th>
-                        <td>" . $completed->name . "</td>
-                        <td>" . $completed->pickup . "</td>
-                        <td>" . $completed->drop . "</td>
-                        <td>" . $completed->distance . "</td>
-                        <td>" . $completed->totalPeople . "</td>
-                        <td>" . $completed->total_fare . "</td>
-                        <td>" . $completed->status . "</td>
-                        <td>" . $completed->time_stamp . "</td>
-                        <td>
-                          <button type='button' class='review btn btn-sm btn-info' data-bs-toggle='modal'data-bs-target='#exampleModal'>review</button> 
-                        </td>
-                        
-                    </tr>";
-            }
+        echo "<tr>
+                <th scope='row'>" . $slno . "</th>
+                <td>" . $completed->name . "</td>
+                <td>" . $completed->pickup . "</td>
+                <td>" . $completed->drop . "</td>
+                <td>" . $completed->distance . "</td>
+                <td>" . $completed->totalPeople . "</td>
+                <td>" . $completed->total_fare . "</td>
+                <td>" . $completed->status . "</td>
+                <td>" . $completed->time_stamp . "</td>
+                <td>";
+        
+        if (!empty($completed->qrPhoto)) {
+            echo "<a href='" . base_url('qrFolder/' . $completed->qrPhoto) . "' target='_blank'>
+              <button type='button' class='btn btn-sm btn-secondary'>View QR</button>
+            </a>";
+        } else {
+            echo "-";
         }
-        ?>
+        
+        echo "</td>
+                <td>
+                  <button type='button' class='review btn btn-sm btn-info' data-bs-toggle='modal' data-bs-target='#exampleModal'>review</button>
+                </td>
+            </tr>";
+    }
+}
+?>
 
 
-    
       </tbody>
     </table>
   </div>

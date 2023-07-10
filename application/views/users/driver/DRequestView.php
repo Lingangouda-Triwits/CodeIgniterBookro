@@ -128,32 +128,37 @@
         
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST">
+        <form action="<?php echo base_url().'index.php/users/driver/DDashboardCont/invoice';?>" method="POST" enctype="multipart/form-data">
         
           <input type="hidden" name="slnoEdit" id="slnoEdit">
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="title" class="form-label">Name</label>
             <input type="text" class="form-control" id="nameEdit" name="nameEdit" readonly>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="title" class="form-label">PickUp</label>
             <input type="text" class="form-control" id="pickupEdit" name="pickupEdit" readonly>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="title" class="form-label">Drop</label>
             <input type="text" class="form-control" id="dropEdit" name="dropEdit" readonly>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="title" class="form-label">Distance in k/m</label>
             <input type="text" class="form-control" id="distance" name="distance" required>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="title" class="form-label">Total Fare</label>
             <input type="text" class="form-control" id="totalFare" name="totalFare" readonly>
+          </div>
+
+          <div class="mb-2">
+            <label for="title" class="form-label">Uplaod QR</label>
+            <input type="file" class="form-control" id="qrPhoto" name="qrPhoto" accept=".png, .jpg, .jpeg">
           </div>
 
           <input type="hidden" name="totalPeople" id="totalPeople">

@@ -80,6 +80,7 @@ class DDashboardCont extends CI_Controller {
     
         if ($this->form_validation->run() == true) {
             $this->load->model('users/driver/DriverModel');
+
             
             $userArray = $this->session->userdata('driver');
             $invoiceData = array(
@@ -94,6 +95,19 @@ class DDashboardCont extends CI_Controller {
 
             $email = $this->DriverModel->fetchEmailFromRequestToDriver($invoiceData);
 
+            // QR Photo Upload
+            $config['upload_path'] = './qrFolder/';
+            $config['allowed_types'] = 'jpg|jpeg|png';
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('qrPhoto')) {
+                $data['message'] = $this->upload->display_errors('<h3 style="color:red">', '</h3>');
+            }
+
+            
+            $fileData = $this->upload->data();
+            $filePath = $fileData['file_name'];
+
             $invoiceData = array(
                 'email' =>$email,
                 'demail' => $userArray['email'],
@@ -102,10 +116,10 @@ class DDashboardCont extends CI_Controller {
                 'drop' => $this->input->post('dropEdit'),
                 'distance' => $this->input->post('distance'),
                 'totalPeople' => $this->input->post('totalPeople'),
-                'total_fare' => $this->input->post('totalFare')
+                'total_fare' => $this->input->post('totalFare'),
+                'qrPhoto' => $filePath
             );
         
-            
                 // Insert into completed table
                 if ($this->DriverModel->moveToCompleted($invoiceData)) {
                     // Delete from requesttodriver table

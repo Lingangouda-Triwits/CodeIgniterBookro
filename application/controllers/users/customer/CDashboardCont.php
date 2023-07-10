@@ -86,8 +86,6 @@ class CDashboardCont extends CI_Controller{
         }else{
             echo 'failed to send review';
         }
-        
-
     }
     
 
