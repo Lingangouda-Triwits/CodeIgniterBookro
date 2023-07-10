@@ -197,6 +197,7 @@
           <th scope="col">Destination</th>
           <th scope="col">Number of Seats</th>
           <th scope="col">Status</th>
+          <th scope="col">Accepted On</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -215,6 +216,7 @@
                   <td>". $stat->destination . "</td>
                   <td>". $stat->totalPeople . "</td>
                   <td>". $stat->status . "</td>
+                  <td>". $stat->acceptedOn . "</td>
                   <td>
                   
                   <button type='button' class='completed btn btn-sm btn-dark' data-bs-toggle='modal' data-bs-target='#exampleModal'>Completed</button>

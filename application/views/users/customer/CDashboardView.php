@@ -258,7 +258,8 @@
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
-          <!-- <th scope="col">Pay</th> -->
+          <th scope="col">Requested On</th>
+          <th scope="col">Accepted On</th>
         </tr>
       </thead>
       <tbody>
@@ -276,6 +277,8 @@
                   <td>". $stat->boarding . "</td>
                   <td>". $stat->destination . "</td>
                   <td>". $stat->status . "</td>
+                  <td>". $stat->time_stamp . "</td>
+                  <td>". $stat->acceptedOn . "</td>
                   </tr>";
                 } 
                 

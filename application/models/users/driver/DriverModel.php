@@ -36,7 +36,7 @@ class DriverModel extends CI_Model{
             'time_stamp' => date('Y-m-d H:i:s')
         );
 
-        // Update the customer record in the database
+        // Update the driver record in the database
         $this->db->where('email', $email);
         $result = $this->db->update('driver', $data);
 
@@ -73,16 +73,18 @@ class DriverModel extends CI_Model{
 
         public function acceptRequestStatus($slno) {
             $userArray = $this->session->userdata('driver');
+            date_default_timezone_set('Asia/Kolkata');
             $data = array(
                 'status' => 'accepted',
-                'demail' => $userArray['email']
+                'demail' => $userArray['email'],
+                'acceptedOn' => date('Y-m-d H:i:s') // Set the "acceptedOn" column to the current date and time
             );
-            $this->db->where('slno' , $slno);
-            $this->db->update('requestToDriver',$data);
-
+            $this->db->where('slno', $slno);
+            $this->db->update('requestToDriver', $data);
+        
             return $this->db->affected_rows() > 0;
-
         }
+        
 
         public function rejectRequestStatus($slno) {
             $userArray = $this->session->userdata('driver');

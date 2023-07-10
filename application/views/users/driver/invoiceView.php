@@ -1,3 +1,5 @@
+<!-- this is just a sample code -->
+
 
 <html>
 	<head>
@@ -9,7 +11,6 @@
 	</head>
 
     <style>
-        /* reset */
 
 *
 {

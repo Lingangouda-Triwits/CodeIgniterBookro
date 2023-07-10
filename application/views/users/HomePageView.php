@@ -164,7 +164,7 @@
 
 <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 Bookro.in</strong>
+    <strong>Copyright &copy; 2023 bookro.tdc3030.com</strong>
     All rights reserved.
 </footer>
 

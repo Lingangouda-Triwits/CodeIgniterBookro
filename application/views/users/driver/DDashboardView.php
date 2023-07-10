@@ -147,6 +147,7 @@
           <th scope="col">Boarding</th>
           <th scope="col">Destination</th>
           <th scope="col">Number of Seats</th>
+          <th scope="col">Requested On</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -165,6 +166,7 @@
                   <td>". $request->boarding . "</td>
                   <td>". $request->destination . "</td>
                   <td>". $request->totalPeople . "</td>
+                  <td>". $request->time_stamp . "</td>
                   <td>
                     <a href='$acceptUrl'><button class='btn btn-sm btn-primary'>Accept</button></a>
                   </td>

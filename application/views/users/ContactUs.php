@@ -66,10 +66,6 @@ padding: 0px 15px;
 </style>
 </head>
 <body>
-  <script>
-    var currentUrl = window.location.href;
-console.log(currentUrl);
-  </script>
 <!-- this is navabar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2c3e50;">
   <div class="container-fluid">
@@ -158,5 +154,11 @@ console.log(currentUrl);
       </div>
     </div>
   </div>
+
+  <footer class="main-footer text-center mt-5">
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2023 bookro.tdc3030.com</strong>
+    All rights reserved.
+</footer>
 </body>
 </html> 
