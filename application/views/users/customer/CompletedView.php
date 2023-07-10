@@ -162,7 +162,7 @@
           <th scope="col">Total Fare(rs)</th>
           <th scope="col">Status</th>
           <th scope="col">Time</th>
-          <th scope="col">qr</th>
+          <th scope="col">Payment</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
