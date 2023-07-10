@@ -157,7 +157,7 @@
           </div>
 
           <div class="mb-2">
-            <label for="title" class="form-label">Uplaod QR</label>
+            <label for="title" class="form-label">Upload QR <small>(optional)</small></label>
             <input type="file" class="form-control" id="qrPhoto" name="qrPhoto" accept=".png, .jpg, .jpeg">
           </div>
 

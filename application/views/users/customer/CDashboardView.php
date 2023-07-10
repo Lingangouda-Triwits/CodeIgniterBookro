@@ -279,9 +279,9 @@
 
       if ($driverExists) {
         echo '<th scope="col">Accepted On</th>';
+        echo '<th scope="col">Driver</th>';
       }
       ?>
-      <th scope="col">Driver</th>
     </tr>
   </thead>
   <tbody>
@@ -305,19 +305,19 @@
         <td>" . $stat->status . "</td>
         <td>" . $stat->time_stamp . "</td>";
 
-        if ($driverExists && !empty($driverName) && !empty($driverMobile)) {
-          echo "<td>" . $stat->acceptedOn . "</td>";
-        } else {
-          echo "<td></td>"; // Add an empty cell for consistency
-        }
+      if ($driverExists && !empty($driverName) && !empty($driverMobile)) {
+        echo "<td>" . $stat->acceptedOn . "</td>";
+        echo "<td>" . $driverName . " " . $driverMobile . "</td>";
+      } else {
+        echo "<td></td>"; // Add an empty cell for consistency
+        echo "<td></td>"; // Add an empty cell for consistency
+      }
 
-      echo "<td>" . $driverName . " " . $driverMobile . "</td>
-      </tr>";
+      echo "</tr>";
     }
     ?>
   </tbody>
 </table>
-
 
   </div>
   <!-- /.content-wrapper -->
@@ -337,11 +337,14 @@
     crossorigin="anonymous"></script> -->
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-    $(document).ready(function () {
-      $('#myTable').DataTable();
-
+  $(document).ready(function() {
+    $('#myTable').DataTable({
+      "paging": <?php echo ($driverExists) ? 'true' : 'false'; ?>,
+      "searching": <?php echo ($driverExists) ? 'true' : 'false'; ?>
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
 
