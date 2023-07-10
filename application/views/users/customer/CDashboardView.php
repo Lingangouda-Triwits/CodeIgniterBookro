@@ -36,7 +36,7 @@
             background-color: #e3f2fd;
         }
 
-        /* Hide the vertical scrollbar */
+        /* Hide the scrollbar */
         body::-webkit-scrollbar {
             width: 0;
             background: transparent;
@@ -86,7 +86,7 @@
 </head>
 <body>
 
-
+<!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2c3e50;">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">Bookro</a>
@@ -120,7 +120,7 @@
 </nav>
 
 
-
+<!-- notification -->
 <div id="contentContainer">
   <!-- Include jQuery library -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -143,7 +143,7 @@
           hideMethod: 'fadeOut' // Change to 'toast-success-icon' for green color
         };
         <?php foreach ($messages as $message) { ?>
-          toastr.info('Holy guacamole! A driver has accepted your request', '<?= $message ?>');
+          toastr.info('Holy guacamole! A driver has accepted your request', '<?php $message ?>');
         <?php } ?>
         // Create the icon element
         var iconElement = jQuery('<i class="fas fa-bell notification-icon"></i>');
@@ -187,6 +187,7 @@
 </div>
 
 
+<!-- customer's send request form -->
 <div class="row justify-content-center mt-2">
   <div class="col-md-4">
     <form action="<?php echo base_url().'index.php/users/customer/CDashboardCont/saveRequest';?>" method="POST" >
@@ -249,45 +250,75 @@
 
 <!-- Main content -->
 <div class="container">
-    <table class="table" id="myTable">
-      <thead>
-        <tr>
-          <th scope="col">S.No</th>
-          <th scope="col">Name</th>
-          <th scope="col">Mobile Num</th>
-          <th scope="col">Boarding</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Status</th>
-          <th scope="col">Requested On</th>
-          <th scope="col">Accepted On</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $slno = 0;
-        foreach ($status as $stat){
-          $slno = $slno + 1;
-          $statslno = $stat->slno;
-          $invoice = site_url("users/customer/CDashboardCont/seeInvoice/$statslno") ;
+<table class="table" id="myTable">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile Num</th>
+      <th scope="col">Boarding</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Status</th>
+      <th scope="col">Requested On</th>
+      <?php
+      $driverExists = false; // Flag to check if driver exists
+      foreach ($status as $st) {
+        if (!empty($st->demail)) {
+          $CI =& get_instance();
+          $CI->load->model('users/Driver/DriverModel');
+          $driverData = $CI->DriverModel->driverLogin($st->demail);
+          $driverName = !empty($driverData) ? $driverData->name : '';
+          $driverMobile = !empty($driverData) ? $driverData->mobile : '';
 
-          echo "<tr>
-                  <th scope='row'>". $slno . "</th>
-                  <td>". $stat->name . "</td>
-                  <td>". $stat->mobile . "</td>
-                  <td>". $stat->boarding . "</td>
-                  <td>". $stat->destination . "</td>
-                  <td>". $stat->status . "</td>
-                  <td>". $stat->time_stamp . "</td>
-                  <td>". $stat->acceptedOn . "</td>
-                  </tr>";
-                } 
-                
-                ?>
-      <!-- <td>
-        <a href='$invoice'><button class='invoice btn btn-info btn-sm'>Invoice</button></a>
-      </td> -->
-      </tbody>
-    </table>
+          if (!empty($driverName) && !empty($driverMobile)) {
+            $driverExists = true; // Set the flag to true if driver exists
+            break; // Exit the loop if a driver is found
+          }
+        }
+      }
+
+      if ($driverExists) {
+        echo '<th scope="col">Accepted On</th>';
+      }
+      ?>
+      <th scope="col">Driver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $slno = 0;
+    foreach ($status as $stat) {
+      $slno = $slno + 1;
+
+      $CI =& get_instance();
+      $CI->load->model('users/Driver/DriverModel');
+      $driverData = $CI->DriverModel->driverLogin($stat->demail);
+      $driverName = !empty($driverData) ? $driverData->name : '';
+      $driverMobile = !empty($driverData) ? $driverData->mobile : '';
+
+      echo "<tr>
+        <td>" . $slno . "</td>
+        <td>" . $stat->name . "</td>
+        <td>" . $stat->mobile . "</td>
+        <td>" . $stat->boarding . "</td>
+        <td>" . $stat->destination . "</td>
+        <td>" . $stat->status . "</td>
+        <td>" . $stat->time_stamp . "</td>";
+
+        if ($driverExists && !empty($driverName) && !empty($driverMobile)) {
+          echo "<td>" . $stat->acceptedOn . "</td>";
+        } else {
+          echo "<td></td>"; // Add an empty cell for consistency
+        }
+
+      echo "<td>" . $driverName . " " . $driverMobile . "</td>
+      </tr>";
+    }
+    ?>
+  </tbody>
+</table>
+
+
   </div>
   <!-- /.content-wrapper -->
 </div>
@@ -311,26 +342,6 @@
 
     });
   </script>
-<!-- 
-onsubmit="submitForm()"
-<script>
-  function scrollToDataTable() {
-    const dataTable = document.getElementById("myTable");
-    dataTable.scrollIntoView({ behavior: "smooth" });
-  }
-</script>
-
-<script>
-  function submitForm() {
-    scrollToDataTable();
-    setTimeout(function() {
-      location.reload();
-    }, 2000);
-  }
-</script> -->
-
-
-
 </body>
 </html>
 

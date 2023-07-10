@@ -98,11 +98,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                    <p>Completed Rides</p>
+
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                <p>Rides<i class="right fas fa-angle-left"></i></p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/pendingsToAdmin';?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Rides</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/ongoingsToAdmin';?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Ongoing Rides</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Completed Rides</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
           
         </ul>
@@ -119,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Contact Form Submissions</h1>
+                <h1 class="m-0 text-dark">Completed Rides</h1>
             </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -137,18 +158,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <th scope="col">Customer Name</th>
                 <th scope="col">PickUp</th>
                 <th scope="col">Drop</th>
+                <th scope="col">Number of Seats</th>
                 <th scope="col">Distance in k/m</th>
                 <th scope="col">Total Fare</th>
                 <th scope="col">Ratings</th>
                 <th scope="col">Details</th>
-                <th scope="col">Recommendations</th>
+                <th scope="col">Suggestions</th>
                 <th scope="col">Completed_On</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
                 $slno = 0;
-                foreach ($completedRides->result() as $row){
+                foreach ($completedRides as $row){
                     $slno = $slno + 1;
 
                     echo "<tr>
@@ -158,6 +180,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>". $row->name . "</td>
                     <td>". $row->pickup . "</td>
                     <td>". $row->drop . "</td>
+                    <td>". $row->totalPeople . "</td>
                     <td>". $row->distance . "</td>
                     <td>". $row->total_fare . "</td>
                     <td>". $row->rating . "</td>

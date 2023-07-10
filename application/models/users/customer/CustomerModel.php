@@ -73,21 +73,20 @@ class CustomerModel extends CI_Model{
         return $this->db->get('completed')->result();
     }
     
+    // to store the customer review in the database
     public function sendReviews($invoiceData){
-
-            
-            $this->db->where('email', $invoiceData['email']);
-            $this->db->where('name', $invoiceData['name']);
-            $this->db->where('pickup', $invoiceData['pickup']);
-            $this->db->where('drop', $invoiceData['drop']);
-            $this->db->where('distance', $invoiceData['distance']);
-            $this->db->where('totalPeople', $invoiceData['totalPeople']);
-            $this->db->where('total_fare', $invoiceData['total_fare']);
-            $this->db->set('rating', $invoiceData['rating']);
-            $this->db->set('things', $invoiceData['things']);
-            $this->db->set('recs', $invoiceData['recs']);
-            $this->db->update('completed');
-            return $this->db->affected_rows() > 0;
+        $this->db->where('email', $invoiceData['email']);
+        $this->db->where('name', $invoiceData['name']);
+        $this->db->where('pickup', $invoiceData['pickup']);
+        $this->db->where('drop', $invoiceData['drop']);
+        $this->db->where('distance', $invoiceData['distance']);
+        $this->db->where('totalPeople', $invoiceData['totalPeople']);
+        $this->db->where('total_fare', $invoiceData['total_fare']);
+        $this->db->set('rating', $invoiceData['rating']);
+        $this->db->set('things', $invoiceData['things']);
+        $this->db->set('recs', $invoiceData['recs']);
+        $this->db->update('completed');
+        return $this->db->affected_rows() > 0;
     }
 
     

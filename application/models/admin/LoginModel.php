@@ -13,7 +13,18 @@ class LoginModel extends CI_Model{
 
     public function completedRides(){
         $this->db->order_by('slno', 'desc');
-        return $this->db->get('completed');
+        return $this->db->get('completed')->result();
+    }
+
+
+    public function pendingsToAdmin(){
+        $this->db->order_by('slno', 'desc');
+        return $this->db->where('status','pending')->get('requestToDriver')->result();
+    }
+
+    public function ongoingsToAdmin(){
+        $this->db->order_by('slno', 'desc');
+        return $this->db->where('status', 'accepted')->get('requestToDriver')->result();
     }
 }
 

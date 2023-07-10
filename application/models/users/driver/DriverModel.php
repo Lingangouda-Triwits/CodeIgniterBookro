@@ -90,7 +90,7 @@ class DriverModel extends CI_Model{
             $userArray = $this->session->userdata('driver');
             $data = array(
                 'status' => 'pending',
-                'demail' => $userArray['email']
+                'demail' => ''
             );
             $this->db->where('slno' , $slno);
             $this->db->update('requestToDriver',$data);

@@ -125,5 +125,18 @@ class DashbController extends CI_Controller{
         $data['completedRides'] = $this->LoginModel->completedRides();
         $this->load->view('admin/CompletedRides', $data);
     }
+
+    public function pendingsToAdmin(){
+        $this->load->model('admin/LoginModel');
+        $data['pendingRides'] = $this->LoginModel->pendingsToAdmin();
+        $this->load->view('admin/PendingRides', $data);
+
+    }
+
+    public function ongoingsToAdmin(){
+        $this->load->model('admin/LoginModel');
+        $data['ongoingRides'] = $this->LoginModel->ongoingsToAdmin();
+        $this->load->view('admin/OngoingRides', $data);
+    }
 }
 ?>

@@ -20,7 +20,10 @@ class CDashboardCont extends CI_Controller{
         $data['messages'] = [];
 
         if (!empty($data['acceptedData'])) {
-        $data['messages'] = array($this->session->flashdata('message'));
+            $this->load->model('users/customer/CustomerModel');
+
+            
+            $data['messages'] = array($this->session->flashdata('message'));
         }
         $this->load->view('users/customer/CDashboardView', $data);
     }

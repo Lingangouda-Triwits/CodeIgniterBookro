@@ -110,11 +110,32 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                    <p>Completed Rides</p>
+            
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                <p>Rides<i class="right fas fa-angle-left"></i></p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/pendingsToAdmin';?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Rides</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/ongoingsToAdmin';?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Ongoing Rides</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url().'index.php/admin/DashbController/completedRides'; ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Completed Rides</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
           
         </ul>
