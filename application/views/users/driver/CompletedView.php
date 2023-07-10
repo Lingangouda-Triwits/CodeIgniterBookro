@@ -127,7 +127,7 @@
           <th scope="col">Total Fare(rs)</th>
           <th scope="col">Ratings</th>
           <th scope="col">Subject</th>
-          <th scope="col">Recommendations</th>
+          <th scope="col">Suggestions</th>
           <th scope="col">Completed On</th>
         </tr>
       </thead>

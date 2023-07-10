@@ -160,8 +160,7 @@
           <th scope="col">Distance(k/m)</th>
           <th scope="col">Seats Booked</th>
           <th scope="col">Total Fare(rs)</th>
-          <th scope="col">Status</th>
-          <th scope="col">Time</th>
+          <th scope="col">Completed On</th>
           <th scope="col">Payment</th>
           <th scope="col">Action</th>
         </tr>
@@ -184,7 +183,6 @@ if (!empty($completeds)) {
                 <td>" . $completed->distance . "</td>
                 <td>" . $completed->totalPeople . "</td>
                 <td>" . $completed->total_fare . "</td>
-                <td>" . $completed->status . "</td>
                 <td>" . $completed->time_stamp . "</td>
                 <td>";
         
